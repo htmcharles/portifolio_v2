@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Mail, Linkedin } from "lucide-react"
+import { Mail, Linkedin, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function AboutSection() {
@@ -20,7 +20,17 @@ export default function AboutSection() {
           {/* Photo Section */}
           <div className="flex flex-col items-center md:items-start">
             <div className="relative w-full max-w-sm">
-              <div className="bg-neutral-300 rounded-2xl overflow-hidden aspect-square md:aspect-auto md:h-96">
+              {/* Social Icons - Positioned on the left side of image */}
+              <div className="absolute left-4 top-6 flex flex-col gap-3 z-10">
+                <Button variant="social" size="icon" className="w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg">
+                  <Linkedin size={16} />
+                </Button>
+                <Button variant="social" size="icon" className="w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg">
+                  <Github size={16} />
+                </Button>
+              </div>
+
+              <div className="bg-neutral-300 rounded-2xl overflow-hidden aspect-square md:aspect-auto md:h-96 shadow-lg">
                 <Image
                   src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                   alt="Hatuma Charles - Developer"
@@ -30,18 +40,12 @@ export default function AboutSection() {
                 />
               </div>
 
-              {/* Social Icons */}
-              <div className="flex gap-3 mt-4 md:mt-6 justify-center md:justify-start">
-                <Button variant="social" size="icon">
-                  <Mail size={16} />
-                </Button>
-                <Button variant="social" size="icon">
-                  <Linkedin size={16} />
-                </Button>
+              {/* Name - Positioned below image with stylized font */}
+              <div className="text-center mt-6">
+                <p className="text-2xl font-light text-[#7A3B3B] tracking-wide" style={{ fontFamily: 'Georgia, serif' }}>
+                  Hatuma Charles
+                </p>
               </div>
-
-              {/* Name */}
-              <p className="text-center md:text-left mt-4 text-sm font-serif text-[#7A3B3B]">HATUMA CHARLES</p>
             </div>
           </div>
 
