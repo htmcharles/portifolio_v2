@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "framer-motion"
+
 export default function TestimonialsSection() {
   const testimonials = [
     {
@@ -18,45 +22,77 @@ export default function TestimonialsSection() {
       author: "Emily Chen",
       role: "Founder, StartupLab",
     },
+    {
+      quote:
+        "The attention to detail and performance optimization provided by Hatuma significantly improved our user retention rates.",
+      author: "David Wilson",
+      role: "CTO, WebScale",
+    },
+    {
+      quote:
+        "A true professional who communicates clearly and delivers high-quality code. I would definitely work with Hatuma again.",
+      author: "Jessica Lee",
+      role: "Director, Creative Solutions",
+    }
   ]
 
+  // Duplicate testimonials to create a seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials]
+
   return (
-    <section id="testimonials" className="w-full bg-white py-16 md:py-24">
-      <div className="w-full pl-40 pr-40 max-w-6xl mx-auto">
+    <section id="testimonials" className="w-full bg-white py-16 md:py-24 overflow-hidden">
+      <div className="w-full max-w-full">
         {/* Header */}
-        <div className="mb-12 text-center md:mb-16">
+        <div className="mb-12 text-center md:mb-16 px-4">
           <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#7A3B3B]">What Clients Say</p>
-          <h2 className="text-balance text-4xl font-light md:text-5xl">Real Stories. Real Impact</h2>
+          <h2 className="text-balance text-4xl font-light md:text-5xl text-gray-900">Real Stories. Real Impact</h2>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid gap-8 md:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-start space-y-4 rounded-lg border border-gray-200 bg-gray-50 p-6 md:p-8"
-            >
-              {/* Stars */}
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-lg text-[#7A3B3B]">
-                    ★
-                  </span>
-                ))}
+        {/* Testimonials Marquee */}
+        <div className="relative w-full flex overflow-hidden mask-gradient">
+          {/* Gradient Masks for smooth fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+          <motion.div
+            className="flex gap-8 px-4"
+            animate={{ x: "-50%" }}
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              duration: 30, // Adjust speed here
+            }}
+            whileHover={{ animationPlayState: "paused" }} // Optional: pause on hover if using CSS animation, but for framer motion we need a different approach or just let it flow
+          >
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[350px] md:w-[450px] flex flex-col items-start space-y-4 rounded-lg border border-gray-200 bg-gray-50 p-6 md:p-8 hover:shadow-md transition-shadow"
+              >
+                {/* Stars */}
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-lg text-[#7A3B3B]">
+                      ★
+                    </span>
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-sm leading-relaxed text-gray-700 md:text-base italic">"{testimonial.quote}"</p>
+
+                {/* Author */}
+                <div className="mt-auto pt-4">
+                  <p className="text-sm font-bold text-gray-900">
+                    — {testimonial.author}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    {testimonial.role}
+                  </p>
+                </div>
               </div>
-
-              {/* Quote */}
-              <p className="text-sm leading-relaxed text-gray-700 md:text-base">"{testimonial.quote}"</p>
-
-              {/* Author */}
-              <p className="text-sm font-medium text-gray-900">
-                — {testimonial.author}
-              </p>
-              <p className="text-xs text-gray-500">
-                {testimonial.role}
-              </p>
-            </div>
-          ))}
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
