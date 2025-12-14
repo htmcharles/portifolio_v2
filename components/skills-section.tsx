@@ -13,12 +13,12 @@ export default function SkillsSection() {
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
       },
       {
-        name: "Next.js", 
+        name: "Next.js",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
       },
       {
         name: "TypeScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", 
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
       },
       {
         name: "JavaScript",
@@ -124,30 +124,29 @@ export default function SkillsSection() {
   }
 
   return (
-    <section id="skills" className="w-full bg-white py-16 md:py-24">
+    <section id="skills" className="w-full bg-background py-16 md:py-24">
       <div className="w-full pl-40 pr-40 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] mb-4 uppercase">Technical Skills</p>
-          <h2 className="text-3xl md:text-5xl font-light text-gray-900 leading-relaxed text-balance">
+          <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4 uppercase">Technical Skills</p>
+          <h2 className="text-3xl md:text-5xl font-light text-foreground leading-relaxed text-balance">
             Technologies I Work With
           </h2>
-          <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
             Explore different skill categories and hover over the icons
           </p>
         </div>
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-gray-100 rounded-xl p-1 flex gap-1 flex-wrap">
+          <div className="bg-muted rounded-xl p-1 flex gap-1 flex-wrap">
             {Object.keys(skillCategories).map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveTab(category)}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeTab === category
-                    ? "bg-white text-[#7A3B3B] shadow-sm"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeTab === category
+                  ? "bg-background text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {category}
               </button>
@@ -157,16 +156,16 @@ export default function SkillsSection() {
 
         {/* Active Tab Content - macOS Dock Style */}
         <div className="flex justify-center">
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-gray-200/50">
+          <div className="bg-background/80 dark:bg-card/80 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-border">
             <div className="flex items-end gap-2 px-2 flex-wrap justify-center">
               {skillCategories[activeTab].map((skill, index) => {
                 const isHovered = hoveredSkill === index
                 const isAdjacent = hoveredSkill !== null && Math.abs(hoveredSkill - index) === 1
                 const isSecondAdjacent = hoveredSkill !== null && Math.abs(hoveredSkill - index) === 2
-                
+
                 let scale = "scale-100"
                 if (isHovered) scale = "scale-150"
-                else if (isAdjacent) scale = "scale-125" 
+                else if (isAdjacent) scale = "scale-125"
                 else if (isSecondAdjacent) scale = "scale-110"
 
                 return (
@@ -178,21 +177,19 @@ export default function SkillsSection() {
                   >
                     {/* Tooltip */}
                     {isHovered && (
-                      <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm px-3 py-1 rounded-lg whitespace-nowrap z-10">
+                      <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-popover text-popover-foreground text-sm px-3 py-1 rounded-lg whitespace-nowrap z-10 shadow-md border border-border">
                         {skill.name}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-popover"></div>
                       </div>
                     )}
-                    
+
                     {/* Icon Container */}
-                    <div className="w-16 h-16 bg-white rounded-xl shadow-md flex items-center justify-center border border-gray-100 hover:shadow-lg transition-shadow">
-                      <img 
-                        src={skill.icon} 
+                    <div className="w-16 h-16 bg-card rounded-xl shadow-md flex items-center justify-center border border-border hover:shadow-lg transition-shadow">
+                      <img
+                        src={skill.icon}
                         alt={skill.name}
-                        className="w-10 h-10 object-contain"
-                        style={{ 
-                          filter: (skill.name === "Next.js" || skill.name === "Express" || skill.name === "GitHub" || skill.name === "Notion") ? "invert(1)" : "none" 
-                        }}
+                        className={`w-10 h-10 object-contain ${["Next.js", "Express", "GitHub", "Notion"].includes(skill.name) ? "dark:invert" : ""
+                          }`}
                       />
                     </div>
                   </div>

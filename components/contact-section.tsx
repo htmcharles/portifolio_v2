@@ -14,7 +14,7 @@ export default function ContactSection() {
           />
           {/* Diagonal striped overlay */}
           <div
-            className="absolute inset-0 bg-black/20 dark:bg-black/60"
+            className="absolute inset-0 bg-white/40 dark:bg-black/60"
             style={{
               backgroundImage:
                 "repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px)",
