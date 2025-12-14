@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 export default function HeroSection() {
   return (
     <section className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full pl-10 pr-4">
         {/* Large screens (>1200px) - Side by side layout */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 lg:py-24">
           {/* Left content */}
