@@ -31,7 +31,7 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className="w-full bg-white py-16 md:py-24">
-      <div className="w-full pl-20 pr-20 max-w-6xl mx-auto">
+      <div className="w-full pl-40 pr-40 max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] mb-4 uppercase">Portfolio</p>
           <h2 className="text-3xl md:text-5xl font-light text-gray-900 leading-relaxed text-balance">

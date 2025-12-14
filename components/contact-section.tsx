@@ -4,23 +4,23 @@ import { ChevronRight, Mail, Phone, MapPin } from "lucide-react"
 export default function ContactSection() {
   return (
     <section id="contact" className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-      <div className="w-full pl-20 pr-20">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0">
-          <img
-            src="/images/cta.jpg"
-            alt="Contact Background"
-            className="w-full h-full object-cover"
-          />
-          {/* Diagonal striped overlay */}
-          <div
-            className="absolute inset-0 bg-black/20"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px)",
-            }}
-          ></div>
-        </div>
+      <div className="w-full pl-40 pr-40">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 ml-40 mr-40">
+        <img
+          src="/images/cta.jpg"
+          alt="Contact Background"
+          className="w-full h-full object-cover blur-sm"
+        />
+        {/* Diagonal striped overlay */}
+        <div
+          className="absolute inset-0 bg-black/20"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px)",
+          }}
+        ></div>
+      </div>
 
         {/* Content container - Desktop/Large screens */}
         <div className="relative max-w-6xl mx-auto hidden lg:block">

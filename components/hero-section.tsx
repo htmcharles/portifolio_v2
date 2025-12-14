@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export default function HeroSection() {
   return (
-    <section className="bg-white">
+    <section id="hero" className="bg-white pt-16">
       <div className="w-full pl-40 pr-40">
         {/* Large screens (>1200px) - Side by side layout */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 lg:py-24">
