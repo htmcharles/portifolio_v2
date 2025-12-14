@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="w-full bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <div className="w-full pl-40 pr-40 max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 text-center md:mb-16">
           <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-amber-900">What Clients Say</p>

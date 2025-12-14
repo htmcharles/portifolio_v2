@@ -9,7 +9,7 @@ export default function Navigation() {
 
   return (
     <nav className="bg-white border-b border-gray-200">
-      <div className="w-full pl-10 pr-4">
+      <div className="w-full pl-40 pr-40">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">

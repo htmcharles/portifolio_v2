@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200">
-      <div className="w-full pl-10 pr-4 py-6">
+      <div className="w-full pl-40 pr-40 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
