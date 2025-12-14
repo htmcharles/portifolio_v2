@@ -12,7 +12,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright and credit */}
-          <p className="text-sm text-muted-foreground">2025 All Rights Reserved. Built with Next.js & Tailwind CSS</p>
+          <p className="text-sm text-muted-foreground">2025 All Rights Reserved.</p>
         </div>
       </div>
     </footer>

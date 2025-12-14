@@ -34,7 +34,6 @@ export default function SkillsSection() {
         name: "Three.js",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg",
       },
-
     ],
     "Backend": [
       {
