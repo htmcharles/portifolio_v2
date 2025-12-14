@@ -33,8 +33,8 @@ export default function HeroSection() {
           {/* Right image */}
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-              alt="Person finding peace through online therapy"
+              src="/images/hatuma-charles.jpg"
+              alt="Hatuma Charles - Full-Stack Developer"
               className="w-full h-auto rounded-3xl object-cover"
             />
             {/* Floating badges */}
@@ -76,8 +76,8 @@ export default function HeroSection() {
 
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-              alt="Person finding peace through online therapy"
+              src="/images/hatuma-charles.jpg"
+              alt="Hatuma Charles - Full-Stack Developer"
               className="w-full h-auto rounded-3xl object-cover"
             />
             {/* Floating badges */}
@@ -119,8 +119,8 @@ export default function HeroSection() {
 
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-              alt="Person finding peace through online therapy"
+              src="/images/hatuma-charles.jpg"
+              alt="Hatuma Charles - Full-Stack Developer"
               className="w-full h-auto rounded-3xl object-cover"
             />
             {/* Floating badges for mobile */}

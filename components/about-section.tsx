@@ -32,8 +32,8 @@ export default function AboutSection() {
 
               <div className="bg-neutral-300 rounded-2xl overflow-hidden aspect-square md:aspect-auto md:h-96 shadow-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="Hatuma Charles - Developer"
+                  src="/images/hatuma-charles.jpg"
+                  alt="Hatuma Charles - Full-Stack Developer"
                   width={400}
                   height={500}
                   className="w-full h-full object-cover"
