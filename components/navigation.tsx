@@ -54,11 +54,11 @@ export default function Navigation() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm py-2"
-        : "bg-white border-b border-gray-200 py-4"
+      ? "bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm py-2"
+      : "bg-white border-b border-gray-200 py-2"
       }`}>
       <div className="w-full pl-40 pr-40">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div
             className="flex items-center gap-2 cursor-pointer group"
@@ -77,8 +77,8 @@ export default function Navigation() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.id
-                    ? "text-[#7A3B3B]"
-                    : "text-gray-600 hover:text-[#7A3B3B]"
+                  ? "text-[#7A3B3B]"
+                  : "text-gray-600 hover:text-[#7A3B3B]"
                   }`}
               >
                 {item.label}
@@ -108,8 +108,8 @@ export default function Navigation() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`block w-full text-left py-2 transition-colors duration-200 ${activeSection === item.id
-                    ? "text-[#7A3B3B] font-medium"
-                    : "text-gray-700 hover:text-[#7A3B3B]"
+                  ? "text-[#7A3B3B] font-medium"
+                  : "text-gray-700 hover:text-[#7A3B3B]"
                   }`}
               >
                 {item.label}

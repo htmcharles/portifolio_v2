@@ -78,9 +78,9 @@ export default function ProjectsSection() {
 
   const filteredProjects = activeTab === "All"
     ? projects
-    : projects.filter(project => 
-        project.technologies.some(tech => tech.toLowerCase().includes(activeTab.toLowerCase()))
-      )
+    : projects.filter(project =>
+      project.technologies.some(tech => tech.toLowerCase().includes(activeTab.toLowerCase()))
+    )
 
   const displayedProjects = filteredProjects.slice(0, visibleCount)
 
@@ -110,11 +110,10 @@ export default function ProjectsSection() {
                 setActiveTab(tag)
                 setVisibleCount(4)
               }}
-              className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors cursor-pointer ${
-                activeTab === tag
+              className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors cursor-pointer ${activeTab === tag
                   ? "bg-[#7A3B3B] text-white border-[#7A3B3B]"
                   : "bg-white text-gray-600 border-gray-200 hover:border-[#7A3B3B] hover:text-[#7A3B3B]"
-              }`}
+                }`}
             >
               {tag}
             </button>
@@ -135,7 +134,7 @@ export default function ProjectsSection() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                
+
                 {/* GitHub Link Overlay - Appears on Hover */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex gap-4">
@@ -166,7 +165,7 @@ export default function ProjectsSection() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 leading-tight group-hover:text-[#7A3B3B] transition-colors">
                   {project.title}
                 </h3>
-                
+
                 <p className="text-gray-500 text-sm mb-4 font-medium">
                   {project.author}
                 </p>
@@ -187,17 +186,26 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        {/* Load More Projects */}
-        {visibleCount < filteredProjects.length && (
-          <div className="text-center mt-12">
-            <button 
+        {/* Load More / Show Less Buttons */}
+        <div className="flex justify-center gap-4 mt-12">
+          {visibleCount < filteredProjects.length && (
+            <button
               onClick={handleLoadMore}
               className="px-8 py-3 bg-white text-gray-700 border border-gray-200 rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] transition-colors"
             >
               Load More Projects
             </button>
-          </div>
-        )}
+          )}
+
+          {visibleCount > 4 && (
+            <button
+              onClick={() => setVisibleCount(4)}
+              className="px-8 py-3 bg-white text-gray-700 border border-gray-200 rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] transition-colors"
+            >
+              Show Less
+            </button>
+          )}
+        </div>
       </div>
     </section>
   )

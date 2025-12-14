@@ -22,10 +22,10 @@ export default function AboutSection() {
             <div className="relative w-full max-w-sm">
               {/* Social Icons - Positioned on the left side of image */}
               <div className="absolute left-4 top-6 flex flex-col gap-3 z-10">
-                <Button variant="social" size="icon" className="w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg">
+                <Button size="icon" className="w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg text-[#7A3B3B] border-none">
                   <Linkedin size={16} />
                 </Button>
-                <Button variant="social" size="icon" className="w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg">
+                <Button size="icon" className="w-10 h-10 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg text-[#7A3B3B] border-none">
                   <Github size={16} />
                 </Button>
               </div>
@@ -58,7 +58,7 @@ export default function AboutSection() {
               Passionate Developer Building Digital Solutions
             </h2>
             <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
-              Hi, I'm Hatuma Charles. I'm a full-stack developer with over 4 years of experience creating innovative web applications. 
+              Hi, I'm Hatuma Charles. I'm a full-stack developer with over 4 years of experience creating innovative web applications.
               I specialize in React, Node.js, and modern web technologies, with a passion for clean code and exceptional user experiences.
             </p>
 
