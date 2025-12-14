@@ -7,7 +7,7 @@ export default function SocialProofSection() {
           style={{ backgroundImage: "url('/images/social-proof.jpg')" }}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-white/90 dark:bg-black/60"></div>
+          <div className="absolute inset-0 bg-white/60 dark:bg-black/60"></div>
 
           {/* Content */}
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">

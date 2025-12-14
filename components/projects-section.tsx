@@ -14,7 +14,8 @@ export default function ProjectsSection() {
       image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for carrent
       technologies: ["React", "Node.js", "CSS"],
       liveUrl: "https://clinique-medical-st-paul.onrender.com/",
-      githubUrl: "https://github.com/htmcharles"
+      githubUrl: "https://github.com/htmcharles",
+      type: "Fullstack"
     },
     {
       title: "RCA E-Submit",
@@ -22,7 +23,8 @@ export default function ProjectsSection() {
       image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for e_submit
       technologies: ["Java", "Hibernate", "JSP", "MySQL"],
       liveUrl: "https://e-submit.onrender.com",
-      githubUrl: "https://github.com/htmcharles"
+      githubUrl: "https://github.com/htmcharles",
+      type: "Fullstack"
     },
     {
       title: "OSS Weather",
@@ -30,7 +32,8 @@ export default function ProjectsSection() {
       image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for ossweather
       technologies: ["Svelte", "TypeScript", "JavaScript"],
       liveUrl: "https://oss-weather.onrender.com",
-      githubUrl: "https://github.com/htmcharles"
+      githubUrl: "https://github.com/htmcharles",
+      type: "Open Source"
     },
     {
       title: "Agaciro Health",
@@ -38,17 +41,16 @@ export default function ProjectsSection() {
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for agacirohealth
       technologies: ["Next.js"],
       liveUrl: "https://agacirohealth.com/",
-      githubUrl: "https://github.com/htmcharles"
+      githubUrl: "https://github.com/htmcharles",
+      type: "Frontend"
     }
   ]
 
-  const categories = ["All", "React", "Next.js", "Java", "Svelte", "Node.js"]
+  const categories = ["All", "Frontend", "Backend", "Fullstack", "Open Source", "Mobile"]
 
   const filteredProjects = activeTab === "All"
     ? projects
-    : projects.filter(project =>
-      project.technologies.some(tech => tech.toLowerCase().includes(activeTab.toLowerCase()))
-    )
+    : projects.filter(project => project.type === activeTab)
 
   const displayedProjects = filteredProjects.slice(0, visibleCount)
 
