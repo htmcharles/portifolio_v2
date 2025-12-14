@@ -88,7 +88,7 @@ export default function Navigation() {
 
             <button
               onClick={() => scrollToSection("contact")}
-              className="group flex items-center gap-2 text-[#7A3B3B] dark:text-white font-semibold text-sm hover:opacity-80 transition-opacity"
+              className="group flex items-center gap-2 bg-[#7A3B3B] text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 hover:bg-[#6a3333] shadow-md hover:shadow-lg"
             >
               Let's Talk
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

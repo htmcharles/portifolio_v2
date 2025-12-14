@@ -46,9 +46,8 @@ export default function CTASection() {
               <Button
                 size="lg"
                 onClick={scrollToForm}
-                className="bg-[#7A3B3B] hover:bg-[#6a3333] text-white rounded-full px-8 py-6 text-base font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                icon={<Video />}
               >
-                <Video className="mr-2 h-5 w-5" />
                 Book A Session
               </Button>
             </div>
@@ -150,9 +149,10 @@ export default function CTASection() {
 
                 <Button
                   size="lg"
-                  className="w-full bg-[#7A3B3B] hover:bg-[#6a3333] text-white py-6 text-lg"
+                  className="w-full"
+                  icon={<ChevronRight />}
                 >
-                  Send Message <ChevronRight className="ml-2 h-5 w-5" />
+                  Send Message
                 </Button>
               </form>
             </div>
