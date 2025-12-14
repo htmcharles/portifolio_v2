@@ -1,94 +1,161 @@
-import { ChevronRight } from "lucide-react"
+"use client"
+
+import { ChevronRight, Mail, Phone, MapPin, Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function CTASection() {
+  const scrollToForm = () => {
+    const formElement = document.getElementById("contact-form-container")
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-      {/* Background image with padding-aware positioning and blur */}
-      <div className="absolute inset-0 ml-40 mr-40">
-        <img
-          src="/images/cta.jpg"
-          alt="CTA Background"
-          className="w-full h-full object-cover blur-sm"
-        />
-        {/* Diagonal striped overlay */}
-        <div
-          className="absolute inset-0 bg-black/20"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px)",
-          }}
-        ></div>
+    <section id="contact" className="w-full">
+      {/* Top Section: Central CTA Card with Background */}
+      <div className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/cta.jpg"
+            alt="CTA Background"
+            className="w-full h-full object-cover blur-[1px]"
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        <div className="relative z-10 w-full px-4 md:px-6">
+          <div className="flex justify-center">
+            <div className="bg-white rounded-[24px] p-8 md:p-10 shadow-2xl text-center max-w-2xl w-full">
+              <div className="inline-block bg-muted px-3 py-1 rounded-full mb-6">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-[#7A3B3B] uppercase">
+                  Your New Beginning
+                </span>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl font-light mb-6 text-balance leading-tight text-black">
+                Take the First Step Toward the Life You Deserve
+              </h2>
+
+              <p className="text-gray-600 text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto">
+                Over 300 individuals have reclaimed their confidence, rebuilt relationships, and found emotional peace. You can, too.
+              </p>
+
+              <Button
+                size="lg"
+                onClick={scrollToForm}
+                className="bg-[#7A3B3B] hover:bg-[#6a3333] text-white rounded-full px-8 py-6 text-base font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                <Video className="mr-2 h-5 w-5" />
+                Book A Session
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="w-full pl-40 pr-40">
-        {/* Content container - Desktop/Large screens */}
-        <div className="relative max-w-6xl mx-auto hidden lg:block">
-          <div className="flex justify-center">
-            <div className="bg-white rounded-3xl p-12 shadow-2xl text-center max-w-2xl">
-              <p className="text-sm tracking-widest text-[#7A3B3B] font-semibold mb-6 uppercase">YOUR NEW BEGINNING</p>
+      {/* Bottom Section: Contact Info & Form */}
+      <div id="contact-form-container" className="w-full bg-background py-16 md:py-24">
+        <div className="w-full px-4 md:px-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left Side: Contact Info */}
+            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-2xl border border-border h-full">
+              <p className="text-sm tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] font-semibold mb-6 uppercase">Get In Touch</p>
 
-              <h2 className="text-4xl xl:text-5xl font-light mb-8 text-balance leading-tight">
-                Take the First Step Toward the Life You Deserve
+              <h2 className="text-3xl md:text-4xl xl:text-5xl font-light mb-8 text-balance leading-tight text-foreground">
+                Let's Work Together
               </h2>
 
-              <p className="text-gray-600 text-lg mb-10 leading-relaxed">
-                Over 300 individuals have reclaimed their confidence, rebuilt relationships, and found emotional peace. You can, too.
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                Ready to bring your project to life? I'd love to hear about your ideas and discuss how we can work together.
               </p>
 
-              <Button 
-                size="lg" 
-                icon={<ChevronRight size={16} />}
-              >
-                Book A Session
-              </Button>
+              <div className="space-y-8">
+                <div className="flex items-center gap-6">
+                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md">
+                    <Mail size={24} className="text-white" />
+                  </div>
+                  <span className="text-foreground text-lg md:text-xl break-all md:break-normal">hatuma.charles@email.com</span>
+                </div>
+                <div className="flex items-center gap-6">
+                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md">
+                    <Phone size={24} className="text-white" />
+                  </div>
+                  <span className="text-foreground text-lg md:text-xl">+1 (555) 123-4567</span>
+                </div>
+                <div className="flex items-center gap-6">
+                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md">
+                    <MapPin size={24} className="text-white" />
+                  </div>
+                  <span className="text-foreground text-lg md:text-xl">San Francisco, CA</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        {/* Content container - Tablet screens */}
-        <div className="relative max-w-4xl mx-auto hidden md:block lg:hidden">
-          <div className="flex justify-center">
-            <div className="bg-white rounded-2xl p-8 shadow-2xl text-center max-w-xl">
-              <p className="text-xs tracking-widest text-[#7A3B3B] font-semibold mb-4 uppercase">YOUR NEW BEGINNING</p>
+            {/* Right Side: Contact Form */}
+            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-2xl border border-border">
+              <div className="mb-8">
+                <h3 className="text-2xl font-light text-foreground">Send a Message</h3>
+              </div>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">First Name</label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
+                      placeholder="John"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">Last Name</label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
+                      placeholder="Doe"
+                    />
+                  </div>
+                </div>
 
-              <h2 className="text-3xl font-light mb-6 text-balance leading-tight">
-                Take the First Step Toward the Life You Deserve
-              </h2>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Email</label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
+                    placeholder="john@example.com"
+                  />
+                </div>
 
-              <p className="text-gray-600 text-base mb-8 leading-relaxed">
-                Over 300 individuals have reclaimed their confidence, rebuilt relationships, and found emotional peace. You can, too.
-              </p>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Project Type</label>
+                  <select className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground">
+                    <option>Web Application</option>
+                    <option>E-commerce Site</option>
+                    <option>Mobile App</option>
+                    <option>API Development</option>
+                    <option>Other</option>
+                  </select>
+                </div>
 
-              <Button 
-                size="default" 
-                icon={<ChevronRight size={14} />}
-              >
-                Book A Session
-              </Button>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Message</label>
+                  <textarea
+                    rows={4}
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition resize-none text-foreground placeholder:text-muted-foreground"
+                    placeholder="Tell me about your project..."
+                  ></textarea>
+                </div>
+
+                <Button
+                  size="lg"
+                  className="w-full bg-[#7A3B3B] hover:bg-[#6a3333] text-white py-6 text-lg"
+                >
+                  Send Message <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              </form>
             </div>
-          </div>
-        </div>
-
-        {/* Content container - Mobile screens */}
-        <div className="relative max-w-sm mx-auto md:hidden">
-          <div className="bg-white rounded-2xl p-6 shadow-2xl text-center">
-            <p className="text-xs tracking-widest text-[#7A3B3B] font-semibold mb-4 uppercase">YOUR NEW BEGINNING</p>
-
-            <h2 className="text-2xl font-light mb-4 text-balance leading-tight">
-              Take the First Step Toward the Life You Deserve
-            </h2>
-
-            <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-              Over 300 individuals have reclaimed their confidence, rebuilt relationships, and found emotional peace. You can, too.
-            </p>
-
-            <Button 
-              size="sm" 
-              icon={<ChevronRight size={12} />}
-            >
-              Book A Session
-            </Button>
           </div>
         </div>
       </div>
