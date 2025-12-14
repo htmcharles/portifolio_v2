@@ -9,72 +9,40 @@ export default function ProjectsSection() {
 
   const projects = [
     {
-      title: "E-Commerce Platform: Modern Shopping Experience",
-      author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/hatumacharles"
+      title: "CMSP Hospital System",
+      description: "A hospital platform for appointment scheduling, doctor discovery, and healthcare information access.",
+      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for carrent
+      technologies: ["React", "Node.js", "CSS"],
+      liveUrl: "https://clinique-medical-st-paul.onrender.com/",
+      githubUrl: "https://github.com/htmcharles"
     },
     {
-      title: "Task Management: Streamlining Your Workflow",
-      author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/hatumacharles"
+      title: "RCA E-Submit",
+      description: "Online assignment submission system for students and teachers with tracking and lifecycle management.",
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for e_submit
+      technologies: ["Java", "Hibernate", "JSP", "MySQL"],
+      liveUrl: "https://e-submit.onrender.com",
+      githubUrl: "https://github.com/htmcharles"
     },
     {
-      title: "Weather Dashboard: Real-time Forecasts",
-      author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Python", "FastAPI", "OpenWeather API"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/hatumacharles"
+      title: "OSS Weather",
+      description: "Open-source weather app with multiple providers and interactive radar support.",
+      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for ossweather
+      technologies: ["Svelte", "TypeScript", "JavaScript"],
+      liveUrl: "https://oss-weather.onrender.com",
+      githubUrl: "https://github.com/htmcharles"
     },
     {
-      title: "Social Media App: Building Connections",
-      author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["Vue.js", "Firebase", "WebRTC", "PWA"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/hatumacharles"
-    },
-    {
-      title: "Finance Tracker: Personal Budgeting Made Easy",
-      author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Firebase", "Chart.js"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/hatumacharles"
-    },
-    {
-      title: "Blog Platform: Share Your Stories",
-      author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1499750310159-5b9887039e56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["Next.js", "Markdown", "Tailwind CSS"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/hatumacharles"
-    },
-    {
-      title: "Fitness Tracker: Monitor Your Progress",
-      author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["React Native", "Node.js", "MongoDB"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/hatumacharles"
-    },
-    {
-      title: "Recipe Finder: Discover New Tastes",
-      author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      technologies: ["Vue.js", "Spoonacular API", "CSS Modules"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/hatumacharles"
+      title: "Agaciro Health",
+      description: "Healthcare platform with real-time vitals monitoring, appointments, and medical records.",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Placeholder for agacirohealth
+      technologies: ["Next.js"],
+      liveUrl: "https://agacirohealth.com/",
+      githubUrl: "https://github.com/htmcharles"
     }
   ]
 
-  const categories = ["All", "React", "Next.js", "TypeScript", "Node.js", "Python", "Vue.js", "Firebase", "PostgreSQL"]
+  const categories = ["All", "React", "Next.js", "Java", "Svelte", "Node.js"]
 
   const filteredProjects = activeTab === "All"
     ? projects
@@ -166,8 +134,8 @@ export default function ProjectsSection() {
                   {project.title}
                 </h3>
 
-                <p className="text-muted-foreground text-sm mb-4 font-medium">
-                  {project.author}
+                <p className="text-muted-foreground text-sm mb-4 font-medium line-clamp-3">
+                  {project.description}
                 </p>
 
                 {/* Technologies */}
