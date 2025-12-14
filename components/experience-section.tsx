@@ -1,3 +1,5 @@
+import Timeline from "./timeline"
+
 export default function ExperienceSection() {
   const experiences = [
     {
@@ -31,52 +33,19 @@ export default function ExperienceSection() {
   ]
 
   return (
-    <section id="experience" className="w-full bg-gradient-to-b from-gray-50 to-gray-100 py-16 md:py-24">
-      <div className="w-full pl-40 pr-40 max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+    <section id="experience" className="w-full bg-gradient-to-b from-gray-50 to-gray-100 py-16 md:py-24 overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto">
+        <div className="text-center mb-16">
           <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] mb-4 uppercase">Career Journey</p>
           <h2 className="text-3xl md:text-5xl font-light text-gray-900 leading-relaxed text-balance">
             Professional Experience
           </h2>
+          <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
+            A timeline of my professional growth and milestones
+          </p>
         </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#7A3B3B] hidden md:block"></div>
-          
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative flex items-start">
-                {/* Timeline dot */}
-                <div className="hidden md:flex absolute left-6 w-4 h-4 bg-[#7A3B3B] rounded-full border-4 border-white shadow-lg"></div>
-                
-                {/* Content */}
-                <div className="md:ml-16 bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow w-full">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                    <h3 className="text-xl font-semibold text-gray-900">{exp.title}</h3>
-                    <span className="text-sm font-medium text-[#7A3B3B] bg-[#7A3B3B]/10 px-3 py-1 rounded-full">
-                      {exp.year}
-                    </span>
-                  </div>
-                  
-                  <h4 className="text-lg font-medium text-gray-700 mb-3">{exp.company}</h4>
-                  <p className="text-gray-600 leading-relaxed mb-4">{exp.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-neutral-100 text-gray-700 text-xs font-medium rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Timeline items={experiences} autoLoop={false} />
       </div>
     </section>
   )

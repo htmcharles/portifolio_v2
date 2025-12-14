@@ -1,6 +1,12 @@
+"use client"
+
+import { useState } from "react"
 import { Github, ExternalLink } from "lucide-react"
 
 export default function ProjectsSection() {
+  const [activeTab, setActiveTab] = useState("All")
+  const [visibleCount, setVisibleCount] = useState(4)
+
   const projects = [
     {
       title: "E-Commerce Platform: Modern Shopping Experience",
@@ -11,30 +17,76 @@ export default function ProjectsSection() {
       githubUrl: "https://github.com/hatumacharles"
     },
     {
-      title: "Task Management: Streamlining Your Workflow with Real-time Updates",
-      author: "Hatuma Charles", 
+      title: "Task Management: Streamlining Your Workflow",
+      author: "Hatuma Charles",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       technologies: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
       liveUrl: "#",
       githubUrl: "https://github.com/hatumacharles"
     },
     {
-      title: "Weather Dashboard: Real-time Forecasts and Interactive Maps",
+      title: "Weather Dashboard: Real-time Forecasts",
       author: "Hatuma Charles",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       technologies: ["React", "Python", "FastAPI", "OpenWeather API"],
       liveUrl: "#",
       githubUrl: "https://github.com/hatumacharles"
     },
     {
-      title: "Social Media App: Building Connections with Modern Features",
+      title: "Social Media App: Building Connections",
       author: "Hatuma Charles",
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       technologies: ["Vue.js", "Firebase", "WebRTC", "PWA"],
-      liveUrl: "#", 
+      liveUrl: "#",
+      githubUrl: "https://github.com/hatumacharles"
+    },
+    {
+      title: "Finance Tracker: Personal Budgeting Made Easy",
+      author: "Hatuma Charles",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      technologies: ["React", "Firebase", "Chart.js"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/hatumacharles"
+    },
+    {
+      title: "Blog Platform: Share Your Stories",
+      author: "Hatuma Charles",
+      image: "https://images.unsplash.com/photo-1499750310159-5b9887039e56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      technologies: ["Next.js", "Markdown", "Tailwind CSS"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/hatumacharles"
+    },
+    {
+      title: "Fitness Tracker: Monitor Your Progress",
+      author: "Hatuma Charles",
+      image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      technologies: ["React Native", "Node.js", "MongoDB"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/hatumacharles"
+    },
+    {
+      title: "Recipe Finder: Discover New Tastes",
+      author: "Hatuma Charles",
+      image: "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      technologies: ["Vue.js", "Spoonacular API", "CSS Modules"],
+      liveUrl: "#",
       githubUrl: "https://github.com/hatumacharles"
     }
   ]
+
+  const categories = ["All", "React", "Next.js", "TypeScript", "Node.js", "Python", "Vue.js", "Firebase", "PostgreSQL"]
+
+  const filteredProjects = activeTab === "All"
+    ? projects
+    : projects.filter(project => 
+        project.technologies.some(tech => tech.toLowerCase().includes(activeTab.toLowerCase()))
+      )
+
+  const displayedProjects = filteredProjects.slice(0, visibleCount)
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 4)
+  }
 
   return (
     <section id="projects" className="w-full bg-gray-50 py-16 md:py-24">
@@ -51,19 +103,27 @@ export default function ProjectsSection() {
 
         {/* Technology Tags */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {["react", "nextjs", "typescript", "nodejs", "python", "vue", "firebase", "postgresql"].map((tag) => (
-            <span
+          {categories.map((tag) => (
+            <button
               key={tag}
-              className="px-4 py-2 bg-white text-gray-600 text-sm font-medium rounded-full border border-gray-200 hover:border-[#7A3B3B] hover:text-[#7A3B3B] transition-colors cursor-pointer"
+              onClick={() => {
+                setActiveTab(tag)
+                setVisibleCount(4)
+              }}
+              className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors cursor-pointer ${
+                activeTab === tag
+                  ? "bg-[#7A3B3B] text-white border-[#7A3B3B]"
+                  : "bg-white text-gray-600 border-gray-200 hover:border-[#7A3B3B] hover:text-[#7A3B3B]"
+              }`}
             >
               {tag}
-            </span>
+            </button>
           ))}
         </div>
 
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <div
               key={index}
               className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
@@ -128,11 +188,16 @@ export default function ProjectsSection() {
         </div>
 
         {/* Load More Projects */}
-        <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-white text-gray-700 border border-gray-200 rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] transition-colors">
-            Load More Projects
-          </button>
-        </div>
+        {visibleCount < filteredProjects.length && (
+          <div className="text-center mt-12">
+            <button 
+              onClick={handleLoadMore}
+              className="px-8 py-3 bg-white text-gray-700 border border-gray-200 rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] transition-colors"
+            >
+              Load More Projects
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
