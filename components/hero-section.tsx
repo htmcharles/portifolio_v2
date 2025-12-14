@@ -125,13 +125,13 @@ export default function HeroSection() {
             />
             {/* Floating badges for mobile */}
             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B]">Convenient</span>
+              <span className="text-xs font-medium text-[#7A3B3B]">Creative</span>
             </div>
             <div className="absolute bottom-16 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B]">Caring</span>
+              <span className="text-xs font-medium text-[#7A3B3B]">Innovative</span>
             </div>
             <div className="absolute bottom-4 right-8 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B]">Confidential</span>
+              <span className="text-xs font-medium text-[#7A3B3B]">Reliable</span>
             </div>
           </div>
         </div>

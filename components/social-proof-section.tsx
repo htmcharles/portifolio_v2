@@ -5,25 +5,25 @@ export default function SocialProofSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Stat 1 */}
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-5xl md:text-6xl font-light text-amber-900 mb-4">300+</h3>
+            <h3 className="text-5xl md:text-6xl font-light text-[#7A3B3B] mb-4">50+</h3>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-              people guided toward greater emotional balance.
+              projects completed successfully.
             </p>
           </div>
 
           {/* Stat 2 */}
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-5xl md:text-6xl font-light text-amber-900 mb-4">95%</h3>
+            <h3 className="text-5xl md:text-6xl font-light text-[#7A3B3B] mb-4">4+</h3>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-              clients notice difference within 5 sessions.
+              years of development experience.
             </p>
           </div>
 
           {/* Stat 3 */}
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-5xl md:text-6xl font-light text-amber-900 mb-4">5+</h3>
+            <h3 className="text-5xl md:text-6xl font-light text-[#7A3B3B] mb-4">100%</h3>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-              years experience in psychological support.
+              client satisfaction rate.
             </p>
           </div>
         </div>

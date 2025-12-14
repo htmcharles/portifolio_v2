@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button"
 
 export default function AboutSection() {
   const qualifications = [
-    "CBT PRACTITIONER",
-    "MSC CLINICAL PSYCHOLOGY",
-    "SBFT SPECIALIST",
-    "GACP MEMBER",
-    "EFT CERTIFIED",
+    "FULL-STACK DEVELOPER",
+    "REACT SPECIALIST",
+    "NODE.JS EXPERT",
+    "AWS CERTIFIED",
+    "AGILE PRACTITIONER",
   ]
 
   return (
@@ -23,7 +23,7 @@ export default function AboutSection() {
               <div className="bg-neutral-300 rounded-2xl overflow-hidden aspect-square md:aspect-auto md:h-96">
                 <Image
                   src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="Julia Johnson - Therapist"
+                  alt="Hatuma Charles - Developer"
                   width={400}
                   height={500}
                   className="w-full h-full object-cover"
@@ -41,22 +41,21 @@ export default function AboutSection() {
               </div>
 
               {/* Name */}
-              <p className="text-center md:text-left mt-4 text-sm font-serif text-[#7A3B3B]">JULIA JOHNSON</p>
+              <p className="text-center md:text-left mt-4 text-sm font-serif text-[#7A3B3B]">HATUMA CHARLES</p>
             </div>
           </div>
 
           {/* Content Section */}
           <div className="flex flex-col justify-center">
             <p className="text-[#7A3B3B] text-xs md:text-sm font-semibold tracking-widest uppercase mb-4">
-              Meet Your Therapist
+              About Me
             </p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground leading-relaxed mb-6 text-pretty">
-              A Trusted Partner for Your Emotional Wellbeing
+              Passionate Developer Building Digital Solutions
             </h2>
             <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
-              Hi, I'm Julia. I believe everyone deserves a safe space to talk, heal, and grow. With over 5 of experience
-              as a licensed therapist, I've helped countless individuals and couples overcome challenges like anxiety,
-              relationship struggles, and life transitions.
+              Hi, I'm Hatuma Charles. I'm a full-stack developer with over 4 years of experience creating innovative web applications. 
+              I specialize in React, Node.js, and modern web technologies, with a passion for clean code and exceptional user experiences.
             </p>
 
             {/* Qualifications */}

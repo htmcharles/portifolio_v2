@@ -5,12 +5,14 @@ export default function Footer() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-[#7A3B3B] rounded-full"></div>
-            <span className="text-lg font-semibold text-[#7A3B3B]">Mindify</span>
+            <div className="w-6 h-6 bg-[#7A3B3B] rounded-full flex items-center justify-center">
+              <span className="text-white text-xs font-bold">HC</span>
+            </div>
+            <span className="text-lg font-semibold text-[#7A3B3B]">Hatuma Charles</span>
           </div>
 
           {/* Copyright and credit */}
-          <p className="text-sm text-gray-500">2025 All Rights Reserved. Built In Framer By Justyna</p>
+          <p className="text-sm text-gray-500">2025 All Rights Reserved. Built with Next.js & Tailwind CSS</p>
         </div>
       </div>
     </footer>

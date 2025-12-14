@@ -2,21 +2,21 @@ export default function TestimonialsSection() {
   const testimonials = [
     {
       quote:
-        "I never thought online therapy could feel this personal. Julia helped me rebuild my confidence and take control of my life.",
-      author: "Sarah",
-      age: 32,
+        "Hatuma delivered an exceptional e-commerce platform that exceeded our expectations. His attention to detail and technical expertise are outstanding.",
+      author: "Sarah Johnson",
+      role: "CEO, TechStart",
     },
     {
       quote:
-        "We were struggling with constant arguments. Now, we're finally communicating in a way that brings us closer.",
-      author: "Mark & Lisa",
-      age: "40s",
+        "Working with Hatuma was a game-changer for our project. He transformed our complex requirements into a beautiful, functional application.",
+      author: "Mark Thompson",
+      role: "Product Manager, InnovateCorp",
     },
     {
       quote:
-        "Losing my dad was the hardest thing I've ever faced. These sessions gave me the tools and space I needed to heal.",
-      author: "Emily",
-      age: 27,
+        "Hatuma's full-stack skills and problem-solving abilities helped us launch our MVP ahead of schedule. Highly recommended!",
+      author: "Emily Chen",
+      role: "Founder, StartupLab",
     },
   ]
 
@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
       <div className="w-full pl-40 pr-40 max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 text-center md:mb-16">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-amber-900">What Clients Say</p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#7A3B3B]">What Clients Say</p>
           <h2 className="text-balance text-4xl font-light md:text-5xl">Real Stories. Real Impact</h2>
         </div>
 
@@ -39,7 +39,7 @@ export default function TestimonialsSection() {
               {/* Stars */}
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-lg text-amber-900">
+                  <span key={i} className="text-lg text-[#7A3B3B]">
                     ★
                   </span>
                 ))}
@@ -50,7 +50,10 @@ export default function TestimonialsSection() {
 
               {/* Author */}
               <p className="text-sm font-medium text-gray-900">
-                — {testimonial.author}, {testimonial.age}
+                — {testimonial.author}
+              </p>
+              <p className="text-xs text-gray-500">
+                {testimonial.role}
               </p>
             </div>
           ))}

@@ -1,16 +1,17 @@
 import Navigation from "@/components/navigation"
 import HeroSection from "@/components/hero-section"
-import BenefitsSection from "@/components/benefits-section"
+import SkillsSection from "@/components/skills-section"
 import AboutSection from "@/components/about-section"
 import SocialProofSection from "@/components/social-proof-section"
-import HowItWorksSection from "@/components/how-it-works-section"
+import ProjectsSection from "@/components/projects-section"
+import ExperienceSection from "@/components/experience-section"
 import TestimonialsSection from "@/components/testimonials-section"
-import CTASection from "@/components/cta-section"
+import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 
 export const metadata = {
-  title: "Mindify - Online Therapy",
-  description: "Professional online therapy designed to help you rediscover balance and happiness - on your terms.",
+  title: "Hatuma Charles - Full-Stack Developer",
+  description: "Passionate full-stack developer creating innovative web applications with modern technologies and clean, efficient code.",
 }
 
 export default function Home() {
@@ -18,12 +19,13 @@ export default function Home() {
     <main className="bg-white">
       <Navigation />
       <HeroSection />
-      <BenefitsSection />
+      <SkillsSection />
       <AboutSection />
       <SocialProofSection />
-      <HowItWorksSection />
+      <ProjectsSection />
+      <ExperienceSection />
       <TestimonialsSection />
-      <CTASection />
+      <ContactSection />
       <Footer />
     </main>
   )
