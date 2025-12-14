@@ -13,29 +13,34 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-[#7A3B3B] rounded-full"></div>
-            <span className="text-xl font-semibold text-[#7A3B3B]">Mindify</span>
+            <div className="w-6 h-6 bg-[#7A3B3B] rounded-full flex items-center justify-center">
+              <span className="text-white text-xs font-bold">HC</span>
+            </div>
+            <span className="text-xl font-semibold text-[#7A3B3B]">Hatuma Charles</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-gray-700 hover:text-[#7A3B3B] transition">
-              About Me
+            <a href="#about" className="text-gray-700 hover:text-[#7A3B3B] transition">
+              About
             </a>
-            <a href="#" className="text-gray-700 hover:text-[#7A3B3B] transition">
-              Services
+            <a href="#skills" className="text-gray-700 hover:text-[#7A3B3B] transition">
+              Skills
             </a>
-            <a href="#" className="text-gray-700 hover:text-[#7A3B3B] transition">
-              How It Works
+            <a href="#projects" className="text-gray-700 hover:text-[#7A3B3B] transition">
+              Projects
             </a>
-            <a href="#" className="text-gray-700 hover:text-[#7A3B3B] transition">
+            <a href="#experience" className="text-gray-700 hover:text-[#7A3B3B] transition">
+              Experience
+            </a>
+            <a href="#testimonials" className="text-gray-700 hover:text-[#7A3B3B] transition">
               Testimonials
             </a>
             <Button 
               size="sm" 
               icon={<ChevronRight size={12} />}
             >
-              Book A Session
+              Contact Me
             </Button>
           </div>
 
@@ -48,16 +53,19 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2">
-            <a href="#" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
-              About Me
+            <a href="#about" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
+              About
             </a>
-            <a href="#" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
-              Services
+            <a href="#skills" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
+              Skills
             </a>
-            <a href="#" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
-              How It Works
+            <a href="#projects" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
+              Projects
             </a>
-            <a href="#" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
+            <a href="#experience" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
+              Experience
+            </a>
+            <a href="#testimonials" className="block text-gray-700 hover:text-[#7A3B3B] py-2">
               Testimonials
             </a>
             <Button 
@@ -65,7 +73,7 @@ export default function Navigation() {
               icon={<ChevronRight size={12} />}
               className="w-full mt-2"
             >
-              Book A Session
+              Contact Me
             </Button>
           </div>
         )}

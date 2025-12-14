@@ -10,23 +10,23 @@ export default function HeroSection() {
           {/* Left content */}
           <div className="space-y-8">
             <div>
-              <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] mb-4">ONLINE THERAPY</p>
+              <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] mb-4">FULL-STACK DEVELOPER</p>
               <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight text-balance">
-                Find peace.
+                Building digital
                 <br />
-                Find yourself.
+                experiences.
               </h1>
             </div>
 
             <p className="text-lg text-gray-600 leading-relaxed">
-              Professional online therapy designed to help you rediscover balance and happiness – on your terms.
+              Passionate full-stack developer creating innovative web applications with modern technologies and clean, efficient code.
             </p>
 
             <Button 
               size="lg" 
               icon={<ChevronRight size={16} />}
             >
-              Book A Session
+              View My Work
             </Button>
           </div>
 
@@ -54,23 +54,23 @@ export default function HeroSection() {
         <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-12 items-center py-12 md:py-20 lg:hidden">
           <div className="space-y-6">
             <div>
-              <p className="text-xs font-semibold tracking-widest text-[#7A3B3B] mb-3">ONLINE THERAPY</p>
+              <p className="text-xs font-semibold tracking-widest text-[#7A3B3B] mb-3">FULL-STACK DEVELOPER</p>
               <h1 className="text-3xl md:text-4xl font-light text-gray-900 leading-tight text-balance">
-                Find peace.
+                Building digital
                 <br />
-                Find yourself.
+                experiences.
               </h1>
             </div>
 
             <p className="text-base text-gray-600 leading-relaxed">
-              Professional online therapy designed to help you rediscover balance and happiness – on your terms.
+              Passionate full-stack developer creating innovative web applications with modern technologies and clean, efficient code.
             </p>
 
             <Button 
               size="sm" 
               icon={<ChevronRight size={14} />}
             >
-              Book A Session
+              View My Work
             </Button>
           </div>
 
@@ -96,15 +96,15 @@ export default function HeroSection() {
         {/* Small screens (<810px) - Stacked vertical layout */}
         <div className="md:hidden space-y-8 py-12">
           <div className="text-center space-y-4">
-            <p className="text-xs font-semibold tracking-widest text-[#7A3B3B]">ONLINE THERAPY</p>
+            <p className="text-xs font-semibold tracking-widest text-[#7A3B3B]">FULL-STACK DEVELOPER</p>
             <h1 className="text-4xl font-light text-gray-900 leading-tight text-balance">
-              Find peace.
+              Building digital
               <br />
-              Find yourself.
+              experiences.
             </h1>
 
             <p className="text-base text-gray-600 leading-relaxed px-2">
-              Professional online therapy designed to help you rediscover balance and happiness – on your terms.
+              Passionate full-stack developer creating innovative web applications with modern technologies and clean, efficient code.
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export default function HeroSection() {
               size="default" 
               icon={<ChevronRight size={14} />}
             >
-              Book A Session
+              View My Work
             </Button>
           </div>
 
