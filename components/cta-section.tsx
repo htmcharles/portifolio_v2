@@ -2,6 +2,13 @@
 
 import { ChevronRight, Mail, Phone, MapPin, Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function CTASection() {
   const scrollToForm = () => {
@@ -129,13 +136,18 @@ export default function CTASection() {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Project Type</label>
-                  <select className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground">
-                    <option>Web Application</option>
-                    <option>E-commerce Site</option>
-                    <option>Mobile App</option>
-                    <option>API Development</option>
-                    <option>Other</option>
-                  </select>
+                  <Select>
+                    <SelectTrigger className="w-full px-4 py-6 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground">
+                      <SelectValue placeholder="Select a project type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="web-app">Web Application</SelectItem>
+                      <SelectItem value="ecommerce">E-commerce Site</SelectItem>
+                      <SelectItem value="mobile-app">Mobile App</SelectItem>
+                      <SelectItem value="api">API Development</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div>
