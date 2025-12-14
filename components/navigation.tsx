@@ -1,8 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Menu, X, ArrowRight } from "lucide-react"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -54,19 +53,18 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? "bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm" 
-        : "bg-white border-b border-gray-200"
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm py-2"
+        : "bg-white border-b border-gray-200 py-4"
+      }`}>
       <div className="w-full pl-40 pr-40">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div 
-            className="flex items-center gap-2 cursor-pointer"
+          <div
+            className="flex items-center gap-2 cursor-pointer group"
             onClick={() => scrollToSection("hero")}
           >
-            <div className="w-6 h-6 bg-[#7A3B3B] rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 bg-[#7A3B3B] rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
               <span className="text-white text-xs font-bold">HC</span>
             </div>
             <span className="text-xl font-semibold text-[#7A3B3B]">Hatuma Charles</span>
@@ -78,22 +76,22 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`transition-colors duration-200 ${
-                  activeSection === item.id
-                    ? "text-[#7A3B3B] font-medium"
-                    : "text-gray-700 hover:text-[#7A3B3B]"
-                }`}
+                className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.id
+                    ? "text-[#7A3B3B]"
+                    : "text-gray-600 hover:text-[#7A3B3B]"
+                  }`}
               >
                 {item.label}
               </button>
             ))}
-            <Button 
-              size="sm" 
-              icon={<ChevronRight size={12} />}
+
+            <button
               onClick={() => scrollToSection("contact")}
+              className="group flex items-center gap-2 text-[#7A3B3B] font-semibold text-sm hover:opacity-80 transition-opacity"
             >
-              Contact Me
-            </Button>
+              Let's Talk
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -109,23 +107,21 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left py-2 transition-colors duration-200 ${
-                  activeSection === item.id
+                className={`block w-full text-left py-2 transition-colors duration-200 ${activeSection === item.id
                     ? "text-[#7A3B3B] font-medium"
                     : "text-gray-700 hover:text-[#7A3B3B]"
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
             ))}
-            <Button 
-              size="sm" 
-              icon={<ChevronRight size={12} />}
-              className="w-full mt-2"
+            <button
               onClick={() => scrollToSection("contact")}
+              className="flex items-center gap-2 text-[#7A3B3B] font-semibold mt-4"
             >
-              Contact Me
-            </Button>
+              Let's Talk
+              <ArrowRight size={16} />
+            </button>
           </div>
         )}
       </div>
