@@ -14,8 +14,8 @@ export default function AboutSection() {
   ]
 
   return (
-    <section className="w-full bg-white py-16 md:py-24 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section className="w-full bg-white py-16 md:py-24">
+      <div className="w-full pl-10 pr-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Photo Section */}
           <div className="flex flex-col items-center md:items-start">
