@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -54,8 +55,8 @@ export default function Navigation() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-      ? "bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm py-2"
-      : "bg-white border-b border-gray-200 py-2"
+      ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm py-2"
+      : "bg-background border-b border-transparent py-2"
       }`}>
       <div className="w-full pl-40 pr-40">
         <div className="flex justify-between items-center h-16">
@@ -67,7 +68,7 @@ export default function Navigation() {
             <div className="w-8 h-8 bg-[#7A3B3B] rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
               <span className="text-white text-xs font-bold">HC</span>
             </div>
-            <span className="text-xl font-semibold text-[#7A3B3B]">Hatuma Charles</span>
+            <span className="text-xl font-semibold text-[#7A3B3B] dark:text-white">Hatuma Charles</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -77,8 +78,8 @@ export default function Navigation() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.id
-                  ? "text-[#7A3B3B]"
-                  : "text-gray-600 hover:text-[#7A3B3B]"
+                  ? "text-[#7A3B3B] dark:text-white"
+                  : "text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-white"
                   }`}
               >
                 {item.label}
@@ -87,29 +88,34 @@ export default function Navigation() {
 
             <button
               onClick={() => scrollToSection("contact")}
-              className="group flex items-center gap-2 text-[#7A3B3B] font-semibold text-sm hover:opacity-80 transition-opacity"
+              className="group flex items-center gap-2 text-[#7A3B3B] dark:text-white font-semibold text-sm hover:opacity-80 transition-opacity"
             >
               Let's Talk
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </button>
+
+            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden text-[#7A3B3B]" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <ThemeToggle />
+            <button className="text-[#7A3B3B] dark:text-white" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <div className="md:hidden pb-4 space-y-2 bg-background">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`block w-full text-left py-2 transition-colors duration-200 ${activeSection === item.id
-                  ? "text-[#7A3B3B] font-medium"
-                  : "text-gray-700 hover:text-[#7A3B3B]"
+                  ? "text-[#7A3B3B] dark:text-white font-medium"
+                  : "text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-white"
                   }`}
               >
                 {item.label}
@@ -117,7 +123,7 @@ export default function Navigation() {
             ))}
             <button
               onClick={() => scrollToSection("contact")}
-              className="flex items-center gap-2 text-[#7A3B3B] font-semibold mt-4"
+              className="flex items-center gap-2 text-[#7A3B3B] dark:text-white font-semibold mt-4"
             >
               Let's Talk
               <ArrowRight size={16} />

@@ -106,11 +106,11 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
         <div className="w-full max-w-5xl mx-auto px-4">
             {/* Controls */}
             <div className="flex justify-center items-center gap-4 mb-12">
-                <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-gray-100">
-                    <span className="text-sm font-medium text-gray-600">Auto-loop</span>
+                <div className="flex items-center gap-2 bg-card rounded-full px-4 py-2 shadow-sm border border-border">
+                    <span className="text-sm font-medium text-muted-foreground">Auto-loop</span>
                     <button
                         onClick={() => setIsAutoLooping(!isAutoLooping)}
-                        className={`w-10 h-5 rounded-full transition-colors relative ${isAutoLooping ? "bg-[#7A3B3B]" : "bg-gray-300"
+                        className={`w-10 h-5 rounded-full transition-colors relative ${isAutoLooping ? "bg-[#7A3B3B]" : "bg-muted-foreground/30"
                             }`}
                     >
                         <div
@@ -135,14 +135,14 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
                         onClick={() => handleItemClick(index)}
                         className="flex flex-col items-center cursor-pointer group"
                     >
-                        <div className={`text-lg font-bold mb-2 transition-colors ${index === activeIndex ? "text-[#7A3B3B]" : "text-gray-400"}`}>
+                        <div className={`text-lg font-bold mb-2 transition-colors ${index === activeIndex ? "text-[#7A3B3B] dark:text-[#A85C5C]" : "text-muted-foreground/50"}`}>
                             {item.year.split(" - ")[0]}
                         </div>
                         <div className={`w-4 h-4 rounded-full border-2 transition-colors ${index === activeIndex
-                                ? "bg-[#7A3B3B] border-[#7A3B3B]"
-                                : "bg-white border-gray-300 group-hover:border-[#7A3B3B]"
+                            ? "bg-[#7A3B3B] border-[#7A3B3B] dark:bg-[#A85C5C] dark:border-[#A85C5C]"
+                            : "bg-card border-border group-hover:border-[#7A3B3B] dark:group-hover:border-[#A85C5C]"
                             }`} />
-                        <div className={`mt-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-medium text-gray-500 whitespace-nowrap ${index === activeIndex ? "opacity-100" : ""}`}>
+                        <div className={`mt-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-medium text-muted-foreground whitespace-nowrap ${index === activeIndex ? "opacity-100" : ""}`}>
                             {index === activeIndex ? "Current" : "View"}
                         </div>
                     </div>
@@ -150,25 +150,25 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
             </div>
 
             {/* Active Item Details */}
-            <div className="relative bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-3xl mx-auto border border-gray-100 transition-all duration-500">
+            <div className="relative bg-card rounded-2xl shadow-lg p-8 md:p-12 max-w-3xl mx-auto border border-border transition-all duration-500">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#7A3B3B] text-white p-3 rounded-full shadow-lg">
                     <Building2 size={24} />
                 </div>
 
                 <div className="text-center mt-6">
-                    <div className="flex items-center justify-center gap-2 text-[#7A3B3B] font-medium mb-2">
+                    <div className="flex items-center justify-center gap-2 text-[#7A3B3B] dark:text-[#A85C5C] font-medium mb-2">
                         <Calendar size={16} />
                         <span>{activeItem.year}</span>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                         {activeItem.title}
                     </h3>
-                    <div className="text-lg text-gray-600 font-medium mb-6">
+                    <div className="text-lg text-muted-foreground font-medium mb-6">
                         {activeItem.company}
                     </div>
 
-                    <p className="text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+                    <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
                         {activeItem.description}
                     </p>
 
@@ -176,7 +176,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
                         {activeItem.technologies.map((tech, idx) => (
                             <span
                                 key={idx}
-                                className="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-full"
+                                className="px-3 py-1 bg-muted text-muted-foreground text-sm font-medium rounded-full"
                             >
                                 {tech}
                             </span>
@@ -187,14 +187,14 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
                 {/* Navigation Buttons */}
                 <button
                     onClick={handlePrev}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-[#7A3B3B] transition-colors"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] transition-colors"
                     aria-label="Previous experience"
                 >
                     <ChevronLeft size={24} />
                 </button>
                 <button
                     onClick={handleNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-[#7A3B3B] transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] transition-colors"
                     aria-label="Next experience"
                 >
                     <ChevronRight size={24} />

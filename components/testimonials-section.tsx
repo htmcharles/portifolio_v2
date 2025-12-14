@@ -40,19 +40,19 @@ export default function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials]
 
   return (
-    <section id="testimonials" className="w-full bg-white py-16 md:py-24 overflow-hidden">
+    <section id="testimonials" className="w-full bg-background py-16 md:py-24 overflow-hidden">
       <div className="w-full max-w-full">
         {/* Header */}
         <div className="mb-12 text-center md:mb-16 px-4">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#7A3B3B]">What Clients Say</p>
-          <h2 className="text-balance text-4xl font-light md:text-5xl text-gray-900">Real Stories. Real Impact</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#7A3B3B] dark:text-[#A85C5C]">What Clients Say</p>
+          <h2 className="text-balance text-4xl font-light md:text-5xl text-foreground">Real Stories. Real Impact</h2>
         </div>
 
         {/* Testimonials Marquee */}
         <div className="relative w-full flex overflow-hidden mask-gradient">
           {/* Gradient Masks for smooth fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
 
           <motion.div
             className="flex gap-8 px-4"
@@ -67,26 +67,26 @@ export default function TestimonialsSection() {
             {duplicatedTestimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[350px] md:w-[450px] flex flex-col items-start space-y-4 rounded-lg border border-gray-200 bg-gray-50 p-6 md:p-8 hover:shadow-md transition-shadow"
+                className="flex-shrink-0 w-[350px] md:w-[450px] flex flex-col items-start space-y-4 rounded-lg border border-border bg-card p-6 md:p-8 hover:shadow-md transition-shadow"
               >
                 {/* Stars */}
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-lg text-[#7A3B3B]">
+                    <span key={i} className="text-lg text-[#7A3B3B] dark:text-[#A85C5C]">
                       ★
                     </span>
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-sm leading-relaxed text-gray-700 md:text-base italic">"{testimonial.quote}"</p>
+                <p className="text-sm leading-relaxed text-muted-foreground md:text-base italic">"{testimonial.quote}"</p>
 
                 {/* Author */}
                 <div className="mt-auto pt-4">
-                  <p className="text-sm font-bold text-gray-900">
+                  <p className="text-sm font-bold text-foreground">
                     — {testimonial.author}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-muted-foreground">
                     {testimonial.role}
                   </p>
                 </div>

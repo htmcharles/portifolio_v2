@@ -89,14 +89,14 @@ export default function ProjectsSection() {
   }
 
   return (
-    <section id="projects" className="w-full bg-gray-50 py-16 md:py-24">
+    <section id="projects" className="w-full bg-muted py-16 md:py-24">
       <div className="w-full pl-40 pr-40 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] mb-4 uppercase">Portfolio</p>
-          <h2 className="text-3xl md:text-5xl font-light text-gray-900 leading-relaxed text-balance">
+          <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4 uppercase">Portfolio</p>
+          <h2 className="text-3xl md:text-5xl font-light text-foreground leading-relaxed text-balance">
             Featured Projects
           </h2>
-          <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
             Explore my latest work and hover to see GitHub links
           </p>
         </div>
@@ -111,8 +111,8 @@ export default function ProjectsSection() {
                 setVisibleCount(4)
               }}
               className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors cursor-pointer ${activeTab === tag
-                  ? "bg-[#7A3B3B] text-white border-[#7A3B3B]"
-                  : "bg-white text-gray-600 border-gray-200 hover:border-[#7A3B3B] hover:text-[#7A3B3B]"
+                ? "bg-[#7A3B3B] text-white border-[#7A3B3B]"
+                : "bg-card text-muted-foreground border-border hover:border-[#7A3B3B] hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] dark:hover:border-[#A85C5C]"
                 }`}
             >
               {tag}
@@ -125,10 +125,10 @@ export default function ProjectsSection() {
           {displayedProjects.map((project, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               {/* Project Image */}
-              <div className="relative h-64 overflow-hidden bg-gray-100">
+              <div className="relative h-64 overflow-hidden bg-muted">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -142,7 +142,7 @@ export default function ProjectsSection() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+                      className="flex items-center gap-2 bg-card text-foreground px-6 py-3 rounded-full font-medium hover:bg-muted transition-colors"
                     >
                       <Github size={18} />
                       View Code
@@ -162,11 +162,11 @@ export default function ProjectsSection() {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 leading-tight group-hover:text-[#7A3B3B] transition-colors">
+                <h3 className="text-xl font-semibold text-foreground mb-3 leading-tight group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C] transition-colors">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-500 text-sm mb-4 font-medium">
+                <p className="text-muted-foreground text-sm mb-4 font-medium">
                   {project.author}
                 </p>
 
@@ -175,7 +175,7 @@ export default function ProjectsSection() {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full group-hover:bg-[#7A3B3B]/10 group-hover:text-[#7A3B3B] transition-colors"
+                      className="px-3 py-1 bg-muted text-muted-foreground text-xs font-medium rounded-full group-hover:bg-[#7A3B3B]/10 group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C] transition-colors"
                     >
                       {tech}
                     </span>
@@ -191,7 +191,7 @@ export default function ProjectsSection() {
           {visibleCount < filteredProjects.length && (
             <button
               onClick={handleLoadMore}
-              className="px-8 py-3 bg-white text-gray-700 border border-gray-200 rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] transition-colors"
+              className="px-8 py-3 bg-card text-foreground border border-border rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] dark:hover:border-[#A85C5C] transition-colors"
             >
               Load More Projects
             </button>
@@ -200,7 +200,7 @@ export default function ProjectsSection() {
           {visibleCount > 4 && (
             <button
               onClick={() => setVisibleCount(4)}
-              className="px-8 py-3 bg-white text-gray-700 border border-gray-200 rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] transition-colors"
+              className="px-8 py-3 bg-card text-foreground border border-border rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] dark:hover:border-[#A85C5C] transition-colors"
             >
               Show Less
             </button>
