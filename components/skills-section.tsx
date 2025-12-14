@@ -3,10 +3,12 @@
 import { useState } from "react"
 
 export default function SkillsSection() {
-  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null)
-  const [activeTab, setActiveTab] = useState("Frontend")
+  type SkillCategory = "Frontend" | "Backend" | "Mobile" | "Tools"
 
-  const skillCategories = {
+  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null)
+  const [activeTab, setActiveTab] = useState<SkillCategory>("Frontend")
+
+  const skillCategories: Record<SkillCategory, { name: string; icon: string }[]> = {
     "Frontend": [
       {
         name: "HTML",
@@ -137,7 +139,7 @@ export default function SkillsSection() {
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
           <div className="bg-muted rounded-xl p-1 flex gap-1 flex-wrap">
-            {Object.keys(skillCategories).map((category) => (
+            {(Object.keys(skillCategories) as SkillCategory[]).map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveTab(category)}
