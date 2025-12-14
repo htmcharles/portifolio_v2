@@ -33,7 +33,7 @@ export default function Navigation() {
             </a>
             <Button 
               size="sm" 
-              icon={<ChevronRight size={16} />}
+              icon={<ChevronRight size={12} />}
             >
               Book A Session
             </Button>
@@ -62,7 +62,7 @@ export default function Navigation() {
             </a>
             <Button 
               size="sm" 
-              icon={<ChevronRight size={16} />}
+              icon={<ChevronRight size={12} />}
               className="w-full mt-2"
             >
               Book A Session

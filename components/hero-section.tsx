@@ -24,7 +24,7 @@ export default function HeroSection() {
 
             <Button 
               size="lg" 
-              icon={<ChevronRight size={20} />}
+              icon={<ChevronRight size={16} />}
             >
               Book A Session
             </Button>
@@ -68,7 +68,7 @@ export default function HeroSection() {
 
             <Button 
               size="sm" 
-              icon={<ChevronRight size={18} />}
+              icon={<ChevronRight size={14} />}
             >
               Book A Session
             </Button>
@@ -111,7 +111,7 @@ export default function HeroSection() {
           <div className="flex justify-center">
             <Button 
               size="default" 
-              icon={<ChevronRight size={18} />}
+              icon={<ChevronRight size={14} />}
             >
               Book A Session
             </Button>

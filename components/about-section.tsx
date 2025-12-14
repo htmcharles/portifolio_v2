@@ -33,10 +33,10 @@ export default function AboutSection() {
               {/* Social Icons */}
               <div className="flex gap-3 mt-4 md:mt-6 justify-center md:justify-start">
                 <Button variant="social" size="icon">
-                  <Mail size={18} />
+                  <Mail size={16} />
                 </Button>
                 <Button variant="social" size="icon">
-                  <Linkedin size={18} />
+                  <Linkedin size={16} />
                 </Button>
               </div>
 
