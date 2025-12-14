@@ -79,23 +79,23 @@ export default function CTASection() {
               </p>
 
               <div className="space-y-8">
-                <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md">
+                <a href="mailto:hatumacharles1@gmail.com" className="flex items-center gap-6 group hover:opacity-80 transition-opacity">
+                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
                     <Mail size={24} className="text-white" />
                   </div>
-                  <span className="text-foreground text-lg md:text-xl break-all md:break-normal">hatuma.charles@email.com</span>
-                </div>
-                <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md">
+                  <span className="text-foreground text-lg md:text-xl break-all md:break-normal">hatumacharles1@gmail.com</span>
+                </a>
+                <a href="tel:+250793234963" className="flex items-center gap-6 group hover:opacity-80 transition-opacity">
+                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
                     <Phone size={24} className="text-white" />
                   </div>
-                  <span className="text-foreground text-lg md:text-xl">+1 (555) 123-4567</span>
-                </div>
+                  <span className="text-foreground text-lg md:text-xl">+250 793 234 963</span>
+                </a>
                 <div className="flex items-center gap-6">
                   <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md">
                     <MapPin size={24} className="text-white" />
                   </div>
-                  <span className="text-foreground text-lg md:text-xl">San Francisco, CA</span>
+                  <span className="text-foreground text-lg md:text-xl">Muhanga, Rwanda</span>
                 </div>
               </div>
             </div>
@@ -105,11 +105,28 @@ export default function CTASection() {
               <div className="mb-8">
                 <h3 className="text-2xl font-light text-foreground">Send a Message</h3>
               </div>
-              <form className="space-y-6">
+              <form
+                className="space-y-6"
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  const formData = new FormData(e.currentTarget)
+                  const subject = `New Project Inquiry: ${formData.get('projectType')}`
+                  const body = `Name: ${formData.get('firstName')} ${formData.get('lastName')}
+Email: ${formData.get('email')}
+Project Type: ${formData.get('projectType')}
+
+Message:
+${formData.get('message')}`
+
+                  window.location.href = `mailto:hatumacharles1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+                }}
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">First Name</label>
                     <input
+                      name="firstName"
+                      required
                       type="text"
                       className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
                       placeholder="John"
@@ -118,6 +135,8 @@ export default function CTASection() {
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">Last Name</label>
                     <input
+                      name="lastName"
+                      required
                       type="text"
                       className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
                       placeholder="Doe"
@@ -128,6 +147,8 @@ export default function CTASection() {
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Email</label>
                   <input
+                    name="email"
+                    required
                     type="email"
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
                     placeholder="john@example.com"
@@ -136,16 +157,16 @@ export default function CTASection() {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Project Type</label>
-                  <Select>
+                  <Select name="projectType" required>
                     <SelectTrigger className="w-full px-4 py-6 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground">
                       <SelectValue placeholder="Select a project type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="web-app">Web Application</SelectItem>
-                      <SelectItem value="ecommerce">E-commerce Site</SelectItem>
-                      <SelectItem value="mobile-app">Mobile App</SelectItem>
-                      <SelectItem value="api">API Development</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="Web Application">Web Application</SelectItem>
+                      <SelectItem value="E-commerce Site">E-commerce Site</SelectItem>
+                      <SelectItem value="Mobile App">Mobile App</SelectItem>
+                      <SelectItem value="API Development">API Development</SelectItem>
+                      <SelectItem value="Other">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -153,6 +174,8 @@ export default function CTASection() {
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Message</label>
                   <textarea
+                    name="message"
+                    required
                     rows={4}
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition resize-none text-foreground placeholder:text-muted-foreground"
                     placeholder="Tell me about your project..."
@@ -160,6 +183,7 @@ export default function CTASection() {
                 </div>
 
                 <Button
+                  type="submit"
                   size="lg"
                   className="w-full"
                   icon={<ChevronRight />}
