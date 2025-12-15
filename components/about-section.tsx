@@ -22,11 +22,11 @@ export default function AboutSection() {
             <div className="relative w-full max-w-sm">
               {/* Social Icons - Positioned on the left side of image */}
               <div className="absolute left-4 top-6 flex flex-col gap-3 z-10">
-                <Button size="icon" className="w-10 h-10 bg-white/90 dark:bg-black/80 backdrop-blur-sm hover:bg-white dark:hover:bg-black shadow-lg text-[#7A3B3B] dark:text-[#A85C5C] border-none">
-                  <Linkedin size={16} />
+                <Button size="icon" className="w-10 h-10 bg-white hover:bg-neutral-100 dark:bg-black dark:hover:bg-neutral-900 shadow-xl text-[#7A3B3B] dark:text-[#A85C5C] border border-black/10 dark:border-white/10">
+                  <Linkedin size={18} />
                 </Button>
-                <Button size="icon" className="w-10 h-10 bg-white/90 dark:bg-black/80 backdrop-blur-sm hover:bg-white dark:hover:bg-black shadow-lg text-[#7A3B3B] dark:text-[#A85C5C] border-none">
-                  <Github size={16} />
+                <Button size="icon" className="w-10 h-10 bg-white hover:bg-neutral-100 dark:bg-black dark:hover:bg-neutral-900 shadow-xl text-[#7A3B3B] dark:text-[#A85C5C] border border-black/10 dark:border-white/10">
+                  <Github size={18} />
                 </Button>
               </div>
 
@@ -67,7 +67,7 @@ export default function AboutSection() {
               {qualifications.map((qual) => (
                 <span
                   key={qual}
-                  className="px-3 py-2 bg-neutral-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full border border-neutral-200 dark:border-neutral-700"
+                  className="px-3 py-2 bg-neutral-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-[18px] border border-neutral-200 dark:border-neutral-700"
                 >
                   {qual}
                 </span>

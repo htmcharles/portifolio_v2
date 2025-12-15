@@ -44,6 +44,42 @@ export default function ProjectsSection() {
             liveUrl: "https://agacirohealth.com/",
             githubUrl: "https://github.com/htmcharles",
             type: "Frontend"
+        },
+        {
+            title: "Ecommerce Dashboard",
+            description: "Admin dashboard for managing products, orders, and customers with dark mode support.",
+            image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            technologies: ["Next.js", "Tailwind CSS", "Prisma"],
+            liveUrl: "#",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Fullstack"
+        },
+        {
+            title: "Travel Companion",
+            description: "Mobile application for planning trips, sharing itineraries, and finding local gems.",
+            image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            technologies: ["React Native", "Expo", "Firebase"],
+            liveUrl: "#",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Mobile"
+        },
+        {
+            title: "Finance Tracker",
+            description: "Personal finance management tool with income/expense charting and budget goals.",
+            image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            technologies: ["Vue.js", "Chart.js", "Express"],
+            liveUrl: "#",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "Chat Application",
+            description: "Real-time messaging platform with group support and file sharing capabilities.",
+            image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            technologies: ["Socket.io", "React", "MongoDB"],
+            liveUrl: "#",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Backend"
         }
     ]
 
