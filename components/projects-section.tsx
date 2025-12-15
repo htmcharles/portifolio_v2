@@ -79,22 +79,24 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Technology Tags */}
-                <div className="flex flex-wrap justify-center gap-3 mb-12">
-                    {categories.map((tag) => (
-                        <button
-                            key={tag}
-                            onClick={() => {
-                                setActiveTab(tag)
-                                setVisibleCount(4)
-                            }}
-                            className={`px-4 py-2 text-sm font-medium rounded-full border transition-colors cursor-pointer ${activeTab === tag
-                                ? "bg-[#7A3B3B] text-white border-[#7A3B3B]"
-                                : "bg-background text-muted-foreground border-border hover:border-[#7A3B3B] hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] dark:hover:border-[#A85C5C]"
-                                }`}
-                        >
-                            {tag}
-                        </button>
-                    ))}
+                <div className="flex justify-center mb-12">
+                    <div className="bg-muted rounded-xl p-1 flex gap-1 flex-wrap">
+                        {categories.map((tag) => (
+                            <button
+                                key={tag}
+                                onClick={() => {
+                                    setActiveTab(tag)
+                                    setVisibleCount(4)
+                                }}
+                                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeTab === tag
+                                    ? "bg-background text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm"
+                                    : "text-muted-foreground hover:text-foreground"
+                                    }`}
+                            >
+                                {tag}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Project Cards Grid with Animations */}
