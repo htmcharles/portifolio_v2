@@ -91,7 +91,7 @@ export default function Navigation() {
             <ThemeToggle />
             <button
               onClick={() => scrollToSection("contact")}
-              className="group flex items-center gap-2 bg-[#7A3B3B] text-white px-4 py-2 rounded-full font-medium text-xs transition-all duration-300 hover:bg-[#6a3333]"
+              className="group flex items-center gap-2 bg-[#7A3B3B] text-white px-5 py-2 rounded-full font-medium text-xs transition-all duration-300 hover:bg-[#6a3333] whitespace-nowrap flex-shrink-0"
             >
               Let's Talk
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
