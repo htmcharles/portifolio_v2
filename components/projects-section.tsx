@@ -205,7 +205,7 @@ export default function ProjectsSection() {
                                         {project.technologies.map((tech, techIndex) => (
                                             <span
                                                 key={techIndex}
-                                                className="px-3 py-1 bg-muted/80 text-muted-foreground text-xs font-medium rounded-full group-hover:bg-[#7A3B3B]/10 group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C] transition-colors"
+                                                className="px-3 py-1 bg-muted/80 text-muted-foreground text-xs font-medium rounded-[18px] group-hover:bg-[#7A3B3B]/10 group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C] transition-colors"
                                             >
                                                 {tech}
                                             </span>
