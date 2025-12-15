@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Mail, Linkedin, Github } from "lucide-react"
+import { Mail, Github, Twitter, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function AboutSection() {
@@ -23,10 +23,17 @@ export default function AboutSection() {
               {/* Social Icons - Positioned on the left side of image */}
               <div className="absolute left-4 top-6 flex flex-col gap-3 z-10">
                 <Button size="icon" className="w-14 h-14 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100">
-                  <Linkedin size={28} strokeWidth={2} />
+                  <Github size={28} strokeWidth={2} />
                 </Button>
                 <Button size="icon" className="w-14 h-14 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100">
-                  <Github size={28} strokeWidth={2} />
+                  <Twitter size={28} strokeWidth={2} />
+                </Button>
+                <Button
+                  size="icon"
+                  className="w-14 h-14 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  <Phone size={28} strokeWidth={2} />
                 </Button>
               </div>
 
