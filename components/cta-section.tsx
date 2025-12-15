@@ -21,7 +21,7 @@ export default function CTASection() {
   return (
     <section id="contact" className="w-full">
       {/* Top Section: Central CTA Card with Background */}
-      <div className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
+      <div className="relative pt-12 md:pt-16 lg:pt-20 pb-0 overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
           <img
@@ -33,31 +33,46 @@ export default function CTASection() {
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="relative z-10 w-full px-4 md:px-6">
-          <div className="flex justify-center">
-            <div className="bg-white rounded-[24px] p-8 md:p-10 shadow-2xl text-center max-w-2xl w-full">
-              <div className="inline-block bg-muted px-3 py-1 rounded-full mb-6">
-                <span className="text-[10px] font-bold tracking-[0.2em] text-[#7A3B3B] uppercase">
-                  Your New Beginning
-                </span>
-              </div>
+        <div className="relative z-10 w-full px-4 md:px-6 flex justify-center">
+          <div className="relative bg-white rounded-t-[24px] rounded-b-none p-8 md:p-10 shadow-2xl text-center max-w-2xl w-full mx-auto mb-0">
+            {/* Left Ear (Inverted Radius) */}
+            <div
+              className="absolute bottom-0 -left-[24px] w-[24px] h-[24px] bg-transparent pointer-events-none hidden md:block"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 0 0, transparent 24px, white 24.5px)",
+              }}
+            />
+            {/* Right Ear (Inverted Radius) */}
+            <div
+              className="absolute bottom-0 -right-[24px] w-[24px] h-[24px] bg-transparent pointer-events-none hidden md:block"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 100% 0, transparent 24px, white 24.5px)",
+              }}
+            />
 
-              <h2 className="text-3xl md:text-4xl font-light mb-6 text-balance leading-tight text-black">
-                Take the First Step Toward the Life You Deserve
-              </h2>
-
-              <p className="text-gray-600 text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto">
-                Over 300 individuals have reclaimed their confidence, rebuilt relationships, and found emotional peace. You can, too.
-              </p>
-
-              <Button
-                size="lg"
-                onClick={scrollToForm}
-                icon={<Video />}
-              >
-                Book A Session
-              </Button>
+            <div className="inline-block bg-muted px-3 py-1 rounded-full mb-6">
+              <span className="text-[10px] font-bold tracking-[0.2em] text-[#7A3B3B] uppercase">
+                Your New Beginning
+              </span>
             </div>
+
+            <h2 className="text-3xl md:text-4xl font-light mb-6 text-balance leading-tight text-black">
+              Take the First Step Toward the Life You Deserve
+            </h2>
+
+            <p className="text-gray-600 text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto">
+              Over 300 individuals have reclaimed their confidence, rebuilt relationships, and found emotional peace. You can, too.
+            </p>
+
+            <Button
+              size="lg"
+              onClick={scrollToForm}
+              icon={<Video />}
+            >
+              Book A Session
+            </Button>
           </div>
         </div>
       </div>
