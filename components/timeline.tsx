@@ -119,7 +119,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
     return (
         <div className="w-full max-w-5xl mx-auto px-4">
             {/* Controls */}
-            <div className="flex justify-center items-center gap-4 mb-6 md:mb-10">
+            <div className="flex justify-center items-center gap-4 mb-2 md:mb-4">
                 <div className="flex items-center gap-2 bg-card rounded-full px-4 py-2 shadow-sm border border-border">
                     <span className="text-sm font-medium text-muted-foreground">Auto-loop</span>
                     <button

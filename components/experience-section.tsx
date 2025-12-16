@@ -33,14 +33,14 @@ export default function ExperienceSection() {
   ]
 
   return (
-    <section id="experience" className="w-full bg-muted dark:bg-background/95 py-16 md:py-24 overflow-hidden" >
+    <section id="experience" className="w-full bg-muted dark:bg-background/95 py-12 md:py-20 overflow-hidden scroll-mt-28" >
       <div className="w-full px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-8 md:mb-12">
-          <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4 uppercase">Career Journey</p>
+        <div className="text-center mb-6 md:mb-8">
+          <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-3 uppercase">Career Journey</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground leading-relaxed text-balance">
             Professional Experience
           </h2>
-          <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg mt-3 max-w-2xl mx-auto">
             A timeline of my professional growth and milestones
           </p>
         </div>
