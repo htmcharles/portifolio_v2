@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, ChevronRight, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ProjectsSection() {
@@ -222,8 +222,8 @@ export default function ProjectsSection() {
                 <div className="flex justify-center gap-4 mt-12">
                     {visibleCount < filteredProjects.length && (
                         <Button
-                            variant="outline"
                             size="lg"
+                            icon={<ChevronRight size={16} />}
                             onClick={handleLoadMore}
                             className="px-8"
                         >
@@ -233,8 +233,8 @@ export default function ProjectsSection() {
 
                     {visibleCount > 4 && (
                         <Button
-                            variant="outline"
                             size="lg"
+                            icon={<ChevronUp size={16} />}
                             onClick={() => setVisibleCount(4)}
                             className="px-8"
                         >
