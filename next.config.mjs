@@ -6,7 +6,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export', // This tells Next.js to export static HTML
+  output: 'export', 
 }
 
 export default nextConfig
