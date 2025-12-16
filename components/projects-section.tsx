@@ -1,8 +1,9 @@
-"use client"
+ "use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function ProjectsSection() {
     const [activeTab, setActiveTab] = useState("All")
@@ -220,21 +221,25 @@ export default function ProjectsSection() {
                 {/* Load More / Show Less Buttons */}
                 <div className="flex justify-center gap-4 mt-12">
                     {visibleCount < filteredProjects.length && (
-                        <button
+                        <Button
+                            variant="outline"
+                            size="lg"
                             onClick={handleLoadMore}
-                            className="px-8 py-3 bg-card text-foreground border border-border rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] dark:hover:border-[#A85C5C] transition-colors"
+                            className="px-8"
                         >
                             Load More Projects
-                        </button>
+                        </Button>
                     )}
 
                     {visibleCount > 4 && (
-                        <button
+                        <Button
+                            variant="outline"
+                            size="lg"
                             onClick={() => setVisibleCount(4)}
-                            className="px-8 py-3 bg-card text-foreground border border-border rounded-full font-medium hover:border-[#7A3B3B] hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] dark:hover:border-[#A85C5C] transition-colors"
+                            className="px-8"
                         >
                             Show Less
-                        </button>
+                        </Button>
                     )}
                 </div>
             </div>
