@@ -34,13 +34,13 @@ export default function CTASection() {
         </div>
 
         <div className="relative z-10 w-full px-4 md:px-6 flex justify-center">
-          <div className="relative bg-white rounded-t-[24px] rounded-b-none p-8 md:p-10 shadow-2xl text-center max-w-2xl w-full mx-auto mb-0">
+          <div className="relative bg-card rounded-t-[24px] rounded-b-none p-8 md:p-10 shadow-2xl text-center max-w-2xl w-full mx-auto mb-0">
             {/* Left Ear (Inverted Radius) */}
             <div
               className="absolute bottom-0 -left-[24px] w-[24px] h-[24px] bg-transparent pointer-events-none hidden md:block"
               style={{
                 backgroundImage:
-                  "radial-gradient(circle at 0 0, transparent 24px, white 24.5px)",
+                  "radial-gradient(circle at 0 0, transparent 24px, var(--color-card) 24.5px)",
               }}
             />
             {/* Right Ear (Inverted Radius) */}
@@ -48,7 +48,7 @@ export default function CTASection() {
               className="absolute bottom-0 -right-[24px] w-[24px] h-[24px] bg-transparent pointer-events-none hidden md:block"
               style={{
                 backgroundImage:
-                  "radial-gradient(circle at 100% 0, transparent 24px, white 24.5px)",
+                  "radial-gradient(circle at 100% 0, transparent 24px, var(--color-card) 24.5px)",
               }}
             />
 
@@ -58,11 +58,11 @@ export default function CTASection() {
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-light mb-6 text-balance leading-tight text-black">
+            <h2 className="text-3xl md:text-4xl font-light mb-6 text-balance leading-tight text-foreground">
               Take the First Step Toward the Life You Deserve
             </h2>
 
-            <p className="text-gray-600 text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto">
+            <p className="text-muted-foreground text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto">
               Over 300 individuals have reclaimed their confidence, rebuilt relationships, and found emotional peace. You can, too.
             </p>
 
