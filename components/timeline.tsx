@@ -176,7 +176,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
                         {activeItem.technologies.map((tech, idx) => (
                             <span
                                 key={idx}
-                                className="px-3 py-1 bg-muted text-muted-foreground text-sm font-medium rounded-full"
+                                className="px-3 py-1 bg-muted text-muted-foreground text-sm font-medium rounded-[18px]"
                             >
                                 {tech}
                             </span>
