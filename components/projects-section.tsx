@@ -96,7 +96,7 @@ export default function ProjectsSection() {
     }
 
     return (
-        <section id="projects" className="w-full bg-muted/30 py-16 md:py-24 relative overflow-hidden">
+        <section id="projects" className="w-full bg-background py-16 md:py-24 relative overflow-hidden">
             {/* Decorative Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[10%] left-[5%] w-64 h-64 bg-primary/5 rounded-full blur-[100px]" />

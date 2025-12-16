@@ -30,7 +30,7 @@ export default function CTASection() {
             className="w-full h-full object-cover blur-[1px]"
           />
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/40 dark:bg-black/70"></div>
         </div>
 
         <div className="relative z-10 w-full px-4 md:px-6 flex justify-center">
