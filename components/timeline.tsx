@@ -64,7 +64,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
         // We want to show roughly 5 items: active, -1, -2, +1, +2
         let diff = index - activeIndex
 
-        // Adjust diff for infinite loop visual effect if we wanted true infinite scroll, 
+        // Adjust diff for infinite loop visual effect if we wanted true infinite scroll,
         // but for this "curved" view, we'll keep it simple: just distance from center
 
         // However, to make it look like a wheel, we need to handle the wrap around logic visually
@@ -176,7 +176,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
                         {activeItem.technologies.map((tech, idx) => (
                             <span
                                 key={idx}
-                                className="px-3 py-1 bg-muted text-muted-foreground text-sm font-medium rounded-[18px]"
+                                className="px-3 py-1 bg-muted text-muted-foreground text-sm font-medium rounded-lg"
                             >
                                 {tech}
                             </span>
