@@ -1,7 +1,7 @@
 export default function BenefitsSection() {
   return (
     <section className="w-full bg-neutral-100 py-16 md:py-24">
-      <div className="w-full pl-40 pr-40 max-w-4xl mx-auto">
+      <div className="w-full px-4 md:px-12 lg:px-20 xl:px-40 max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-serif text-foreground leading-relaxed text-pretty text-center">
           Embrace psychological support{" "}
           <span className="inline-block mx-1.5">

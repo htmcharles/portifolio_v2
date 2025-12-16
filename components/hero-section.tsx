@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 export default function HeroSection() {
   return (
     <section id="hero" className="bg-background pt-16">
-      <div className="w-full pl-40 pr-40">
+      <div className="w-full px-4 md:px-12 lg:px-20 xl:px-40 max-w-[1920px] mx-auto">
         {/* Large screens (>1200px) - Side by side layout */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 lg:py-24">
           {/* Left content */}
@@ -117,21 +117,21 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          <div className="relative">
+          <div className="relative p-4">
             <img
               src="/images/hatuma-charles.jpg"
               alt="Hatuma Charles - Full-Stack Developer"
-              className="w-full h-auto rounded-3xl object-cover"
+              className="w-full h-auto rounded-3xl object-cover shadow-2xl"
             />
             {/* Floating badges for mobile */}
-            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B]">Creative</span>
+            <div className="absolute top-8 right-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Creative</span>
             </div>
-            <div className="absolute bottom-16 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B]">Innovative</span>
+            <div className="absolute bottom-20 left-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Innovative</span>
             </div>
-            <div className="absolute bottom-4 right-8 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B]">Reliable</span>
+            <div className="absolute bottom-8 right-12 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Reliable</span>
             </div>
           </div>
         </div>

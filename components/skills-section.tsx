@@ -147,7 +147,7 @@ export default function SkillsSection() {
 
   return (
     <section id="skills" className="w-full bg-background py-16 md:py-24">
-      <div className="w-full pl-40 pr-40 max-w-6xl mx-auto">
+      <div className="w-full px-4 md:px-12 lg:px-20 xl:px-40 max-w-[1920px] mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4 uppercase">Technical Skills</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground leading-relaxed text-balance">

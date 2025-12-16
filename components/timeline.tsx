@@ -55,6 +55,18 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
         setTimeout(() => setIsPaused(false), 5000)
     }
 
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+
+        handleResize() // Initial check
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
     // Calculate styles for the curved effect
     const getItemStyle = (index: number) => {
         const totalItems = items.length
@@ -83,7 +95,9 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
 
         if (!isVisible) return { opacity: 0, pointerEvents: 'none' as const, transform: 'translate(-50%, -50%) scale(0)' }
 
-        const xOffset = diff * 120 // 120px spacing
+        // Responsive spacing: 120px for desktop, 70px for mobile
+        const spacing = isMobile ? 70 : 120
+        const xOffset = diff * spacing
         const yOffset = absDiff * 20 // Drop down as we move away
         const scale = 1 - (absDiff * 0.2) // Scale down
         const opacity = 1 - (absDiff * 0.3) // Fade out
@@ -105,7 +119,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
     return (
         <div className="w-full max-w-5xl mx-auto px-4">
             {/* Controls */}
-            <div className="flex justify-center items-center gap-4 mb-12">
+            <div className="flex justify-center items-center gap-4 mb-6 md:mb-10">
                 <div className="flex items-center gap-2 bg-card rounded-full px-4 py-2 shadow-sm border border-border">
                     <span className="text-sm font-medium text-muted-foreground">Auto-loop</span>
                     <button
@@ -122,7 +136,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
             </div>
 
             {/* Timeline Visual */}
-            <div className="relative h-40 mb-12 overflow-hidden" ref={containerRef}>
+            <div className="relative h-40 mb-8 md:mb-12 overflow-hidden" ref={containerRef}>
                 {/* Curved Line (SVG) - Decorative */}
                 <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-20 opacity-20 pointer-events-none" viewBox="0 0 600 100">
                     <path d="M0,100 Q300,0 600,100" fill="none" stroke="#7A3B3B" strokeWidth="2" />

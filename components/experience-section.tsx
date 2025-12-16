@@ -34,8 +34,8 @@ export default function ExperienceSection() {
 
   return (
     <section id="experience" className="w-full bg-muted dark:bg-background/95 py-16 md:py-24 overflow-hidden" >
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+      <div className="w-full px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
           <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4 uppercase">Career Journey</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground leading-relaxed text-balance">
             Professional Experience

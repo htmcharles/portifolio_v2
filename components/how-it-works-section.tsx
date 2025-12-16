@@ -22,7 +22,7 @@ export default function HowItWorksSection() {
 
   return (
     <section className="w-full bg-gradient-to-b from-gray-50 to-gray-100 py-16 md:py-24">
-      <div className="w-full pl-40 pr-40 max-w-6xl mx-auto">
+      <div className="w-full px-4 md:px-12 lg:px-20 xl:px-40 max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 text-center md:mb-16">
           <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-amber-900">How It Works</p>
