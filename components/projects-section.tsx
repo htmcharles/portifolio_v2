@@ -13,7 +13,7 @@ export default function ProjectsSection() {
         {
             title: "Veloria",
             description: "Veloria is a modern, high-performance restaurant website designed to offer an immersive digital experience that mirrors the elegance of fine dining. Built with Next.js 14 (App Router) and TypeScript, the application prioritizes speed, SEO, and visual fidelity.",
-            image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "/projects/veloria.png",
             technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "https://veloria-flax.vercel.app/",
             githubUrl: "https://github.com/htmcharles",
@@ -22,7 +22,7 @@ export default function ProjectsSection() {
         {
             title: "Cubicles",
             description: "Cubicles is a modern, high-performance corporate website designed for a professional business consulting firm. Built to establish a strong digital presence, the platform showcases expertise across International Business, Marketing Research, Finance Consulting, and Human Resources.",
-            image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "/projects/cubicles.png",
             technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "https://cubicles-sigma.vercel.app",
             githubUrl: "https://github.com/htmcharles",
@@ -31,7 +31,7 @@ export default function ProjectsSection() {
         {
             title: "Vintech",
             description: "Smart IT Solutions for your business. This platform showcases cutting-edge technology services designed to transform the way companies work and operate.",
-            image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "/projects/vintech.png",
             technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "https://vintech-neon.vercel.app/",
             githubUrl: "https://github.com/htmcharles",
@@ -40,7 +40,7 @@ export default function ProjectsSection() {
         {
             title: "Synthorix",
             description: "Leading chemical supply company platform providing reliable, high-quality chemical solutions for agriculture, healthcare, food, and textile industries.",
-            image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "/projects/synthorix.png",
             technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "https://synthorix.vercel.app",
             githubUrl: "https://github.com/htmcharles",
@@ -49,7 +49,7 @@ export default function ProjectsSection() {
         {
             title: "Stratex",
             description: "Expert consulting platform that drives real growth. Elevate your business with expert insights, tailored strategies, and unwavering support through our digital services.",
-            image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "/projects/stratex.png",
             technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "https://stratex-pi.vercel.app",
             githubUrl: "https://github.com/htmcharles",
@@ -58,7 +58,7 @@ export default function ProjectsSection() {
         {
             title: "Refit",
             description: "Your trusted partner for quality home improvement. This platform connects homeowners with expert craftsmanship to create beautiful and functional living spaces.",
-            image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "/projects/refit.png",
             technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "https://refit-beta.vercel.app",
             githubUrl: "https://github.com/htmcharles",
@@ -67,7 +67,7 @@ export default function ProjectsSection() {
         {
             title: "Perform",
             description: "A triathlon coaching platform designed to improve athlete performance. It offers personalized training plans and tracking to help athletes reach their competitive goals.",
-            image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "/projects/perform.png",
             technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "https://perform-alpha.vercel.app",
             githubUrl: "https://github.com/htmcharles",
@@ -76,7 +76,7 @@ export default function ProjectsSection() {
         {
             title: "Landio",
             description: "A modern landing page application designed for SaaS products. It features sections for data analysis, success stories, pricing, and feature comparisons to effectively convert visitors.",
-            image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "/projects/landio.png",
             technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "https://landio-dun.vercel.app",
             githubUrl: "https://github.com/htmcharles",
