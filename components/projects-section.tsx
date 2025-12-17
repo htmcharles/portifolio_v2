@@ -1,4 +1,4 @@
- "use client"
+"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -11,76 +11,76 @@ export default function ProjectsSection() {
 
     const projects = [
         {
-            title: "CMSP Hospital System",
-            description: "A hospital platform for appointment scheduling, doctor discovery, and healthcare information access.",
+            title: "Veloria",
+            description: "Veloria is a modern, high-performance restaurant website designed to offer an immersive digital experience that mirrors the elegance of fine dining. Built with Next.js 14 (App Router) and TypeScript, the application prioritizes speed, SEO, and visual fidelity.",
             image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            technologies: ["React", "Node.js", "CSS"],
-            liveUrl: "https://clinique-medical-st-paul.onrender.com/",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "#",
             githubUrl: "https://github.com/htmcharles",
-            type: "Fullstack"
+            type: "Frontend"
         },
         {
-            title: "RCA E-Submit",
-            description: "Online assignment submission system for students and teachers with tracking and lifecycle management.",
+            title: "Cubicles",
+            description: "Cubicles is a modern, high-performance corporate website designed for a professional business consulting firm. Built to establish a strong digital presence, the platform showcases expertise across International Business, Marketing Research, Finance Consulting, and Human Resources.",
             image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            technologies: ["Java", "Hibernate", "JSP", "MySQL"],
-            liveUrl: "https://e-submit.onrender.com",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "#",
             githubUrl: "https://github.com/htmcharles",
-            type: "Fullstack"
+            type: "Frontend"
         },
         {
-            title: "OSS Weather",
-            description: "Open-source weather app with multiple providers and interactive radar support.",
+            title: "Vintech",
+            description: "Smart IT Solutions for your business. This platform showcases cutting-edge technology services designed to transform the way companies work and operate.",
             image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            technologies: ["Svelte", "TypeScript", "JavaScript"],
-            liveUrl: "https://oss-weather.onrender.com",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "#",
             githubUrl: "https://github.com/htmcharles",
-            type: "Open Source"
+            type: "Frontend"
         },
         {
-            title: "Agaciro Health",
-            description: "Healthcare platform with real-time vitals monitoring, appointments, and medical records.",
+            title: "Synthorix",
+            description: "Leading chemical supply company platform providing reliable, high-quality chemical solutions for agriculture, healthcare, food, and textile industries.",
             image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            technologies: ["Next.js"],
-            liveUrl: "https://agacirohealth.com/",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "#",
             githubUrl: "https://github.com/htmcharles",
             type: "Frontend"
         },
         {
-            title: "Ecommerce Dashboard",
-            description: "Admin dashboard for managing products, orders, and customers with dark mode support.",
+            title: "Stratex",
+            description: "Expert consulting platform that drives real growth. Elevate your business with expert insights, tailored strategies, and unwavering support through our digital services.",
             image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            technologies: ["Next.js", "Tailwind CSS", "Prisma"],
-            liveUrl: "#",
-            githubUrl: "https://github.com/htmcharles",
-            type: "Fullstack"
-        },
-        {
-            title: "Travel Companion",
-            description: "Mobile application for planning trips, sharing itineraries, and finding local gems.",
-            image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            technologies: ["React Native", "Expo", "Firebase"],
-            liveUrl: "#",
-            githubUrl: "https://github.com/htmcharles",
-            type: "Mobile"
-        },
-        {
-            title: "Finance Tracker",
-            description: "Personal finance management tool with income/expense charting and budget goals.",
-            image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            technologies: ["Vue.js", "Chart.js", "Express"],
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "#",
             githubUrl: "https://github.com/htmcharles",
             type: "Frontend"
         },
         {
-            title: "Chat Application",
-            description: "Real-time messaging platform with group support and file sharing capabilities.",
-            image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            technologies: ["Socket.io", "React", "MongoDB"],
+            title: "Refit",
+            description: "Your trusted partner for quality home improvement. This platform connects homeowners with expert craftsmanship to create beautiful and functional living spaces.",
+            image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
             liveUrl: "#",
             githubUrl: "https://github.com/htmcharles",
-            type: "Backend"
+            type: "Frontend"
+        },
+        {
+            title: "Perform",
+            description: "A triathlon coaching platform designed to improve athlete performance. It offers personalized training plans and tracking to help athletes reach their competitive goals.",
+            image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "#",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "Landio",
+            description: "A modern landing page application designed for SaaS products. It features sections for data analysis, success stories, pricing, and feature comparisons to effectively convert visitors.",
+            image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "#",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
         }
     ]
 
