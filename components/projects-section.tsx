@@ -98,7 +98,7 @@ export default function ProjectsSection() {
             technologies: ["Hibernate", "JSP", "MySQL"],
             liveUrl: "https://e-submit.onrender.com",
             githubUrl: "https://github.com/htmcharles",
-            type: "Fullstack"
+            type: "Backend"
         },
         {
             title: "SendIt",
@@ -107,7 +107,7 @@ export default function ProjectsSection() {
             technologies: ["Spring Boot", "PostgreSQL", "Java"],
             liveUrl: "https://sendit.onrender.com",
             githubUrl: "https://github.com/htmcharles",
-            type: "Fullstack"
+            type: "Backend"
         },
         {
             title: "Ireme",
@@ -116,7 +116,7 @@ export default function ProjectsSection() {
             technologies: ["React", "CSS", "JavaScript"],
             liveUrl: "https://ireme.onrender.com/",
             githubUrl: "https://github.com/htmcharles",
-            type: "Frontend"
+            type: "Fullstack"
         },
         {
             title: "Foodhome",
