@@ -10,133 +10,133 @@ export default function ProjectsSection() {
     const [visibleCount, setVisibleCount] = useState(4)
 
     const projects = [
-  {
-    title: "TableSeven",
-    description: "TableSeven is a modern, high-performance restaurant website designed to offer an immersive digital experience that mirrors the elegance of fine dining. Built with Next.js 14 (App Router) and TypeScript, the application prioritizes speed, SEO, and visual fidelity.",
-    image: "/projects/veloria.png",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://veloria-flax.vercel.app/",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  },
-  {
-    title: "Firmora",
-    description: "Firmora is a modern, high-performance corporate website designed for a professional business consulting firm. Built to establish a strong digital presence, the platform showcases expertise across International Business, Marketing Research, Finance Consulting, and Human Resources.",
-    image: "/projects/cubicles.png",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://cubicles-sigma.vercel.app",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  },
-  {
-    title: "ChemCore",
-    description: "Leading chemical supply company platform providing reliable, high-quality chemical solutions for agriculture, healthcare, food, and textile industries.",
-    image: "/projects/synthorix.png",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://synthorix.vercel.app",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  },
-  {
-    title: "ConsultEdge",
-    description: "ConsultEdge is an expert consulting platform that drives real growth. Elevate your business with expert insights, tailored strategies, and unwavering support through our digital services.",
-    image: "/projects/stratex.png",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://stratex-pi.vercel.app",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  },
-  {
-    title: "BuildNest",
-    description: "Your trusted partner for quality home improvement. BuildNest connects homeowners with expert craftsmanship to create beautiful and functional living spaces.",
-    image: "/projects/refit.png",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://refit-beta.vercel.app",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  },
-  {
-    title: "Athletiq",
-    description: "A triathlon coaching platform designed to improve athlete performance. It offers personalized training plans and tracking to help athletes reach their competitive goals.",
-    image: "/projects/perform.png",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://perform-alpha.vercel.app",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  },
-  {
-    title: "Producta",
-    description: "A modern landing page application designed for SaaS products. It features sections for data analysis, success stories, pricing, and feature comparisons to effectively convert visitors.",
-    image: "/projects/landio.png",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://landio-dun.vercel.app",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  },
-  {
-    title: "CMSP",
-    description: "A hospital website dedicated to providing comprehensive healthcare information, helping patients access medical services, schedule appointments, and connect with expert doctors.",
-    image: "/projects/carrent.png",
-    technologies: ["React", "Node.js", "CSS"],
-    liveUrl: "https://clinique-medical-st-paul.onrender.com/",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Fullstack"
-  },
-  {
-    title: "OSS Weather",
-    description: "An Open Source weather application integrating multiple weather data providers (OpenWeather, Open-Meteo, Meteo France) with interactive weather radar by RainViewer. Features customizable OpenWeather API integration and comprehensive weather forecasting capabilities.",
-    image: "/projects/ossweather.png",
-    technologies: ["Svelte", "TypeScript", "JavaScript"],
-    liveUrl: "https://oss-weather.onrender.com",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Open Source"
-  },
-  {
-    title: "RCA E-Submit",
-    description: "An online assignment submission system used by Rwanda Coding Academy for managing student assignments. Features include assignment submission tracking, student-teacher interaction, automated grading, and comprehensive assignment lifecycle management using MySQL database.",
-    image: "/projects/e_submit.png",
-    technologies: ["Hibernate", "JSP", "MySQL"],
-    liveUrl: "https://e-submit.onrender.com",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Backend"
-  },
-  {
-    title: "SendIt",
-    description: "A comprehensive hotel booking system that allows users to book rooms, manage bookings, and handle payments. Features include staff management, booking calendar, payment processing, and administrative dashboard for hotel operations.",
-    image: "/projects/sendit.png",
-    technologies: ["Spring Boot", "PostgreSQL", "Java"],
-    liveUrl: "https://sendit.onrender.com",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Backend"
-  },
-  {
-    title: "Ireme",
-    description: "A skill management system designed to showcase and track employees' skills, projects, and experience within an organization. Users can explore team members' skill sets, view completed work, and assess individual growth.",
-    image: "/projects/ireme.png",
-    technologies: ["React", "CSS", "JavaScript"],
-    liveUrl: "https://ireme.onrender.com/",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Fullstack"
-  },
-  {
-    title: "Foodhome",
-    description: "Restaurant website designed to showcase a diverse menu, highlight special dishes, and provide an easy way for customers to explore dining options, make reservations, and order online.",
-    image: "/projects/foodbase.png",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "https://foodbase.onrender.com",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  },
-  {
-    title: "Agaciro Health",
-    description: "A comprehensive healthcare platform with mobile app that enables users to monitor and trust the health of their loved ones. Features include real-time vital signs tracking, appointment scheduling, and health records management.",
-    image: "/projects/agacirohealth.png",
-    technologies: ["Next.js"],
-    liveUrl: "https://agacirohealth.com/",
-    githubUrl: "https://github.com/htmcharles",
-    type: "Frontend"
-  }
-];
+        {
+            title: "TableSeven",
+            description: "TableSeven is a modern, high-performance restaurant website designed to offer an immersive digital experience that mirrors the elegance of fine dining. Built with Next.js 14 (App Router) and TypeScript, the application prioritizes speed, SEO, and visual fidelity.",
+            image: "/projects/veloria.png",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "https://tables7.vercel.app",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "Firmora",
+            description: "Firmora is a modern, high-performance corporate website designed for a professional business consulting firm. Built to establish a strong digital presence, the platform showcases expertise across International Business, Marketing Research, Finance Consulting, and Human Resources.",
+            image: "/projects/cubicles.png",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "https://firmora.vercel.app",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "ChemCore",
+            description: "Leading chemical supply company platform providing reliable, high-quality chemical solutions for agriculture, healthcare, food, and textile industries.",
+            image: "/projects/synthorix.png",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "https://chemcore-v2.vercel.app",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "ConsultEdge",
+            description: "ConsultEdge is an expert consulting platform that drives real growth. Elevate your business with expert insights, tailored strategies, and unwavering support through our digital services.",
+            image: "/projects/stratex.png",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "https://consultedge.vercel.app",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "BuildNest",
+            description: "Your trusted partner for quality home improvement. BuildNest connects homeowners with expert craftsmanship to create beautiful and functional living spaces.",
+            image: "/projects/refit.png",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "https://hc-buildnest.vercel.app",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "Athletiq",
+            description: "A triathlon coaching platform designed to improve athlete performance. It offers personalized training plans and tracking to help athletes reach their competitive goals.",
+            image: "/projects/perform.png",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "https://athleticq.vercel.app",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "Producta",
+            description: "A modern landing page application designed for SaaS products. It features sections for data analysis, success stories, pricing, and feature comparisons to effectively convert visitors.",
+            image: "/projects/landio.png",
+            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+            liveUrl: "https://hc-producta.vercel.app",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "CMSP",
+            description: "A hospital website dedicated to providing comprehensive healthcare information, helping patients access medical services, schedule appointments, and connect with expert doctors.",
+            image: "/projects/carrent.png",
+            technologies: ["React", "Node.js", "CSS"],
+            liveUrl: "https://clinique-medical-st-paul.onrender.com/",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Fullstack"
+        },
+        {
+            title: "OSS Weather",
+            description: "An Open Source weather application integrating multiple weather data providers (OpenWeather, Open-Meteo, Meteo France) with interactive weather radar by RainViewer. Features customizable OpenWeather API integration and comprehensive weather forecasting capabilities.",
+            image: "/projects/ossweather.png",
+            technologies: ["Svelte", "TypeScript", "JavaScript"],
+            liveUrl: "https://oss-weather.onrender.com",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Open Source"
+        },
+        {
+            title: "RCA E-Submit",
+            description: "An online assignment submission system used by Rwanda Coding Academy for managing student assignments. Features include assignment submission tracking, student-teacher interaction, automated grading, and comprehensive assignment lifecycle management using MySQL database.",
+            image: "/projects/e_submit.png",
+            technologies: ["Hibernate", "JSP", "MySQL"],
+            liveUrl: "https://e-submit.onrender.com",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Backend"
+        },
+        {
+            title: "SendIt",
+            description: "A comprehensive hotel booking system that allows users to book rooms, manage bookings, and handle payments. Features include staff management, booking calendar, payment processing, and administrative dashboard for hotel operations.",
+            image: "/projects/sendit.png",
+            technologies: ["Spring Boot", "PostgreSQL", "Java"],
+            liveUrl: "https://sendit.onrender.com",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Backend"
+        },
+        {
+            title: "Ireme",
+            description: "A skill management system designed to showcase and track employees' skills, projects, and experience within an organization. Users can explore team members' skill sets, view completed work, and assess individual growth.",
+            image: "/projects/ireme.png",
+            technologies: ["React", "CSS", "JavaScript"],
+            liveUrl: "https://ireme.onrender.com/",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Fullstack"
+        },
+        {
+            title: "Foodhome",
+            description: "Restaurant website designed to showcase a diverse menu, highlight special dishes, and provide an easy way for customers to explore dining options, make reservations, and order online.",
+            image: "/projects/foodbase.png",
+            technologies: ["HTML", "CSS", "JavaScript"],
+            liveUrl: "https://foodbase.onrender.com",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        },
+        {
+            title: "Agaciro Health",
+            description: "A comprehensive healthcare platform with mobile app that enables users to monitor and trust the health of their loved ones. Features include real-time vital signs tracking, appointment scheduling, and health records management.",
+            image: "/projects/agacirohealth.png",
+            technologies: ["Next.js"],
+            liveUrl: "https://agacirohealth.com/",
+            githubUrl: "https://github.com/htmcharles",
+            type: "Frontend"
+        }
+    ];
 
 
     const categories = ["All", "Frontend", "Backend", "Fullstack", "Open Source"]
