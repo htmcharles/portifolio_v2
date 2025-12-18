@@ -85,7 +85,7 @@ export default function ProjectsSection() {
         {
             title: "CMSP",
             description: "A hospital website dedicated to providing comprehensive healthcare information, helping patients access medical services, schedule appointments, and connect with expert doctors.",
-            image: "/projects/placeholder-logo.png",
+            image: "/projects/carrent.png",
             technologies: ["React", "Node.js", "CSS"],
             liveUrl: "https://clinique-medical-st-paul.onrender.com/",
             githubUrl: "https://github.com/htmcharles",
@@ -94,7 +94,7 @@ export default function ProjectsSection() {
         {
             title: "OSS Weather",
             description: "An Open Source weather application integrating multiple weather data providers (OpenWeather, Open-Meteo, Meteo France) with interactive weather radar by RainViewer. Features customizable OpenWeather API integration and comprehensive weather forecasting capabilities.",
-            image: "/projects/placeholder-logo.png",
+            image: "/projects/ossweather.png",
             technologies: ["Svelte", "TypeScript", "JavaScript"],
             liveUrl: "https://oss-weather.onrender.com",
             githubUrl: "https://github.com/htmcharles",
@@ -103,7 +103,7 @@ export default function ProjectsSection() {
         {
             title: "RCA E-Submit",
             description: "An online assignment submission system used by RCCA for managing student assignments. Features include assignment submission tracking, student-teacher interaction, automated grading, and comprehensive assignment lifecycle management using MySQL database.",
-            image: "/projects/placeholder-logo.png",
+            image: "/projects/e_submit.png",
             technologies: ["Hibernate", "JSP", "MySQL"],
             liveUrl: "https://e-submit.onrender.com",
             githubUrl: "https://github.com/htmcharles",
@@ -112,7 +112,7 @@ export default function ProjectsSection() {
         {
             title: "SendIt",
             description: "A comprehensive hotel booking system that allows users to book rooms, manage bookings, and handle payments. Features include staff management, booking calendar, payment processing, and administrative dashboard for hotel operations.",
-            image: "/projects/placeholder-logo.png",
+            image: "/projects/sendit.png",
             technologies: ["Spring Boot", "PostgreSQL", "Java"],
             liveUrl: "https://sendit.onrender.com",
             githubUrl: "https://github.com/htmcharles",
@@ -121,7 +121,7 @@ export default function ProjectsSection() {
         {
             title: "Ireme",
             description: "A skill management system designed to showcase and track employees' skills, projects, and experience within an organization. Users can explore team members' skill sets, view completed work, and assess individual growth.",
-            image: "/projects/placeholder-logo.png",
+            image: "/projects/ireme.png",
             technologies: ["React", "CSS", "JavaScript"],
             liveUrl: "https://ireme.onrender.com/",
             githubUrl: "https://github.com/htmcharles",
@@ -130,7 +130,7 @@ export default function ProjectsSection() {
         {
             title: "Foodhome",
             description: "Restaurant website designed to showcase a diverse menu, highlight special dishes, and provide an easy way for customers to explore dining options, make reservations, and order online.",
-            image: "/projects/placeholder-logo.png",
+            image: "/projects/foodbase.png",
             technologies: ["HTML", "CSS", "JavaScript"],
             liveUrl: "https://foodbase.onrender.com",
             githubUrl: "https://github.com/htmcharles",
@@ -139,7 +139,7 @@ export default function ProjectsSection() {
         {
             title: "Agaciro Health",
             description: "A comprehensive healthcare platform with mobile app that enables users to monitor and trust the health of their loved ones. Features include real-time vital signs tracking, appointment scheduling, and health records management.",
-            image: "/projects/placeholder-logo.png",
+            image: "/projects/agacirohealth.png",
             technologies: ["Next.js"],
             liveUrl: "https://agacirohealth.com/",
             githubUrl: "https://github.com/htmcharles",
