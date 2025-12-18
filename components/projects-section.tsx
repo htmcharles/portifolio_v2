@@ -138,7 +138,7 @@ export default function ProjectsSection() {
         }
     ]
 
-    const categories = ["All", "Frontend", "Backend", "Fullstack", "Open Source", "Mobile"]
+    const categories = ["All", "Frontend", "Backend", "Fullstack", "Open Source"]
 
     const filteredProjects = activeTab === "All"
         ? projects
