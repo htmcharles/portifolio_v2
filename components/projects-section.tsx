@@ -29,15 +29,6 @@ export default function ProjectsSection() {
             type: "Frontend"
         },
         {
-            title: "Vintech",
-            description: "Smart IT Solutions for your business. This platform showcases cutting-edge technology services designed to transform the way companies work and operate.",
-            image: "/projects/vintech.png",
-            technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-            liveUrl: "https://vintech-neon.vercel.app/",
-            githubUrl: "https://github.com/htmcharles",
-            type: "Frontend"
-        },
-        {
             title: "Synthorix",
             description: "Leading chemical supply company platform providing reliable, high-quality chemical solutions for agriculture, healthcare, food, and textile industries.",
             image: "/projects/synthorix.png",
@@ -102,7 +93,7 @@ export default function ProjectsSection() {
         },
         {
             title: "RCA E-Submit",
-            description: "An online assignment submission system used by RCCA for managing student assignments. Features include assignment submission tracking, student-teacher interaction, automated grading, and comprehensive assignment lifecycle management using MySQL database.",
+            description: "An online assignment submission system used by Rwanda Coding Academy for managing student assignments. Features include assignment submission tracking, student-teacher interaction, automated grading, and comprehensive assignment lifecycle management using MySQL database.",
             image: "/projects/e_submit.png",
             technologies: ["Hibernate", "JSP", "MySQL"],
             liveUrl: "https://e-submit.onrender.com",
