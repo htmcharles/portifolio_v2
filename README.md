@@ -1,13 +1,15 @@
-# Mindify
+# Portfolio Website
 
-**Mindify** is a professional online therapy platform designed to connect users with licensed mental health professionals. It emphasizes user privacy, ease of access, and a personalized approach to mental wellbeing.
+A modern, professional portfolio website showcasing my work as a Full-Stack Software Engineer. Built with Next.js 14, TypeScript, and Tailwind CSS, featuring smooth animations and a responsive design.
 
 ## ✨ Features
 
-- **Therapist Matching**: Intelligent matching with suitable professionals.
-- **Secure Video/Text Chat**: Private communication channels.
-- **Appointment Scheduling**: Easy booking system for sessions.
-- **Resource Library**: Articles and guides on mental health.
+- **Project Showcase**: Interactive gallery of frontend, backend, and fullstack projects
+- **Professional Experience**: Detailed work history and achievements
+- **Skills & Technologies**: Comprehensive display of technical expertise
+- **Contact Form**: Easy way to get in touch for opportunities
+- **Dark/Light Mode**: Theme switching for optimal viewing experience
+- **Responsive Design**: Optimized for all device sizes
 
 ## 🚀 Getting Started
 
@@ -20,11 +22,11 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/htmcharles/mindify.git
+   git clone https://github.com/htmcharles/portfolio.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd mindify
+   cd portfolio
    ```
 3. Install dependencies:
    ```bash

@@ -9,8 +9,8 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Mindify - Online Therapy for Your Wellbeing",
-  description: "Professional online therapy designed to help you rediscover balance and happiness - on your terms.",
+  title: "Hatuma Charles - Full-Stack Software Engineer",
+  description: "Portfolio of Hatuma Charles, a Full-Stack Software Engineer specializing in modern web applications with Next.js, React, Spring Boot, and cloud technologies.",
   generator: "v0.app",
   icons: {
     icon: "/logo.svg",
