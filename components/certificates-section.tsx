@@ -65,7 +65,7 @@ export default function CertificatesSection() {
                             className="group relative bg-background dark:bg-card/40 hover:bg-muted/50 dark:hover:bg-card/60 border border-border/50 dark:border-border/20 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                         >
                             <div className="flex items-start gap-6">
-                                <div className="hidden sm:flex shrink-0 w-16 h-16 rounded-xl bg-[#7A3B3B]/10 dark:bg-[#A85C5C]/10 items-center justify-center text-[#7A3B3B] dark:text-[#A85C5C] group-hover:bg-[#7A3B3B] dark:group-hover:bg-[#A85C5C] group-hover:text-white transition-all duration-300">
+                                <div className="hidden sm:flex shrink-0 w-16 h-16 rounded-xl bg-[#7A3B3B]/10 dark:bg-[#A85C5C]/10 items-center justify-center text-[#7A3B3B] dark:text-[#A85C5C] group-hover:bg-[#7A3B3B]/20 dark:group-hover:bg-[#A85C5C]/20 transition-all duration-300 shadow-sm">
                                     <Award size={32} />
                                 </div>
 
