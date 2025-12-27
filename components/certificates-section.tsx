@@ -36,11 +36,11 @@ export default function CertificatesSection() {
     ];
 
     return (
-        <section id="certificates" className="w-full bg-muted/30 py-16 md:py-24 relative overflow-hidden scroll-mt-28">
+        <section id="certificates" className="w-full bg-muted/30 dark:bg-background/95 py-16 md:py-24 relative overflow-hidden scroll-mt-28">
             {/* Decorative Background Elements */}
             <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-[#7A3B3B]/5 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[20%] left-[10%] w-64 h-64 bg-primary/5 rounded-full blur-[100px]" />
+                <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-[#7A3B3B]/5 dark:bg-[#A85C5C]/5 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[20%] left-[10%] w-64 h-64 bg-primary/5 dark:bg-primary/2 rounded-full blur-[100px]" />
             </div>
 
             <div className="w-full px-4 md:px-6 max-w-7xl mx-auto relative z-10">
@@ -62,41 +62,41 @@ export default function CertificatesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative bg-card hover:bg-muted/50 border border-border/50 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-lg"
+                            className="group relative bg-background dark:bg-card/40 hover:bg-muted/50 dark:hover:bg-card/60 border border-border/50 dark:border-border/20 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                         >
                             <div className="flex items-start gap-6">
-                                <div className="hidden sm:flex shrink-0 w-16 h-16 rounded-xl bg-[#7A3B3B]/10 items-center justify-center text-[#7A3B3B] group-hover:bg-[#7A3B3B] group-hover:text-white transition-colors duration-300">
+                                <div className="hidden sm:flex shrink-0 w-16 h-16 rounded-xl bg-[#7A3B3B]/10 dark:bg-[#A85C5C]/10 items-center justify-center text-[#7A3B3B] dark:text-[#A85C5C] group-hover:bg-[#7A3B3B] dark:group-hover:bg-[#A85C5C] group-hover:text-white transition-all duration-300">
                                     <Award size={32} />
                                 </div>
-                                
+
                                 <div className="flex-1">
                                     <div className="flex justify-between items-start mb-2">
                                         <h3 className="text-xl font-semibold text-foreground group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C] transition-colors duration-300">
                                             {cert.title}
                                         </h3>
-                                        <a 
-                                            href={cert.link} 
-                                            target="_blank" 
+                                        <a
+                                            href={cert.link}
+                                            target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] transition-colors duration-300"
+                                            className="text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] transition-all duration-300"
                                             aria-label="View Certificate"
                                         >
                                             <ExternalLink size={20} />
                                         </a>
                                     </div>
 
-                                    <div className="flex flex-wrap gap-4 mb-4 text-sm text-muted-foreground">
+                                    <div className="flex flex-wrap gap-4 mb-4 text-sm text-muted-foreground font-medium">
                                         <span className="flex items-center gap-1.5">
-                                            <Building2 size={14} />
+                                            <Building2 size={14} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
                                             {cert.issuer}
                                         </span>
                                         <span className="flex items-center gap-1.5">
-                                            <Calendar size={14} />
+                                            <Calendar size={14} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
                                             {cert.date}
                                         </span>
                                     </div>
 
-                                    <p className="text-muted-foreground text-sm leading-relaxed">
+                                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
                                         {cert.description}
                                     </p>
                                 </div>
