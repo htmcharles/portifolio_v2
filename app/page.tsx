@@ -7,6 +7,7 @@ import ExperienceSection from "@/components/experience-section"
 import TestimonialsSection from "@/components/testimonials-section"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
+import CertificatesSection from "@/components/certificates-section"
 
 export const metadata = {
   title: "Hatuma Charles - Full-Stack Developer",
@@ -22,6 +23,7 @@ export default function Home() {
       <ProjectsSection />
       <AboutSection />
       <ExperienceSection />
+      <CertificatesSection />
       <TestimonialsSection />
       <CTASection />
       <Footer />
