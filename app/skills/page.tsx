@@ -1,5 +1,7 @@
 import Navigation from "@/components/navigation"
 import SkillsSection from "@/components/skills-section"
+import AboutSection from "@/components/about-section"
+import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 
 export const metadata = {
@@ -13,6 +15,8 @@ export default function SkillsPage() {
             <Navigation />
             <div className="pt-20">
                 <SkillsSection />
+                <AboutSection />
+                <CTASection />
             </div>
             <Footer />
         </main>

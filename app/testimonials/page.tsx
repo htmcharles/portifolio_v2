@@ -1,5 +1,7 @@
 import Navigation from "@/components/navigation"
 import TestimonialsSection from "@/components/testimonials-section"
+import AboutSection from "@/components/about-section"
+import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 
 export const metadata = {
@@ -13,6 +15,8 @@ export default function TestimonialsPage() {
             <Navigation />
             <div className="pt-20">
                 <TestimonialsSection />
+                <AboutSection />
+                <CTASection />
             </div>
             <Footer />
         </main>
