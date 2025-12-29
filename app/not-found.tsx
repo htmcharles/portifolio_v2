@@ -37,23 +37,24 @@ export default function NotFound() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <Button asChild variant="default" size="lg" className="bg-[#7A3B3B] hover:bg-[#6a3333] text-white rounded-full px-8">
-                                <Link href="/" className="flex items-center gap-2">
-                                    <Home size={18} />
-                                    Back to Home
-                                </Link>
+                            <Button
+                                variant="default"
+                                size="lg"
+                                icon={<Home />}
+                                onClick={() => router.push("/")}
+                                className="px-8"
+                            >
+                                Back to Home
                             </Button>
 
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="rounded-full px-8 border-[#7A3B3B]/20"
+                                icon={<ArrowLeft />}
                                 onClick={() => router.back()}
+                                className="px-8 border-[#7A3B3B]/20"
                             >
-                                <div className="flex items-center gap-2">
-                                    <ArrowLeft size={18} />
-                                    Go Back
-                                </div>
+                                Go Back
                             </Button>
                         </div>
                     </motion.div>
