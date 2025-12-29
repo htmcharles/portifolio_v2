@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { Home, ArrowLeft } from "lucide-react"
 import Navigation from "@/components/navigation"
@@ -8,6 +9,8 @@ import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 
 export default function NotFound() {
+    const router = useRouter()
+
     return (
         <main className="bg-background text-foreground min-h-screen flex flex-col">
             <Navigation />
@@ -41,11 +44,16 @@ export default function NotFound() {
                                 </Link>
                             </Button>
 
-                            <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-[#7A3B3B]/20">
-                                <Link href="javascript:history.back()" className="flex items-center gap-2">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="rounded-full px-8 border-[#7A3B3B]/20"
+                                onClick={() => router.back()}
+                            >
+                                <div className="flex items-center gap-2">
                                     <ArrowLeft size={18} />
                                     Go Back
-                                </Link>
+                                </div>
                             </Button>
                         </div>
                     </motion.div>
