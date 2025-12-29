@@ -1,0 +1,20 @@
+import Navigation from "@/components/navigation"
+import ExperienceSection from "@/components/experience-section"
+import Footer from "@/components/footer"
+
+export const metadata = {
+    title: "Experience - Hatuma Charles",
+    description: "Professional journey and work experience of Hatuma Charles.",
+}
+
+export default function ExperiencePage() {
+    return (
+        <main className="bg-white">
+            <Navigation />
+            <div className="pt-20">
+                <ExperienceSection />
+            </div>
+            <Footer />
+        </main>
+    )
+}

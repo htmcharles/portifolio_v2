@@ -94,7 +94,7 @@ export default function Navigation() {
               key={item.id}
               href={`/#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id || (item.id === "certificates" && pathname === "/certificates")
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id || pathname === `/${item.id}`
                 ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
                 : "text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-white hover:bg-muted/30"
                 }`}
@@ -109,7 +109,10 @@ export default function Navigation() {
             <ThemeToggle />
             <button
               onClick={(e) => handleNavClick(e, "contact")}
-              className="group flex items-center gap-2 bg-[#7A3B3B] text-white px-5 py-2 rounded-full font-medium text-xs transition-all duration-300 hover:bg-[#6a3333] whitespace-nowrap flex-shrink-0"
+              className={`group flex items-center gap-2 px-5 py-2 rounded-full font-medium text-xs transition-all duration-300 whitespace-nowrap flex-shrink-0 ${pathname === "/contact"
+                ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
+                : "bg-[#7A3B3B] text-white hover:bg-[#6a3333]"
+                }`}
             >
               Let's Talk
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -134,7 +137,7 @@ export default function Navigation() {
               key={item.id}
               href={`/#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className={`block w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 ${activeSection === item.id || (item.id === "certificates" && pathname === "/certificates")
+              className={`block w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 ${activeSection === item.id || pathname === `/${item.id}`
                 ? "bg-muted text-[#7A3B3B] dark:text-white font-medium"
                 : "text-muted-foreground hover:bg-muted/50 hover:text-[#7A3B3B] dark:hover:text-white"
                 }`}
@@ -144,7 +147,10 @@ export default function Navigation() {
           ))}
           <button
             onClick={(e) => handleNavClick(e, "contact")}
-            className="flex items-center justify-between w-full px-4 py-3 mt-2 bg-[#7A3B3B] text-white rounded-xl font-semibold"
+            className={`flex items-center justify-between w-full px-4 py-3 mt-2 rounded-xl font-semibold ${pathname === "/contact"
+              ? "bg-muted text-[#7A3B3B] dark:text-white"
+              : "bg-[#7A3B3B] text-white"
+              }`}
           >
             Let's Talk
             <ArrowRight size={16} />
