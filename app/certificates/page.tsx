@@ -11,11 +11,11 @@ export const metadata = {
 
 export default function CertificatesPage() {
     return (
-        <main className="bg-white">
+        <main className="bg-background text-foreground min-h-screen">
             <Navigation />
             <div className="pt-20"> {/* Add padding top to account for fixed navigation */}
-                <CertificatesSection />
                 <AboutSection />
+                <CertificatesSection />
                 <CTASection />
             </div>
             <Footer />
