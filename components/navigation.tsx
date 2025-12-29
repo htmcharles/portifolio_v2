@@ -3,11 +3,15 @@
 import { useState, useEffect } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { useRouter, usePathname } from "next/navigation"
+import Link from "next/link"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [isScrolled, setIsScrolled] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,10 +41,16 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+  const handleNavClick = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault()
+
+    if (pathname === "/") {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    } else {
+      router.push(`/#${sectionId}`)
     }
     setIsOpen(false)
   }
@@ -61,29 +71,36 @@ export default function Navigation() {
       }`}>
       <div className="bg-background/80 backdrop-blur-md border border-border rounded-full px-2 pl-4 py-1.5 flex justify-between items-center h-12 mx-auto transition-all">
         {/* Logo */}
-        <div
+        <Link
+          href="/"
           className="flex items-center gap-2 cursor-pointer group pr-4"
-          onClick={() => scrollToSection("hero")}
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault()
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }
+          }}
         >
           <div className="w-8 h-8 bg-[#7A3B3B] rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
             <span className="text-white text-xs font-bold">HC</span>
           </div>
           <span className="text-lg font-semibold text-[#7A3B3B] dark:text-white hidden sm:block">Hatuma</span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-1 rounded-full px-2 mx-2">
           {navItems.map((item) => (
-            <button
+            <Link
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id
+              href={`/#${item.id}`}
+              onClick={(e) => handleNavClick(e, item.id)}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id || (item.id === "certificates" && pathname === "/certificates")
                 ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
                 : "text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-white hover:bg-muted/30"
                 }`}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
         </div>
 
@@ -91,7 +108,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-2 mr-1">
             <ThemeToggle />
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={(e) => handleNavClick(e, "contact")}
               className="group flex items-center gap-2 bg-[#7A3B3B] text-white px-5 py-2 rounded-full font-medium text-xs transition-all duration-300 hover:bg-[#6a3333] whitespace-nowrap flex-shrink-0"
             >
               Let's Talk
@@ -113,19 +130,20 @@ export default function Navigation() {
       {isOpen && (
         <div className="absolute top-[calc(100%+8px)] left-0 right-0 bg-background/95 backdrop-blur-md rounded-2xl border border-border shadow-xl p-4 md:hidden flex flex-col gap-2">
           {navItems.map((item) => (
-            <button
+            <Link
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`block w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 ${activeSection === item.id
+              href={`/#${item.id}`}
+              onClick={(e) => handleNavClick(e, item.id)}
+              className={`block w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 ${activeSection === item.id || (item.id === "certificates" && pathname === "/certificates")
                 ? "bg-muted text-[#7A3B3B] dark:text-white font-medium"
                 : "text-muted-foreground hover:bg-muted/50 hover:text-[#7A3B3B] dark:hover:text-white"
                 }`}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
           <button
-            onClick={() => scrollToSection("contact")}
+            onClick={(e) => handleNavClick(e, "contact")}
             className="flex items-center justify-between w-full px-4 py-3 mt-2 bg-[#7A3B3B] text-white rounded-xl font-semibold"
           >
             Let's Talk
