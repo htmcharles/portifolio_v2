@@ -11,11 +11,11 @@ export const metadata = {
 
 export default function ExperiencePage() {
     return (
-        <main className="bg-white">
+        <main className="bg-background text-foreground min-h-screen">
             <Navigation />
             <div className="pt-20">
-                <ExperienceSection />
                 <AboutSection />
+                <ExperienceSection />
                 <CTASection />
             </div>
             <Footer />
