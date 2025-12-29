@@ -1,12 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Montserrat } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+})
 
 export const metadata: Metadata = {
   title: "Hatuma Charles - Full-Stack Software Engineer",
@@ -25,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans antialiased`}>
+      <body className={`${montserrat.variable} font-sans antialiased text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
