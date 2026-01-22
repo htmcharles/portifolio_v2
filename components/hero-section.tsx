@@ -25,6 +25,12 @@ export default function HeroSection() {
             <Button
               size="lg"
               icon={<ChevronRight size={16} />}
+              onClick={() => {
+                const projectsSection = document.getElementById("projects")
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: "smooth" })
+                }
+              }}
             >
               View My Work
             </Button>
@@ -69,6 +75,12 @@ export default function HeroSection() {
             <Button
               size="sm"
               icon={<ChevronRight size={14} />}
+              onClick={() => {
+                const projectsSection = document.getElementById("projects")
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: "smooth" })
+                }
+              }}
             >
               View My Work
             </Button>
@@ -112,6 +124,12 @@ export default function HeroSection() {
             <Button
               size="default"
               icon={<ChevronRight size={14} />}
+              onClick={() => {
+                const projectsSection = document.getElementById("projects")
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: "smooth" })
+                }
+              }}
             >
               View My Work
             </Button>
