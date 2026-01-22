@@ -74,15 +74,20 @@ export default function CertificatesSection() {
                                         <h3 className="text-xl font-semibold text-foreground group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C] transition-colors duration-300">
                                             {cert.title}
                                         </h3>
-                                        <a
-                                            href={cert.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                if (cert.link === "#") {
+                                                    alert("Certificate verification link will be available soon. Please contact me for verification.")
+                                                } else {
+                                                    window.open(cert.link, "_blank", "noopener,noreferrer")
+                                                }
+                                            }}
                                             className="text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] transition-all duration-300"
                                             aria-label="View Certificate"
                                         >
                                             <ExternalLink size={20} />
-                                        </a>
+                                        </button>
                                     </div>
 
                                     <div className="flex flex-wrap gap-4 mb-4 text-sm text-muted-foreground font-medium">
