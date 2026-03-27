@@ -82,7 +82,7 @@ export default function AboutSection() {
               Passionate Developer Building Digital Solutions
             </h2>
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-8 text-center md:text-left">
-              Hi, I'm Hatuma Charles. I'm a full-stack developer with over 4 years of experience creating innovative web applications.
+              Hi, I am Hatuma Charles. I am a full-stack developer with over 4 years of experience creating innovative web applications.
               I specialize in React, Node.js, and modern web technologies, with a passion for clean code and exceptional user experiences.
             </p>
 

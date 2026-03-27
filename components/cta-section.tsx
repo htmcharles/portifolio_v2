@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { ChevronRight, Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -24,10 +25,12 @@ export default function CTASection() {
       <div className="relative pt-12 md:pt-16 lg:pt-20 pb-0 overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/cta.jpg"
-            alt="CTA Background"
-            className="w-full h-full object-cover blur-[1px]"
+            alt="Workspace background"
+            fill
+            sizes="100vw"
+            className="object-cover blur-[1px]"
           />
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/40 dark:bg-black/70"></div>
@@ -86,11 +89,11 @@ export default function CTASection() {
               <p className="text-sm tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] font-semibold mb-6 uppercase">Get In Touch</p>
 
               <h2 className="text-3xl md:text-4xl xl:text-5xl font-light mb-8 text-balance leading-tight text-foreground">
-                Let's Work Together
+                Let&apos;s Work Together
               </h2>
 
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Ready to bring your project to life? I'd love to hear about your ideas and discuss how we can work together.
+                Ready to bring your project to life? I would love to hear about your ideas and discuss how we can work together.
               </p>
 
               <div className="space-y-8">

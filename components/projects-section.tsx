@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink, ChevronRight, ChevronUp } from "lucide-react"
@@ -215,10 +216,12 @@ export default function ProjectsSection() {
                             >
                                 {/* Project Image */}
                                 <div className="relative h-64 overflow-hidden bg-muted">
-                                    <img
+                                    <Image
                                         src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                        alt={`${project.title} project preview`}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                                     />
 
                                     {/* GitHub Link Overlay - Appears on Hover */}
