@@ -4,9 +4,9 @@ import React, { useState, useEffect, useRef, useCallback } from "react"
 import { Building2, Calendar, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
 
 interface Experience {
-    year: string
+    period: string
     title: string
-    company: string
+    organization: string
     description: string
     technologies: string[]
 }
@@ -150,7 +150,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
                         className="flex flex-col items-center cursor-pointer group"
                     >
                         <div className={`text-lg font-bold mb-2 transition-colors ${index === activeIndex ? "text-[#7A3B3B] dark:text-[#A85C5C]" : "text-muted-foreground/50"}`}>
-                            {item.year.split(" - ")[0]}
+                            {item.period}
                         </div>
                         <div className={`w-4 h-4 rounded-full border-2 transition-colors ${index === activeIndex
                             ? "bg-[#7A3B3B] border-[#7A3B3B] dark:bg-[#A85C5C] dark:border-[#A85C5C]"
@@ -172,14 +172,14 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
                 <div className="text-center mt-6">
                     <div className="flex items-center justify-center gap-2 text-[#7A3B3B] dark:text-[#A85C5C] font-medium mb-2">
                         <Calendar size={16} />
-                        <span>{activeItem.year}</span>
+                        <span>{activeItem.period}</span>
                     </div>
 
                     <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                         {activeItem.title}
                     </h3>
                     <div className="text-lg text-muted-foreground font-medium mb-6">
-                        {activeItem.company}
+                        {activeItem.organization}
                     </div>
 
                     <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
