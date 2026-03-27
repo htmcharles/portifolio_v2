@@ -17,8 +17,7 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
 
-      // Get all sections
-      const sections = ["hero", "skills", "about", "projects", "experience", "certificates", "testimonials", "contact"]
+      const sections = ["hero", "skills", "about", "projects", "experience", "certificates", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -73,7 +72,6 @@ export default function Navigation() {
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
     { id: "certificates", label: "Certificates" },
-    { id: "testimonials", label: "Testimonials" },
   ]
 
   return (
