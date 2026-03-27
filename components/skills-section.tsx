@@ -1,6 +1,9 @@
 "use client"
 
+import Image from "next/image"
 import { useState } from "react"
+
+const invertedIcons = ["Next.js", "Express", "GitHub", "Notion", "Three.js", "NestJS", "Django", "Prisma", "Vercel", "AWS"]
 
 export default function SkillsSection() {
   type SkillCategory = "Frontend" | "Backend" | "Database & Cloud" | "Mobile" | "Tools"
@@ -154,7 +157,7 @@ export default function SkillsSection() {
             Technologies I Work With
           </h2>
           <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
-            Explore different skill categories and hover over the icons
+            Browse the stack I use across frontend, backend, cloud, and tooling
           </p>
         </div>
 
@@ -186,31 +189,32 @@ export default function SkillsSection() {
                 const isSecondAdjacent = hoveredSkill !== null && Math.abs(hoveredSkill - index) === 2
 
                 let scale = "scale-100"
-                if (isHovered) scale = "scale-150"
-                else if (isAdjacent) scale = "scale-125"
-                else if (isSecondAdjacent) scale = "scale-110"
+                if (isHovered) scale = "scale-100 md:scale-150"
+                else if (isAdjacent) scale = "scale-100 md:scale-125"
+                else if (isSecondAdjacent) scale = "scale-100 md:scale-110"
 
                 return (
                   <div
                     key={index}
-                    className={`relative transition-all duration-300 ease-out ${scale} cursor-pointer`}
+                    className={`relative transition-all duration-300 ease-out ${scale} ${isHovered ? "z-10" : ""} cursor-pointer`}
                     onMouseEnter={() => setHoveredSkill(index)}
                     onMouseLeave={() => setHoveredSkill(null)}
                   >
-                    {/* Tooltip */}
                     {isHovered && (
-                      <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-popover text-popover-foreground text-sm px-3 py-1 rounded-lg whitespace-nowrap z-10 shadow-md border border-border">
+                      <div className="absolute -top-12 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-lg border border-border bg-popover px-3 py-1 text-sm text-popover-foreground shadow-md md:block">
                         {skill.name}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-popover"></div>
+                        <div className="absolute left-1/2 top-full h-0 w-0 -translate-x-1/2 border-l-4 border-r-4 border-t-4 border-transparent border-t-popover"></div>
                       </div>
                     )}
 
-                    {/* Icon Container */}
-                    <div className="w-16 h-16 bg-card rounded-xl shadow-md flex items-center justify-center border border-border hover:shadow-lg transition-shadow">
-                      <img
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-card shadow-md transition-shadow hover:shadow-lg md:h-16 md:w-16">
+                      <Image
                         src={skill.icon}
                         alt={skill.name}
-                        className={`w-10 h-10 object-contain ${["Next.js", "Express", "GitHub", "Notion", "Three.js", "NestJS", "Django", "Prisma", "Vercel", "AWS"].includes(skill.name) ? "dark:invert" : ""
+                        width={40}
+                        height={40}
+                        unoptimized={false}
+                        className={`h-8 w-8 object-contain md:h-10 md:w-10 ${invertedIcons.includes(skill.name) ? "dark:invert" : ""
                           }`}
                       />
                     </div>

@@ -33,7 +33,7 @@ export default function NotFound() {
                     >
                         <h2 className="text-3xl md:text-4xl font-light mb-4">Page Not Found</h2>
                         <p className="text-muted-foreground mb-10 leading-relaxed">
-                            It seems you've wandered into uncharted territory. The page you are looking for might have been moved or doesn't exist.
+                            It seems you have wandered into uncharted territory. The page you are looking for might have been moved or does not exist.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

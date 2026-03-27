@@ -6,6 +6,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { useRouter, usePathname } from "next/navigation"
 import Link from "next/link"
 
+const sections = ["hero", "skills", "about", "projects", "experience", "certificates", "contact"]
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
@@ -13,11 +15,21 @@ export default function Navigation() {
   const router = useRouter()
   const pathname = usePathname()
 
+  const scrollToSection = (sectionId: string, behavior: ScrollBehavior = "smooth") => {
+    const element = document.getElementById(sectionId)
+    if (!element) {
+      return false
+    }
+
+    element.scrollIntoView({ behavior, block: "start" })
+    window.history.replaceState(null, "", sectionId === "hero" ? "/" : `/#${sectionId}`)
+    setActiveSection(sectionId)
+    return true
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
-
-      const sections = ["hero", "skills", "about", "projects", "experience", "certificates", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -40,29 +52,30 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (pathname !== "/") {
+      return
+    }
+
+    const hash = window.location.hash.replace("#", "")
+    if (!hash) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      scrollToSection(hash)
+    }, 100)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [pathname])
+
   const handleNavClick = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault()
 
-    // About and contact are now on every page
-    const isGlobalSection = sectionId === "about" || sectionId === "contact"
-
-    if (isGlobalSection) {
-      const element = document.getElementById(sectionId)
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" })
-        setIsOpen(false)
-        return
-      }
-    }
-
-    if (pathname === "/") {
-      const element = document.getElementById(sectionId)
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" })
-      }
-    } else {
+    if (!scrollToSection(sectionId) && pathname !== "/") {
       router.push(`/#${sectionId}`)
     }
+
     setIsOpen(false)
   }
 
@@ -102,7 +115,7 @@ export default function Navigation() {
           {navItems.map((item) => (
             <Link
               key={item.id}
-              href={item.id === "about" ? "#about" : `/#${item.id}`}
+              href={item.id === "hero" ? "/" : `/#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id || (pathname === `/${item.id}` && item.id !== "about")
                 ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
@@ -124,7 +137,7 @@ export default function Navigation() {
                 : "bg-[#7A3B3B] text-white hover:bg-[#6a3333]"
                 }`}
             >
-              Let's Talk
+              Let&apos;s Talk
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -145,7 +158,7 @@ export default function Navigation() {
           {navItems.map((item) => (
             <Link
               key={item.id}
-              href={item.id === "about" ? "#about" : `/#${item.id}`}
+              href={item.id === "hero" ? "/" : `/#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
               className={`block w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 ${activeSection === item.id || (pathname === `/${item.id}` && item.id !== "about")
                 ? "bg-muted text-[#7A3B3B] dark:text-white font-medium"
@@ -162,7 +175,7 @@ export default function Navigation() {
               : "bg-[#7A3B3B] text-white"
               }`}
           >
-            Let's Talk
+            Let&apos;s Talk
             <ArrowRight size={16} />
           </button>
         </div>

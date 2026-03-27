@@ -1,3 +1,6 @@
+"use client"
+
+import Image from "next/image"
 import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -38,10 +41,14 @@ export default function HeroSection() {
 
           {/* Right image */}
           <div className="relative">
-            <img
+            <Image
               src="/images/hatuma-charles.jpg"
               alt="Hatuma Charles - Full-Stack Developer"
-              className="w-full h-auto rounded-3xl object-cover"
+              width={900}
+              height={1100}
+              priority
+              sizes="(min-width: 1200px) 50vw, 100vw"
+              className="h-auto w-full rounded-3xl object-cover"
             />
             {/* Floating badges */}
             <div className="absolute top-6 right-6 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
@@ -87,10 +94,13 @@ export default function HeroSection() {
           </div>
 
           <div className="relative">
-            <img
+            <Image
               src="/images/hatuma-charles.jpg"
               alt="Hatuma Charles - Full-Stack Developer"
-              className="w-full h-auto rounded-3xl object-cover"
+              width={900}
+              height={1100}
+              sizes="(min-width: 810px) 50vw, 100vw"
+              className="h-auto w-full rounded-3xl object-cover"
             />
             {/* Floating badges */}
             <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
@@ -136,10 +146,13 @@ export default function HeroSection() {
           </div>
 
           <div className="relative p-4">
-            <img
+            <Image
               src="/images/hatuma-charles.jpg"
               alt="Hatuma Charles - Full-Stack Developer"
-              className="w-full h-auto rounded-3xl object-cover shadow-2xl"
+              width={900}
+              height={1100}
+              sizes="100vw"
+              className="h-auto w-full rounded-3xl object-cover shadow-2xl"
             />
             {/* Floating badges for mobile */}
             <div className="absolute top-8 right-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">

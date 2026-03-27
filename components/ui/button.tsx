@@ -10,9 +10,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-[#7A3B3B] text-white border border-[#7A3B3B] hover:bg-white hover:text-[#7A3B3B]',
+          'bg-primary text-primary-foreground border border-primary hover:bg-background hover:text-primary',
         social:
-          'bg-[#7A3B3B] text-white border border-[#7A3B3B] hover:bg-white hover:text-[#7A3B3B]',
+          'bg-primary text-primary-foreground border border-primary hover:bg-background hover:text-primary',
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline:
@@ -73,17 +73,16 @@ function Button({
         className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       >
-        {/* Icon LEFT */}
-        <div
+        <span
+          aria-hidden="true"
           className={cn(
             sizeClasses[currentSize].icon,
-            "bg-white text-[#7A3B3B] rounded-full flex items-center justify-center transition group-hover:bg-white group-hover:text-[#7A3B3B] [&_svg]:pointer-events-none [&_svg]:shrink-0"
+            "bg-primary-foreground text-primary rounded-full flex items-center justify-center transition group-hover:bg-primary/10 group-hover:text-primary [&_svg]:pointer-events-none [&_svg]:shrink-0"
           )}
         >
           {icon}
-        </div>
+        </span>
 
-        {/* Text */}
         <span className={sizeClasses[currentSize].text}>
           {children}
         </span>
