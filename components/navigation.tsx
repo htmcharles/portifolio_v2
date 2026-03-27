@@ -1,9 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Menu, X, ArrowRight } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { useRouter, usePathname } from "next/navigation"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 
 const sections = ["hero", "skills", "about", "projects", "experience", "certificates", "contact"]
@@ -12,20 +13,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [isScrolled, setIsScrolled] = useState(false)
-  const router = useRouter()
   const pathname = usePathname()
-
-  const scrollToSection = (sectionId: string, behavior: ScrollBehavior = "smooth") => {
-    const element = document.getElementById(sectionId)
-    if (!element) {
-      return false
-    }
-
-    element.scrollIntoView({ behavior, block: "start" })
-    window.history.replaceState(null, "", sectionId === "hero" ? "/" : `/#${sectionId}`)
-    setActiveSection(sectionId)
-    return true
-  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,33 +40,6 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  useEffect(() => {
-    if (pathname !== "/") {
-      return
-    }
-
-    const hash = window.location.hash.replace("#", "")
-    if (!hash) {
-      return
-    }
-
-    const timeoutId = window.setTimeout(() => {
-      scrollToSection(hash)
-    }, 100)
-
-    return () => window.clearTimeout(timeoutId)
-  }, [pathname])
-
-  const handleNavClick = (e: React.MouseEvent, sectionId: string) => {
-    e.preventDefault()
-
-    if (!scrollToSection(sectionId) && pathname !== "/") {
-      router.push(`/#${sectionId}`)
-    }
-
-    setIsOpen(false)
-  }
-
   const navItems = [
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
@@ -86,6 +47,8 @@ export default function Navigation() {
     { id: "experience", label: "Experience" },
     { id: "certificates", label: "Certificates" },
   ]
+
+  const sectionHref = (sectionId: string) => (pathname === "/" ? `#${sectionId}` : `/#${sectionId}`)
 
   return (
     <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled
@@ -105,7 +68,7 @@ export default function Navigation() {
           }}
         >
           <div className="w-8 h-8 bg-[#7A3B3B] rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
-            <span className="text-white text-xs font-bold">HC</span>
+            <Image src="/logo.svg" alt="Hatuma Charles logo" width={32} height={32} className="h-8 w-8" />
           </div>
           <span className="text-lg font-semibold text-[#7A3B3B] dark:text-white hidden sm:block">Hatuma</span>
         </Link>
@@ -115,8 +78,8 @@ export default function Navigation() {
           {navItems.map((item) => (
             <Link
               key={item.id}
-              href={item.id === "hero" ? "/" : `/#${item.id}`}
-              onClick={(e) => handleNavClick(e, item.id)}
+              href={sectionHref(item.id)}
+              onClick={() => setIsOpen(false)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id || (pathname === `/${item.id}` && item.id !== "about")
                 ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
                 : "text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-white hover:bg-muted/30"
@@ -130,8 +93,9 @@ export default function Navigation() {
         <div className="flex items-center gap-2 pl-2">
           <div className="hidden md:flex items-center gap-2 mr-1">
             <ThemeToggle />
-            <button
-              onClick={(e) => handleNavClick(e, "contact")}
+            <Link
+              href={sectionHref("contact")}
+              onClick={() => setIsOpen(false)}
               className={`group flex items-center gap-2 px-5 py-2 rounded-full font-medium text-xs transition-all duration-300 whitespace-nowrap flex-shrink-0 ${activeSection === "contact"
                 ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
                 : "bg-[#7A3B3B] text-white hover:bg-[#6a3333]"
@@ -139,7 +103,7 @@ export default function Navigation() {
             >
               Let&apos;s Talk
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -158,8 +122,8 @@ export default function Navigation() {
           {navItems.map((item) => (
             <Link
               key={item.id}
-              href={item.id === "hero" ? "/" : `/#${item.id}`}
-              onClick={(e) => handleNavClick(e, item.id)}
+              href={sectionHref(item.id)}
+              onClick={() => setIsOpen(false)}
               className={`block w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 ${activeSection === item.id || (pathname === `/${item.id}` && item.id !== "about")
                 ? "bg-muted text-[#7A3B3B] dark:text-white font-medium"
                 : "text-muted-foreground hover:bg-muted/50 hover:text-[#7A3B3B] dark:hover:text-white"
@@ -168,8 +132,9 @@ export default function Navigation() {
               {item.label}
             </Link>
           ))}
-          <button
-            onClick={(e) => handleNavClick(e, "contact")}
+          <Link
+            href={sectionHref("contact")}
+            onClick={() => setIsOpen(false)}
             className={`flex items-center justify-between w-full px-4 py-3 mt-2 rounded-xl font-semibold ${activeSection === "contact"
               ? "bg-muted text-[#7A3B3B] dark:text-white"
               : "bg-[#7A3B3B] text-white"
@@ -177,7 +142,7 @@ export default function Navigation() {
           >
             Let&apos;s Talk
             <ArrowRight size={16} />
-          </button>
+          </Link>
         </div>
       )}
     </nav>

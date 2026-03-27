@@ -52,13 +52,13 @@ export default function HeroSection() {
             />
             {/* Floating badges */}
             <div className="absolute top-6 right-6 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Creative</span>
+              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">SEO-Ready Frontends</span>
             </div>
             <div className="absolute bottom-20 left-6 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Innovative</span>
+              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Type-Safe Backend</span>
             </div>
             <div className="absolute bottom-6 right-12 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Reliable</span>
+              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Accessible UI Systems</span>
             </div>
           </div>
         </div>
@@ -104,13 +104,13 @@ export default function HeroSection() {
             />
             {/* Floating badges */}
             <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Creative</span>
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">SEO-Ready</span>
             </div>
             <div className="absolute bottom-16 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Innovative</span>
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Type-Safe</span>
             </div>
             <div className="absolute bottom-4 right-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Reliable</span>
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Accessible</span>
             </div>
           </div>
         </div>
@@ -156,13 +156,13 @@ export default function HeroSection() {
             />
             {/* Floating badges for mobile */}
             <div className="absolute top-8 right-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Creative</span>
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">SEO-Ready</span>
             </div>
             <div className="absolute bottom-20 left-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Innovative</span>
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Type-Safe</span>
             </div>
             <div className="absolute bottom-8 right-12 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Reliable</span>
+              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Accessible</span>
             </div>
           </div>
         </div>

@@ -47,7 +47,7 @@ export default function CTASection() {
   }, [formState])
 
   return (
-    <section id="contact" className="w-full">
+    <section id="contact" className="w-full scroll-mt-28">
       {/* Top Section: Central CTA Card with Background */}
       <div className="relative pt-12 md:pt-16 lg:pt-20 pb-0 overflow-hidden">
         {/* Background image */}

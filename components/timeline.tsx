@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useState, useEffect, useRef, useCallback } from "react"
-import { Building2, Calendar, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
+import React, { useState, useEffect } from "react"
+import { Building2, Calendar, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface Experience {
     period: string
@@ -13,46 +13,21 @@ interface Experience {
 
 interface TimelineProps {
     items: Experience[]
-    autoLoop?: boolean
 }
 
-export default function Timeline({ items, autoLoop = false }: TimelineProps) {
+export default function Timeline({ items }: TimelineProps) {
     const [activeIndex, setActiveIndex] = useState(0)
-    const [isAutoLooping, setIsAutoLooping] = useState(autoLoop)
-    const [isPaused, setIsPaused] = useState(false)
-    const containerRef = useRef<HTMLDivElement>(null)
 
-    // Handle auto-looping
-    useEffect(() => {
-        let interval: NodeJS.Timeout
-
-        if (isAutoLooping && !isPaused) {
-            interval = setInterval(() => {
-                setActiveIndex((prev) => (prev + 1) % items.length)
-            }, 3000)
-        }
-
-        return () => clearInterval(interval)
-    }, [isAutoLooping, isPaused, items.length])
-
-    // Handle manual navigation
     const handleItemClick = (index: number) => {
         setActiveIndex(index)
-        setIsPaused(true) // Pause auto-loop on interaction
-        // Resume after 5 seconds of inactivity
-        setTimeout(() => setIsPaused(false), 5000)
     }
 
     const handleNext = () => {
         setActiveIndex((prev) => (prev + 1) % items.length)
-        setIsPaused(true)
-        setTimeout(() => setIsPaused(false), 5000)
     }
 
     const handlePrev = () => {
         setActiveIndex((prev) => (prev - 1 + items.length) % items.length)
-        setIsPaused(true)
-        setTimeout(() => setIsPaused(false), 5000)
     }
 
     const [isMobile, setIsMobile] = useState(false)
@@ -118,25 +93,7 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
 
     return (
         <div className="w-full max-w-5xl mx-auto px-4">
-            {/* Controls */}
-            <div className="flex justify-center items-center gap-4 mb-2 md:mb-4">
-                <div className="flex items-center gap-2 bg-card rounded-full px-4 py-2 shadow-sm border border-border">
-                    <span className="text-sm font-medium text-muted-foreground">Auto-loop</span>
-                    <button
-                        onClick={() => setIsAutoLooping(!isAutoLooping)}
-                        className={`w-10 h-5 rounded-full transition-colors relative ${isAutoLooping ? "bg-[#7A3B3B]" : "bg-muted-foreground/30"
-                            }`}
-                    >
-                        <div
-                            className={`absolute top-1 left-1 w-3 h-3 bg-white rounded-full transition-transform ${isAutoLooping ? "translate-x-5" : "translate-x-0"
-                                }`}
-                        />
-                    </button>
-                </div>
-            </div>
-
-            {/* Timeline Visual */}
-            <div className="relative h-40 mb-8 md:mb-12 overflow-hidden" ref={containerRef}>
+            <div className="relative h-40 mb-8 md:mb-12 overflow-hidden">
                 {/* Curved Line (SVG) - Decorative */}
                 <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-20 opacity-20 pointer-events-none" viewBox="0 0 600 100">
                     <path d="M0,100 Q300,0 600,100" fill="none" stroke="#7A3B3B" strokeWidth="2" />
@@ -198,21 +155,24 @@ export default function Timeline({ items, autoLoop = false }: TimelineProps) {
                     </div>
                 </div>
 
-                {/* Navigation Buttons */}
-                <button
-                    onClick={handlePrev}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] transition-colors"
-                    aria-label="Previous experience"
-                >
-                    <ChevronLeft size={24} />
-                </button>
-                <button
-                    onClick={handleNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] transition-colors"
-                    aria-label="Next experience"
-                >
-                    <ChevronRight size={24} />
-                </button>
+                <div className="mt-8 flex justify-center gap-3">
+                    <button
+                        onClick={handlePrev}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-full bg-muted px-5 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80 hover:text-[#7A3B3B] dark:hover:text-[#A85C5C]"
+                        aria-label="Previous experience"
+                    >
+                        <ChevronLeft size={18} />
+                        Previous
+                    </button>
+                    <button
+                        onClick={handleNext}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-full bg-muted px-5 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80 hover:text-[#7A3B3B] dark:hover:text-[#A85C5C]"
+                        aria-label="Next experience"
+                    >
+                        Next
+                        <ChevronRight size={18} />
+                    </button>
+                </div>
             </div>
         </div>
     )
