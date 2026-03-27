@@ -1,7 +1,5 @@
 import Navigation from "@/components/navigation"
 import SkillsSection from "@/components/skills-section"
-import AboutSection from "@/components/about-section"
-import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 
 export const metadata = {
@@ -14,9 +12,7 @@ export default function SkillsPage() {
         <main className="bg-background text-foreground min-h-screen">
             <Navigation />
             <div className="pt-20">
-                <AboutSection />
                 <SkillsSection />
-                <CTASection />
             </div>
             <Footer />
         </main>
