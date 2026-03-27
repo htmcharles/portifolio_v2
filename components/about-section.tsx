@@ -14,7 +14,7 @@ export default function AboutSection() {
   ]
 
   return (
-    <section id="about" className="w-full bg-background py-16 md:py-24">
+    <section id="about" className="w-full bg-background py-16 md:py-24 scroll-mt-28">
       <div className="w-full px-4 md:px-12 lg:px-20 xl:px-40 max-w-[1920px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Photo Section */}

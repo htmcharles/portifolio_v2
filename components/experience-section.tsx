@@ -7,7 +7,7 @@ export default function ExperienceSection() {
       title: "Independent Full-Stack Development",
       organization: "Client-style builds and portfolio products",
       description:
-        "Designing and shipping polished web products with a focus on clean architecture, strong UX, and production-ready delivery across projects like TableSeven, Firmora, ChemCore, and Agaciro Health.",
+        "Designed and shipped polished web products that improved brand presentation, product clarity, and launch-readiness across projects like TableSeven, Firmora, ChemCore, and Agaciro Health.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     },
     {
@@ -15,7 +15,7 @@ export default function ExperienceSection() {
       title: "Workflow and Operations Systems",
       organization: "Healthcare, education, and internal tooling",
       description:
-        "Built systems for assignment submission, bookings, and staff visibility, including RCA E-Submit, CMSP, SendIt, and Ireme, with attention to usability, data flow, and maintainability.",
+        "Built systems for assignment intake, bookings, and internal visibility that centralized operational workflows across RCA E-Submit, CMSP, SendIt, and Ireme.",
       technologies: ["Spring Boot", "Java", "MySQL", "PostgreSQL"],
     },
     {
@@ -23,7 +23,7 @@ export default function ExperienceSection() {
       title: "Marketing Sites and Product Interfaces",
       organization: "Business, healthcare, and service brands",
       description:
-        "Produced responsive websites and landing pages for multiple domains, balancing visual polish, fast load times, and straightforward content structure for real-world launches.",
+        "Produced responsive websites and product interfaces that strengthened first impressions, improved content hierarchy, and kept performance standards high for real-world launches.",
       technologies: ["React", "Next.js", "JavaScript", "CSS"],
     },
     {
@@ -31,7 +31,7 @@ export default function ExperienceSection() {
       title: "Backend and Product Engineering Practice",
       organization: "Self-directed learning and applied builds",
       description:
-        "Strengthened core engineering skills through full-stack experiments and iterative product work, building fluency in API design, relational data, deployment, and debugging.",
+        "Strengthened core engineering skills through iterative product work and backend experiments, building repeatable fluency in API design, relational data, deployment, and debugging.",
       technologies: ["Node.js", "Hibernate", "Git", "REST APIs"],
     },
   ]
@@ -49,7 +49,7 @@ export default function ExperienceSection() {
           </p>
         </div>
 
-        <Timeline items={experiences} autoLoop={false} />
+        <Timeline items={experiences} />
       </div>
     </section >
   )
