@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronRight, Mail, Phone, MapPin, Video } from "lucide-react"
+import { ChevronRight, Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Select,
@@ -54,24 +54,24 @@ export default function CTASection() {
 
             <div className="inline-block bg-muted px-3 py-1 rounded-full mb-6">
               <span className="text-[10px] font-bold tracking-[0.2em] text-[#7A3B3B] uppercase">
-                Your New Beginning
+                Available for Projects
               </span>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-light mb-6 text-balance leading-tight text-foreground">
-              Take the First Step Toward the Life You Deserve
+              Need a reliable engineer to turn product ideas into shipped software?
             </h2>
 
             <p className="text-muted-foreground text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto">
-              Over 300 individuals have reclaimed their confidence, rebuilt relationships, and found emotional peace. You can, too.
+              I build performant interfaces, maintainable backends, and production-ready user experiences for teams that care about speed, clarity, and quality.
             </p>
 
             <Button
               size="lg"
               onClick={scrollToForm}
-              icon={<Video />}
+              icon={<ChevronRight />}
             >
-              Book A Session
+              Start a Project Inquiry
             </Button>
           </div>
         </div>
