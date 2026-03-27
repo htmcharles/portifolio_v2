@@ -1,23 +1,50 @@
 "use client"
 
 import Image from "next/image"
+import { useActionState, useEffect, useRef } from "react"
+import { useFormStatus } from "react-dom"
+import { toast } from "sonner"
 import { ChevronRight, Mail, Phone, MapPin } from "lucide-react"
+import { initialContactFormState, submitContactForm } from "@/app/actions/contact"
 import { Button } from "@/components/ui/button"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+
+  return (
+    <Button
+      type="submit"
+      size="lg"
+      className="w-full"
+      icon={<ChevronRight />}
+      disabled={pending}
+    >
+      {pending ? "Sending Message..." : "Send Message"}
+    </Button>
+  )
+}
 
 export default function CTASection() {
+  const formRef = useRef<HTMLFormElement>(null)
+  const [formState, formAction] = useActionState(submitContactForm, initialContactFormState)
+
   const scrollToForm = () => {
     const formElement = document.getElementById("contact-form-container")
     if (formElement) {
       formElement.scrollIntoView({ behavior: "smooth" })
     }
   }
+
+  useEffect(() => {
+    if (formState.status === "success") {
+      toast.success(formState.message)
+      formRef.current?.reset()
+    }
+
+    if (formState.status === "error") {
+      toast.error(formState.message)
+    }
+  }, [formState])
 
   return (
     <section id="contact" className="w-full">
@@ -124,20 +151,9 @@ export default function CTASection() {
                 <h3 className="text-2xl font-light text-foreground">Send a Message</h3>
               </div>
               <form
+                ref={formRef}
                 className="space-y-6"
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  const formData = new FormData(e.currentTarget)
-                  const subject = `New Project Inquiry: ${formData.get('projectType')}`
-                  const body = `Name: ${formData.get('firstName')} ${formData.get('lastName')}
-Email: ${formData.get('email')}
-Project Type: ${formData.get('projectType')}
-
-Message:
-${formData.get('message')}`
-
-                  window.location.href = `mailto:hatumacharles1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-                }}
+                action={formAction}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -162,6 +178,11 @@ ${formData.get('message')}`
                   </div>
                 </div>
 
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="company">Company</label>
+                  <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Email</label>
                   <input
@@ -175,18 +196,21 @@ ${formData.get('message')}`
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Project Type</label>
-                  <Select name="projectType" required>
-                    <SelectTrigger className="w-full px-4 py-6 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground">
-                      <SelectValue placeholder="Select a project type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Web Application">Web Application</SelectItem>
-                      <SelectItem value="E-commerce Site">E-commerce Site</SelectItem>
-                      <SelectItem value="Mobile App">Mobile App</SelectItem>
-                      <SelectItem value="API Development">API Development</SelectItem>
-                      <SelectItem value="Other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <select
+                    name="projectType"
+                    required
+                    defaultValue=""
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition focus:border-transparent focus:ring-2 focus:ring-[#7A3B3B]"
+                  >
+                    <option value="" disabled>
+                      Select a project type
+                    </option>
+                    <option value="Web Application">Web Application</option>
+                    <option value="E-commerce Site">E-commerce Site</option>
+                    <option value="Mobile App">Mobile App</option>
+                    <option value="API Development">API Development</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
 
                 <div>
@@ -200,14 +224,15 @@ ${formData.get('message')}`
                   ></textarea>
                 </div>
 
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full"
-                  icon={<ChevronRight />}
-                >
-                  Send Message
-                </Button>
+                <p className="text-sm text-muted-foreground">
+                  Messages are sent directly from the site. If the form is not configured yet, I can still be reached at{" "}
+                  <a href="mailto:hatumacharles1@gmail.com" className="text-[#7A3B3B] underline underline-offset-4">
+                    hatumacharles1@gmail.com
+                  </a>
+                  .
+                </p>
+
+                <SubmitButton />
               </form>
             </div>
           </div>
