@@ -4,146 +4,146 @@ import Image from "next/image"
 import { useState } from "react"
 
 const invertedIcons = ["Next.js", "Express", "GitHub", "Notion", "Three.js", "NestJS", "Django", "Prisma", "Vercel", "AWS"]
+type SkillCategory = "Frontend" | "Backend" | "Database & Cloud" | "Mobile" | "Tools"
+type Skill = { name: string; icon: string }
 
 export default function SkillsSection() {
-  type SkillCategory = "Frontend" | "Backend" | "Database & Cloud" | "Mobile" | "Tools"
-
   const [hoveredSkill, setHoveredSkill] = useState<number | null>(null)
   const [activeTab, setActiveTab] = useState<SkillCategory>("Frontend")
 
-  const skillCategories: Record<SkillCategory, { name: string; icon: string }[]> = {
+  const skillCategories: Record<SkillCategory, Skill[]> = {
     "Frontend": [
       {
         name: "React",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        icon: "/icons/skills/react.svg",
       },
       {
         name: "Next.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+        icon: "/icons/skills/nextjs.svg",
       },
       {
         name: "TypeScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+        icon: "/icons/skills/typescript.svg",
       },
       {
         name: "Vue.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+        icon: "/icons/skills/vuejs.svg",
       },
       {
         name: "Svelte",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg",
+        icon: "/icons/skills/svelte.svg",
       },
       {
         name: "Three.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg",
+        icon: "/icons/skills/threejs.svg",
       },
     ],
     "Backend": [
       {
         name: "Node.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        icon: "/icons/skills/nodejs.svg",
       },
       {
         name: "GraphQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+        icon: "/icons/skills/graphql.svg",
       },
       {
         name: "Prisma",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+        icon: "/icons/skills/prisma.svg",
       },
       {
         name: "Spring Boot",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+        icon: "/icons/skills/spring.svg",
       },
       {
         name: "Django",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+        icon: "/icons/skills/django.svg",
       },
       {
         name: "Python",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+        icon: "/icons/skills/python.svg",
       },
       {
         name: "Go",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg",
+        icon: "/icons/skills/go.svg",
       },
       {
         name: "Java",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        icon: "/icons/skills/java.svg",
       },
       {
         name: "C#",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+        icon: "/icons/skills/csharp.svg",
       },
       {
         name: "PHP",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+        icon: "/icons/skills/php.svg",
       },
     ],
     "Database & Cloud": [
       {
         name: "PostgreSQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+        icon: "/icons/skills/postgresql.svg",
       },
       {
         name: "MySQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        icon: "/icons/skills/mysql.svg",
       },
       {
         name: "MongoDB",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+        icon: "/icons/skills/mongodb.svg",
       },
       {
         name: "Redis",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+        icon: "/icons/skills/redis.svg",
       },
       {
         name: "Supabase",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+        icon: "/icons/skills/supabase.svg",
       },
       {
         name: "Firebase",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+        icon: "/icons/skills/firebase.svg",
       },
       {
         name: "AWS",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+        icon: "/icons/skills/aws.svg",
       },
       {
         name: "Vercel",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+        icon: "/icons/skills/vercel.svg",
       },
       {
         name: "Docker",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+        icon: "/icons/skills/docker.svg",
       },
     ],
     "Mobile": [
       {
         name: "React Native",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        icon: "/icons/skills/react.svg",
       },
       {
         name: "Swift",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+        icon: "/icons/skills/swift.svg",
       },
       {
         name: "Dart (Flutter)",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+        icon: "/icons/skills/dart.svg",
       },
     ],
     "Tools": [
       {
         name: "Git",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+        icon: "/icons/skills/git.svg",
       },
       {
         name: "Figma",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+        icon: "/icons/skills/figma.svg",
       },
       {
         name: "Postman",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+        icon: "/icons/skills/postman.svg",
       },
     ]
   }
@@ -195,7 +195,7 @@ export default function SkillsSection() {
 
                 return (
                   <div
-                    key={index}
+                    key={skill.name}
                     className={`relative transition-all duration-300 ease-out ${scale} ${isHovered ? "z-10" : ""} cursor-pointer`}
                     onMouseEnter={() => setHoveredSkill(index)}
                     onMouseLeave={() => setHoveredSkill(null)}
