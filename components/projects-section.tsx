@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -149,6 +150,19 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
                                                 {tech}
                                             </span>
                                         ))}
+                                    </div>
+
+                                    <div className="mt-5 flex items-center justify-between gap-4">
+                                        <span className="text-xs font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
+                                            {project.type}
+                                        </span>
+                                        <Link
+                                            href={`/projects/${project.slug}`}
+                                            className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-[#7A3B3B] dark:hover:text-[#A85C5C]"
+                                        >
+                                            Case Study
+                                            <ChevronRight size={16} />
+                                        </Link>
                                     </div>
 
                                     <div className="mt-5 flex flex-wrap gap-3 md:hidden">
