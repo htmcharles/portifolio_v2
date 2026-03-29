@@ -5,6 +5,8 @@ import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function HeroSection() {
+  const capabilityBadges = ["SEO-Ready Frontends", "Type-Safe Backend", "Accessible UI Systems"]
+
   return (
     <section id="hero" className="bg-background pt-16">
       <div className="w-full px-4 md:px-12 lg:px-20 xl:px-40 max-w-[1920px] mx-auto">
@@ -93,7 +95,7 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          <div className="relative">
+          <div className="space-y-4">
             <Image
               src="/images/hatuma-charles.jpg"
               alt="Hatuma Charles - Full-Stack Developer"
@@ -102,15 +104,16 @@ export default function HeroSection() {
               sizes="(min-width: 810px) 50vw, 100vw"
               className="h-auto w-full rounded-3xl object-cover"
             />
-            {/* Floating badges */}
-            <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">SEO-Ready</span>
-            </div>
-            <div className="absolute bottom-16 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Type-Safe</span>
-            </div>
-            <div className="absolute bottom-4 right-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Accessible</span>
+
+            <div className="flex flex-wrap gap-3">
+              {capabilityBadges.map((badge) => (
+                <div
+                  key={badge}
+                  className="rounded-full bg-white/90 px-3 py-1.5 shadow-lg backdrop-blur-sm dark:bg-black/80"
+                >
+                  <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">{badge}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -145,7 +148,7 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          <div className="relative p-4">
+          <div className="space-y-4 p-4">
             <Image
               src="/images/hatuma-charles.jpg"
               alt="Hatuma Charles - Full-Stack Developer"
@@ -154,15 +157,15 @@ export default function HeroSection() {
               sizes="100vw"
               className="h-auto w-full rounded-3xl object-cover shadow-2xl"
             />
-            {/* Floating badges for mobile */}
-            <div className="absolute top-8 right-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">SEO-Ready</span>
-            </div>
-            <div className="absolute bottom-20 left-8 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Type-Safe</span>
-            </div>
-            <div className="absolute bottom-8 right-12 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-              <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Accessible</span>
+            <div className="flex flex-wrap justify-center gap-3">
+              {capabilityBadges.map((badge) => (
+                <div
+                  key={badge}
+                  className="rounded-full bg-white/90 px-3 py-1.5 shadow-lg backdrop-blur-sm dark:bg-black/80"
+                >
+                  <span className="text-xs font-medium text-[#7A3B3B] dark:text-[#A85C5C]">{badge}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -3,113 +3,122 @@
 import { motion } from "framer-motion"
 import { Award, ExternalLink, Calendar, Building2 } from "lucide-react"
 
+type Certificate = {
+  title: string
+  issuer: string
+  date: string
+  description: string
+  link?: string
+}
+
 export default function CertificatesSection() {
-    const certificates = [
-        {
-            title: "Full Stack Web Development",
-            issuer: "Meta (via Coursera)",
-            date: "2023",
-            link: "#",
-            description: "Advanced certification covering modern frontend and backend technologies including React, Django, and cloud deployment."
-        },
-        {
-            title: "AWS Certified Developer – Associate",
-            issuer: "Amazon Web Services",
-            date: "2023",
-            link: "#",
-            description: "Hands-on experience with AWS services, including Lambda, DynamoDB, API Gateway, and S3 for scalable applications."
-        },
-        {
-            title: "Professional Java Developer",
-            issuer: "Oracle",
-            date: "2022",
-            link: "#",
-            description: "Comprehensive certification on Java SE, covering OOP principles, collections, concurrency, and database connectivity."
-        },
-        {
-            title: "Responsive Web Design",
-            issuer: "freeCodeCamp",
-            date: "2021",
-            link: "#",
-            description: "In-depth training on HTML5, CSS3, Flexbox, and Grid to build modern, mobile-first web applications."
-        }
-    ];
+  const certificates: Certificate[] = [
+    {
+      title: "Full Stack Web Development",
+      issuer: "Meta (via Coursera)",
+      date: "2023",
+      description:
+        "Advanced certification covering modern frontend and backend technologies including React, Django, and cloud deployment.",
+    },
+    {
+      title: "AWS Certified Developer - Associate",
+      issuer: "Amazon Web Services",
+      date: "2023",
+      description:
+        "Hands-on experience with AWS services, including Lambda, DynamoDB, API Gateway, and S3 for scalable applications.",
+    },
+    {
+      title: "Professional Java Developer",
+      issuer: "Oracle",
+      date: "2022",
+      description:
+        "Comprehensive certification on Java SE, covering OOP principles, collections, concurrency, and database connectivity.",
+    },
+    {
+      title: "Responsive Web Design",
+      issuer: "freeCodeCamp",
+      date: "2021",
+      description:
+        "In-depth training on HTML5, CSS3, Flexbox, and Grid to build modern, mobile-first web applications.",
+    },
+  ]
 
-    return (
-        <section id="certificates" className="w-full bg-muted/30 dark:bg-background/95 py-16 md:py-24 relative overflow-hidden scroll-mt-28">
-            {/* Decorative Background Elements */}
-            <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-[#7A3B3B]/5 dark:bg-[#A85C5C]/5 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[20%] left-[10%] w-64 h-64 bg-primary/5 dark:bg-primary/2 rounded-full blur-[100px]" />
-            </div>
+  return (
+    <section
+      id="certificates"
+      className="relative w-full overflow-hidden bg-muted/30 py-16 scroll-mt-28 dark:bg-background/95 md:py-24"
+    >
+      <div className="pointer-events-none absolute top-0 right-0 h-full w-full overflow-hidden">
+        <div className="absolute top-[20%] right-[10%] h-72 w-72 rounded-full bg-[#7A3B3B]/5 blur-[120px] dark:bg-[#A85C5C]/5" />
+        <div className="absolute bottom-[20%] left-[10%] h-64 w-64 rounded-full bg-primary/5 blur-[100px] dark:bg-primary/2" />
+      </div>
 
-            <div className="w-full px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-                <div className="text-center mb-16">
-                    <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4 uppercase">Achievements</p>
-                    <h2 className="text-3xl md:text-5xl font-light text-foreground leading-relaxed text-balance">
-                        Certifications & Awards
-                    </h2>
-                    <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
-                        Professional milestones and technical validations of my expertise
-                    </p>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 md:px-6">
+        <div className="mb-16 text-center">
+          <p className="mb-4 text-sm font-semibold tracking-widest text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
+            Achievements
+          </p>
+          <h2 className="text-balance text-3xl leading-relaxed font-light text-foreground md:text-5xl">
+            Certifications & Awards
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            Professional milestones and technical validations of my expertise
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {certificates.map((cert, index) => (
+            <motion.div
+              key={cert.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group relative rounded-2xl border border-border/50 bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-muted/50 hover:shadow-xl dark:border-border/20 dark:bg-card/40 dark:hover:bg-card/60 md:p-8"
+            >
+              <div className="flex items-start gap-6">
+                <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#7A3B3B]/10 text-[#7A3B3B] shadow-sm transition-all duration-300 group-hover:bg-[#7A3B3B]/20 dark:bg-[#A85C5C]/10 dark:text-[#A85C5C] dark:group-hover:bg-[#A85C5C]/20 sm:flex">
+                  <Award size={32} />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {certificates.map((cert, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative bg-background dark:bg-card/40 hover:bg-muted/50 dark:hover:bg-card/60 border border-border/50 dark:border-border/20 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                        >
-                            <div className="flex items-start gap-6">
-                                <div className="hidden sm:flex shrink-0 w-16 h-16 rounded-xl bg-[#7A3B3B]/10 dark:bg-[#A85C5C]/10 items-center justify-center text-[#7A3B3B] dark:text-[#A85C5C] group-hover:bg-[#7A3B3B]/20 dark:group-hover:bg-[#A85C5C]/20 transition-all duration-300 shadow-sm">
-                                    <Award size={32} />
-                                </div>
+                <div className="flex-1">
+                  <div className="mb-2 flex items-start justify-between gap-4">
+                    <h3 className="text-xl font-semibold text-foreground transition-colors duration-300 group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C]">
+                      {cert.title}
+                    </h3>
+                    {cert.link && (
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground transition-all duration-300 hover:text-[#7A3B3B] dark:hover:text-[#A85C5C]"
+                        aria-label={`View ${cert.title} certificate`}
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                  </div>
 
-                                <div className="flex-1">
-                                    <div className="flex justify-between items-start mb-2">
-                                        <h3 className="text-xl font-semibold text-foreground group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C] transition-colors duration-300">
-                                            {cert.title}
-                                        </h3>
-                                        <button
-                                            onClick={(e) => {
-                                                e.preventDefault()
-                                                if (cert.link === "#") {
-                                                    alert("Certificate verification link will be available soon. Please contact me for verification.")
-                                                } else {
-                                                    window.open(cert.link, "_blank", "noopener,noreferrer")
-                                                }
-                                            }}
-                                            className="text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-[#A85C5C] transition-all duration-300"
-                                            aria-label="View Certificate"
-                                        >
-                                            <ExternalLink size={20} />
-                                        </button>
-                                    </div>
+                  <div className="mb-4 flex flex-wrap gap-4 text-sm font-medium text-muted-foreground">
+                    <span className="flex items-center gap-1.5">
+                      <Building2 size={14} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
+                      {cert.issuer}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Calendar size={14} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
+                      {cert.date}
+                    </span>
+                  </div>
 
-                                    <div className="flex flex-wrap gap-4 mb-4 text-sm text-muted-foreground font-medium">
-                                        <span className="flex items-center gap-1.5">
-                                            <Building2 size={14} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
-                                            {cert.issuer}
-                                        </span>
-                                        <span className="flex items-center gap-1.5">
-                                            <Calendar size={14} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
-                                            {cert.date}
-                                        </span>
-                                    </div>
-
-                                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
-                                        {cert.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                  <p className="text-sm leading-relaxed text-muted-foreground transition-all duration-500 group-hover:line-clamp-none line-clamp-2">
+                    {cert.description}
+                  </p>
                 </div>
-            </div>
-        </section>
-    );
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }

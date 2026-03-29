@@ -70,7 +70,7 @@ export default function Navigation() {
           <div className="w-8 h-8 bg-[#7A3B3B] rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
             <Image src="/logo.svg" alt="Hatuma Charles logo" width={32} height={32} className="h-8 w-8" />
           </div>
-          <span className="text-lg font-semibold text-[#7A3B3B] dark:text-white hidden sm:block">Hatuma</span>
+          <span className="hidden text-lg font-semibold text-[#7A3B3B] dark:text-white sm:block">Hatuma Charles</span>
         </Link>
 
         {/* Desktop Navigation */}
