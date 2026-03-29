@@ -1,8 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink, ChevronRight, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -13,6 +13,7 @@ interface ProjectsSectionProps {
 }
 
 export default function ProjectsSection({ featured = false }: ProjectsSectionProps) {
+    const router = useRouter()
     const [activeTab, setActiveTab] = useState("All")
     const [visibleCount, setVisibleCount] = useState(featured ? 3 : 4)
 
@@ -180,8 +181,13 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
 
                 <div className="flex justify-center gap-4 mt-12">
                     {featured ? (
-                        <Button asChild size="lg" icon={<ChevronRight size={16} />} className="px-8">
-                            <Link href="/projects">View Full Portfolio</Link>
+                        <Button
+                            size="lg"
+                            icon={<ChevronRight size={16} />}
+                            className="px-8"
+                            onClick={() => router.push("/projects")}
+                        >
+                            View Full Portfolio
                         </Button>
                     ) : (
                         <>
