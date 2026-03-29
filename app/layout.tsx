@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import ScrollProgress from "@/components/scroll-progress"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 
@@ -35,6 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollProgress />
           {children}
           <Toaster position="top-right" richColors />
           <Analytics />

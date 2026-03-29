@@ -7,6 +7,7 @@ import ServicesSection from "@/components/services-section"
 import AboutSection from "@/components/about-section"
 import ExperienceSection from "@/components/experience-section"
 import HowItWorksSection from "@/components/how-it-works-section"
+import NowSection from "@/components/now-section"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import CertificatesSection from "@/components/certificates-section"
@@ -29,6 +30,7 @@ export default function Home() {
       <HowItWorksSection />
       <ExperienceSection />
       <CertificatesSection />
+      <NowSection />
       <CTASection />
       <Footer />
     </main>
