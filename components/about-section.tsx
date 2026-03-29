@@ -1,10 +1,25 @@
 "use client"
 
 import Image from "next/image"
-import { Mail, Github, Twitter, Phone } from "lucide-react"
+import { Github, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function AboutSection() {
+  const socialLinks = [
+    {
+      href: "https://github.com/htmcharles",
+      label: "GitHub profile",
+      icon: Github,
+      external: true,
+    },
+    {
+      href: "mailto:hatumacharles1@gmail.com",
+      label: "Email Hatuma Charles",
+      icon: Mail,
+      external: false,
+    },
+  ]
+
   const qualifications = [
     "FULL-STACK DEVELOPER",
     "REACT SPECIALIST",
@@ -22,15 +37,27 @@ export default function AboutSection() {
             <div className="relative w-full max-w-sm">
               {/* Social Icons - Positioned on the left side of image on desktop, flex row on mobile */}
               <div className="absolute left-4 top-6 hidden md:flex flex-col gap-3 z-10">
-                <Button size="icon" className="w-14 h-14 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100">
-                  <Github size={28} strokeWidth={2} />
-                </Button>
-                <Button size="icon" className="w-14 h-14 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100">
-                  <Twitter size={28} strokeWidth={2} />
-                </Button>
+                {socialLinks.map(({ href, label, icon: Icon, external }) => (
+                  <Button
+                    key={label}
+                    asChild
+                    size="icon"
+                    className="w-14 h-14 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100"
+                  >
+                    <a
+                      href={href}
+                      aria-label={label}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener noreferrer" : undefined}
+                    >
+                      <Icon size={28} strokeWidth={2} />
+                    </a>
+                  </Button>
+                ))}
                 <Button
                   size="icon"
                   className="w-14 h-14 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100"
+                  aria-label="Jump to contact section"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <Phone size={28} strokeWidth={2} />
@@ -49,15 +76,27 @@ export default function AboutSection() {
 
               {/* Mobile Social Icons - Visible only on mobile */}
               <div className="flex md:hidden gap-3 justify-center mt-4">
-                <Button size="icon" className="w-12 h-12 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100">
-                  <Github size={24} strokeWidth={2} />
-                </Button>
-                <Button size="icon" className="w-12 h-12 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100">
-                  <Twitter size={24} strokeWidth={2} />
-                </Button>
+                {socialLinks.map(({ href, label, icon: Icon, external }) => (
+                  <Button
+                    key={label}
+                    asChild
+                    size="icon"
+                    className="w-12 h-12 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100"
+                  >
+                    <a
+                      href={href}
+                      aria-label={label}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener noreferrer" : undefined}
+                    >
+                      <Icon size={24} strokeWidth={2} />
+                    </a>
+                  </Button>
+                ))}
                 <Button
                   size="icon"
                   className="w-12 h-12 bg-white dark:bg-black hover:bg-neutral-100 dark:hover:bg-neutral-900 shadow-md text-[#7A3B3B] dark:text-[#A85C5C] border border-black/5 dark:border-white/10 opacity-100"
+                  aria-label="Jump to contact section"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <Phone size={24} strokeWidth={2} />

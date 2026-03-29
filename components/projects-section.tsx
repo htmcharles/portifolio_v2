@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink, ChevronRight, ChevronUp } from "lucide-react"
@@ -179,13 +180,8 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
 
                 <div className="flex justify-center gap-4 mt-12">
                     {featured ? (
-                        <Button
-                            size="lg"
-                            icon={<ChevronRight size={16} />}
-                            className="px-8"
-                            onClick={() => window.location.assign("/projects")}
-                        >
-                            View Full Portfolio
+                        <Button asChild size="lg" icon={<ChevronRight size={16} />} className="px-8">
+                            <Link href="/projects">View Full Portfolio</Link>
                         </Button>
                     ) : (
                         <>
