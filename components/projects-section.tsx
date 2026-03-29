@@ -75,7 +75,7 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
                 {/* Project Cards Grid with Animations */}
                 <motion.div
                     layout
-                    className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                    className="grid grid-cols-1 gap-8 md:grid-cols-2"
                 >
                     <AnimatePresence mode="popLayout">
                         {displayedProjects.map((project, index) => (
@@ -92,7 +92,7 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
                                     mass: 1,
                                     delay: index * 0.1
                                 }}
-                                className="group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer h-full border border-border/50"
+                                className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-card/95"
                             >
                                 {/* Project Image */}
                                 <div className="relative h-64 overflow-hidden bg-muted">
@@ -103,6 +103,15 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                                     />
+
+                                    <div className="absolute left-4 top-4 z-10 flex flex-wrap items-center gap-2">
+                                        <span className="rounded-full bg-black/70 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-white uppercase backdrop-blur-sm">
+                                            {project.type}
+                                        </span>
+                                        <span className="rounded-full bg-white/85 px-3 py-1 text-[11px] font-medium text-foreground backdrop-blur-sm dark:bg-black/70 dark:text-white">
+                                            {project.year}
+                                        </span>
+                                    </div>
 
                                     <div className="absolute inset-0 hidden bg-black/60 opacity-0 transition-opacity duration-300 md:flex md:items-center md:justify-center md:backdrop-blur-sm md:group-hover:opacity-100">
                                         <div className="flex gap-4">
@@ -131,13 +140,13 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
                                 </div>
 
                                 {/* Project Content */}
-                                <div className="p-6">
+                                <div className="flex flex-1 flex-col p-6">
                                     <h3 className="text-xl font-semibold text-foreground mb-3 leading-tight group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C] transition-colors">
                                         {project.title}
                                     </h3>
 
-                                    <p className="text-muted-foreground text-sm mb-4 font-medium line-clamp-3 leading-relaxed">
-                                        {project.description}
+                                    <p className="mb-4 text-sm font-medium leading-relaxed text-muted-foreground">
+                                        {project.tagline}
                                     </p>
 
                                     {/* Technologies */}
@@ -152,13 +161,20 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
                                         ))}
                                     </div>
 
+                                    <div className="mt-5 grid gap-3 rounded-2xl bg-muted/50 p-4 dark:bg-muted/35">
+                                        <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
+                                            <span>{project.duration}</span>
+                                            <span>{project.client}</span>
+                                        </div>
+                                        <p className="line-clamp-3 text-sm leading-6 text-muted-foreground">
+                                            {project.summary}
+                                        </p>
+                                    </div>
+
                                     <div className="mt-5 flex items-center justify-between gap-4">
-                                        <span className="text-xs font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
-                                            {project.type}
-                                        </span>
                                         <Link
                                             href={`/projects/${project.slug}`}
-                                            className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-[#7A3B3B] dark:hover:text-[#A85C5C]"
+                                            className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-[#7A3B3B] dark:hover:text-[#A85C5C]"
                                         >
                                             Case Study
                                             <ChevronRight size={16} />

@@ -96,7 +96,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
 
             <div className="grid gap-4 sm:grid-cols-2">
               {project.metrics.map((metric) => (
-                <div key={metric.label} className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                <div key={metric.label} className="rounded-[1.5rem] border border-border bg-card/95 p-5 shadow-sm">
                   <div className="text-2xl font-semibold text-foreground">{metric.value}</div>
                   <div className="mt-2 text-sm text-muted-foreground">{metric.label}</div>
                 </div>
@@ -108,7 +108,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
 
       <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:px-6 md:py-20 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-8">
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card shadow-sm">
             <div className="relative aspect-[16/10]">
               <Image
                 src={project.image}
@@ -118,16 +118,30 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
                 className="object-cover"
               />
             </div>
+            <div className="grid gap-4 border-t border-border bg-muted/40 p-6 md:grid-cols-3 dark:bg-muted/20">
+              <div>
+                <div className="text-xs font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">Role</div>
+                <div className="mt-2 text-sm leading-6 text-foreground">{project.role}</div>
+              </div>
+              <div>
+                <div className="text-xs font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">Client</div>
+                <div className="mt-2 text-sm leading-6 text-foreground">{project.client}</div>
+              </div>
+              <div>
+                <div className="text-xs font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">Duration</div>
+                <div className="mt-2 text-sm leading-6 text-foreground">{project.duration}</div>
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <article className="rounded-3xl border border-border bg-card p-6">
+            <article className="rounded-[1.75rem] border border-border bg-card p-6">
               <div className="text-sm font-semibold tracking-[0.2em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
                 Challenge
               </div>
               <p className="mt-4 leading-relaxed text-muted-foreground">{project.challenge}</p>
             </article>
-            <article className="rounded-3xl border border-border bg-card p-6">
+            <article className="rounded-[1.75rem] border border-border bg-card p-6">
               <div className="text-sm font-semibold tracking-[0.2em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
                 Solution
               </div>
@@ -135,13 +149,13 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
             </article>
           </div>
 
-          <article className="rounded-3xl border border-border bg-card p-6 md:p-8">
+          <article className="rounded-[1.75rem] border border-border bg-card p-6 md:p-8">
             <div className="text-sm font-semibold tracking-[0.2em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
               Outcomes
             </div>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {project.outcomes.map((outcome) => (
-                <div key={outcome} className="rounded-2xl bg-muted/70 p-4 text-sm leading-relaxed text-muted-foreground">
+                <div key={outcome} className="rounded-2xl bg-muted/70 p-4 text-sm leading-7 text-muted-foreground">
                   {outcome}
                 </div>
               ))}
@@ -150,7 +164,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </div>
 
         <div className="space-y-6">
-          <article className="rounded-3xl border border-border bg-card p-6">
+          <article className="rounded-[1.75rem] border border-border bg-card p-6">
             <div className="text-sm font-semibold tracking-[0.2em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
               Project Snapshot
             </div>
@@ -180,7 +194,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
             </dl>
           </article>
 
-          <article className="rounded-3xl border border-border bg-card p-6">
+          <article className="rounded-[1.75rem] border border-border bg-card p-6">
             <div className="text-sm font-semibold tracking-[0.2em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
               Deliverables
             </div>
@@ -195,7 +209,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </div>
       </section>
 
-      <section className="border-t border-border bg-muted/30 py-16 md:py-20">
+      <section className="border-t border-border bg-muted/30 py-16 dark:bg-muted/20 md:py-20">
         <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
@@ -215,13 +229,13 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               <Link
                 key={entry.slug}
                 href={`/projects/${entry.slug}`}
-                className="group rounded-3xl border border-border bg-background p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group rounded-[1.75rem] border border-border bg-background p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-card/90"
               >
                 <div className="text-xs font-semibold tracking-[0.2em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
                   {entry.type}
                 </div>
                 <h3 className="mt-4 text-2xl font-semibold text-foreground">{entry.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{entry.description}</p>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{entry.tagline}</p>
                 <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-transform group-hover:translate-x-1">
                   Read case study
                   <ArrowRight size={16} />

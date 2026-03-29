@@ -23,7 +23,7 @@ export default function NowSection() {
   return (
     <section className="bg-background py-16 md:py-24">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
           <div className="rounded-[2rem] border border-border bg-card p-8 shadow-sm md:p-10 dark:bg-card/95">
             <p className="text-sm font-semibold tracking-[0.25em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
               Now
@@ -52,17 +52,22 @@ export default function NowSection() {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6">
             {focusCards.map((card) => {
               const Icon = card.icon
 
               return (
                 <article key={card.title} className="rounded-[1.75rem] border border-border bg-muted/40 p-6 shadow-sm dark:bg-card/90">
-                  <div className="inline-flex rounded-2xl bg-background p-3 shadow-sm ring-1 ring-border dark:bg-background/60">
-                    <Icon size={20} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="inline-flex rounded-2xl bg-background p-3 shadow-sm ring-1 ring-border dark:bg-background/60">
+                      <Icon size={20} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
+                    </div>
+                    <span className="text-xs font-semibold tracking-[0.18em] text-[#7A3B3B] dark:text-[#A85C5C]">
+                      {card.title}
+                    </span>
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold text-foreground">{card.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{card.body}</p>
+                  <h3 className="mt-6 text-2xl font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-3 max-w-xl text-sm leading-7 text-muted-foreground">{card.body}</p>
                 </article>
               )
             })}
