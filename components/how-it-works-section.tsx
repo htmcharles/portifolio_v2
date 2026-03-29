@@ -2,21 +2,21 @@ export default function HowItWorksSection() {
   const steps = [
     {
       number: "1",
-      title: "Initial Contact",
+      title: "Discovery",
       description:
-        "Schedule a free 15-minute consultation to discuss your concerns and see if my approach is right for you. No pressure - just a conversation.",
+        "We align on the product goal, audience, constraints, and success metrics before any implementation starts.",
     },
     {
       number: "2",
-      title: "Personalized Plan",
+      title: "Development",
       description:
-        "I'll create a customized plan that aligns with your goals, whether you're managing anxiety or improving your broken relationships.",
+        "I turn the agreed scope into a working build with clean architecture, responsive UI, and iterative feedback loops.",
     },
     {
       number: "3",
-      title: "Online Sessions",
+      title: "Deployment",
       description:
-        "Join one-on-one sessions from anywhere, using secure video calls. We'll work together to overcome challenges and track your progress.",
+        "The final product is tested, deployed, and prepared for real use with performance, accessibility, and maintainability in mind.",
     },
   ]
 
@@ -26,7 +26,7 @@ export default function HowItWorksSection() {
         {/* Header */}
         <div className="mb-12 text-center md:mb-16">
           <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-amber-900">How It Works</p>
-          <h2 className="text-balance text-4xl font-light md:text-5xl">Simple, Convenient, Effective</h2>
+          <h2 className="text-balance text-4xl font-light md:text-5xl">Clear Process, Reliable Delivery</h2>
         </div>
 
         {/* Steps Container */}
