@@ -43,7 +43,7 @@ export default function ServicesSection() {
 
         <div className="grid gap-6 lg:grid-cols-3">
           {services.map((service) => (
-            <article key={service.title} className="group rounded-[1.75rem] border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl md:p-8">
+            <article key={service.title} className="group rounded-[1.75rem] border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl md:p-8 dark:bg-card/95">
               <div className="inline-flex rounded-full bg-muted px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
                 Focus Area
               </div>
@@ -52,7 +52,7 @@ export default function ServicesSection() {
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {service.bullets.map((bullet) => (
-                  <span key={bullet} className="rounded-full bg-background px-3 py-1 text-xs font-medium text-foreground ring-1 ring-border">
+                  <span key={bullet} className="rounded-full bg-background px-3 py-1 text-xs font-medium text-foreground ring-1 ring-border dark:bg-background/60">
                     {bullet}
                   </span>
                 ))}

@@ -59,14 +59,14 @@ export default function Navigation() {
 
   return (
     <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled
-      ? "w-[90%] md:w-auto max-w-5xl border-border/40"
-      : "w-[95%] md:w-auto max-w-6xl border-transparent"
+      ? "w-[92%] md:w-auto max-w-6xl border-border/40"
+      : "w-[96%] md:w-auto max-w-6xl border-transparent"
       }`}>
-      <div className="bg-background/80 backdrop-blur-md border border-border rounded-full px-2 pl-4 py-1.5 flex justify-between items-center h-12 mx-auto transition-all">
+      <div className="mx-auto flex min-h-14 items-center justify-between rounded-full border border-border bg-background/85 px-2 py-1.5 pl-3 backdrop-blur-md transition-all">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 cursor-pointer group pr-4"
+          className="group flex items-center gap-2 pr-3"
           onClick={(e) => {
             if (pathname === "/") {
               e.preventDefault()
@@ -77,17 +77,22 @@ export default function Navigation() {
           <div className="w-8 h-8 bg-[#7A3B3B] rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
             <Image src="/logo.svg" alt="Hatuma Charles logo" width={32} height={32} className="h-8 w-8" />
           </div>
-          <span className="hidden text-lg font-semibold text-[#7A3B3B] dark:text-white sm:block">Hatuma Charles</span>
+          <span className="hidden whitespace-nowrap text-base font-semibold text-[#7A3B3B] dark:text-white md:block lg:hidden">
+            Hatuma
+          </span>
+          <span className="hidden whitespace-nowrap text-base font-semibold text-[#7A3B3B] dark:text-white lg:block xl:text-lg">
+            Hatuma Charles
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1 rounded-full px-2 mx-2">
+        <div className="mx-1 hidden items-center gap-1 rounded-full px-1 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.id}
               href={isHomePage ? item.href.replace("/", "") : item.href}
               onClick={() => setIsOpen(false)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${isItemActive(item.id, item.href)
+              className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 xl:px-4 ${isItemActive(item.id, item.href)
                 ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
                 : "text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-white hover:bg-muted/30"
                 }`}
@@ -98,7 +103,7 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center gap-2 pl-2">
-          <div className="hidden md:flex items-center gap-2 mr-1">
+          <div className="hidden items-center gap-2 pr-1 lg:flex">
             <ThemeToggle />
             <Link
               href={contactHref}
@@ -114,7 +119,7 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex items-center gap-2 md:hidden pr-2">
+          <div className="flex items-center gap-2 pr-2 lg:hidden">
             <ThemeToggle />
             <button className="text-[#7A3B3B] dark:text-white ml-2" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -125,7 +130,7 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="absolute top-[calc(100%+8px)] left-0 right-0 bg-background/95 backdrop-blur-md rounded-2xl border border-border shadow-xl p-4 md:hidden flex flex-col gap-2">
+        <div className="absolute top-[calc(100%+8px)] left-0 right-0 bg-background/95 backdrop-blur-md rounded-2xl border border-border shadow-xl p-4 flex flex-col gap-2 lg:hidden">
           {navItems.map((item) => (
             <Link
               key={item.id}

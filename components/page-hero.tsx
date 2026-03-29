@@ -35,14 +35,14 @@ export default function PageHero({ eyebrow, title, description, stats }: PageHer
         <div className="grid gap-4 md:grid-cols-[1.3fr_0.9fr]">
           <div className="grid gap-4 sm:grid-cols-3">
             {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-border bg-card/80 p-5 backdrop-blur-sm">
+              <div key={stat.label} className="rounded-2xl border border-border bg-card/90 p-5 backdrop-blur-sm">
                 <div className="text-2xl font-semibold text-foreground md:text-3xl">{stat.value}</div>
                 <div className="mt-2 text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-5">
+          <div className="rounded-2xl border border-border bg-card/95 p-5">
             <div className="text-sm font-semibold tracking-[0.2em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
               Explore Portfolio
             </div>
@@ -51,7 +51,7 @@ export default function PageHero({ eyebrow, title, description, stats }: PageHer
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group flex items-center justify-between rounded-xl border border-transparent bg-muted/70 px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-border hover:bg-background"
+                  className="group flex items-center justify-between rounded-xl border border-transparent bg-muted/70 px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-border hover:bg-background dark:hover:bg-background/60"
                 >
                   <span>{link.label}</span>
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

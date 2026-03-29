@@ -16,7 +16,7 @@ const proofPoints = [
 
 export default function ResultsSection() {
   return (
-    <section className="relative overflow-hidden bg-muted/30 py-16 md:py-24">
+    <section className="relative overflow-hidden bg-muted/30 py-16 dark:bg-background md:py-24">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-[10%] right-[6%] h-64 w-64 rounded-full bg-[#7A3B3B]/8 blur-[120px]" />
       </div>
@@ -49,7 +49,7 @@ export default function ResultsSection() {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-border bg-background/80 p-5 shadow-sm backdrop-blur-sm">
+              <div key={stat.label} className="rounded-2xl border border-border bg-card/90 p-5 shadow-sm backdrop-blur-sm">
                 <div className="text-3xl font-semibold text-foreground">{stat.value}</div>
                 <div className="mt-2 text-sm leading-relaxed text-muted-foreground">{stat.label}</div>
               </div>
@@ -58,7 +58,7 @@ export default function ResultsSection() {
 
           <div className="mt-8 grid gap-3">
             {proofPoints.map((point) => (
-              <div key={point} className="rounded-2xl bg-background/80 px-4 py-3 text-sm font-medium text-foreground shadow-sm ring-1 ring-border/60">
+              <div key={point} className="rounded-2xl bg-card/90 px-4 py-3 text-sm font-medium text-foreground shadow-sm ring-1 ring-border/70">
                 {point}
               </div>
             ))}
