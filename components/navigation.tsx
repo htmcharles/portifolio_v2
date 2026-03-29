@@ -6,6 +6,7 @@ import { Menu, X, ArrowRight } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
+import { homeNavItems, pageNavItems } from "@/lib/site-navigation"
 
 const sections = ["hero", "skills", "about", "projects", "experience", "certificates", "contact"]
 
@@ -40,15 +41,21 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navItems = [
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "experience", label: "Experience" },
-    { id: "certificates", label: "Certificates" },
-  ]
+  const isHomePage = pathname === "/"
+  const navItems = isHomePage ? homeNavItems : pageNavItems
+  const contactHref = isHomePage ? "#contact" : "/#contact"
 
-  const sectionHref = (sectionId: string) => (pathname === "/" ? `#${sectionId}` : `/#${sectionId}`)
+  const isItemActive = (itemId: string, itemHref: string) => {
+    if (isHomePage) {
+      return activeSection === itemId
+    }
+
+    if (itemHref === "/") {
+      return pathname === "/"
+    }
+
+    return pathname === itemHref
+  }
 
   return (
     <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled
@@ -78,9 +85,9 @@ export default function Navigation() {
           {navItems.map((item) => (
             <Link
               key={item.id}
-              href={sectionHref(item.id)}
+              href={isHomePage ? item.href.replace("/", "") : item.href}
               onClick={() => setIsOpen(false)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id || (pathname === `/${item.id}` && item.id !== "about")
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${isItemActive(item.id, item.href)
                 ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
                 : "text-muted-foreground hover:text-[#7A3B3B] dark:hover:text-white hover:bg-muted/30"
                 }`}
@@ -94,9 +101,9 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-2 mr-1">
             <ThemeToggle />
             <Link
-              href={sectionHref("contact")}
+              href={contactHref}
               onClick={() => setIsOpen(false)}
-              className={`group flex items-center gap-2 px-5 py-2 rounded-full font-medium text-xs transition-all duration-300 whitespace-nowrap flex-shrink-0 ${activeSection === "contact"
+              className={`group flex items-center gap-2 px-5 py-2 rounded-full font-medium text-xs transition-all duration-300 whitespace-nowrap flex-shrink-0 ${isHomePage && activeSection === "contact"
                 ? "bg-white dark:bg-black text-[#7A3B3B] dark:text-[#A85C5C] shadow-sm border border-black/5"
                 : "bg-[#7A3B3B] text-white hover:bg-[#6a3333]"
                 }`}
@@ -122,9 +129,9 @@ export default function Navigation() {
           {navItems.map((item) => (
             <Link
               key={item.id}
-              href={sectionHref(item.id)}
+              href={isHomePage ? item.href.replace("/", "") : item.href}
               onClick={() => setIsOpen(false)}
-              className={`block w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 ${activeSection === item.id || (pathname === `/${item.id}` && item.id !== "about")
+              className={`block w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 ${isItemActive(item.id, item.href)
                 ? "bg-muted text-[#7A3B3B] dark:text-white font-medium"
                 : "text-muted-foreground hover:bg-muted/50 hover:text-[#7A3B3B] dark:hover:text-white"
                 }`}
@@ -133,9 +140,9 @@ export default function Navigation() {
             </Link>
           ))}
           <Link
-            href={sectionHref("contact")}
+            href={contactHref}
             onClick={() => setIsOpen(false)}
-            className={`flex items-center justify-between w-full px-4 py-3 mt-2 rounded-xl font-semibold ${activeSection === "contact"
+            className={`flex items-center justify-between w-full px-4 py-3 mt-2 rounded-xl font-semibold ${isHomePage && activeSection === "contact"
               ? "bg-muted text-[#7A3B3B] dark:text-white"
               : "bg-[#7A3B3B] text-white"
               }`}
