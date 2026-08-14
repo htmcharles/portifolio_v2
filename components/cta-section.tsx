@@ -1,53 +1,29 @@
 "use client"
 
 import Image from "next/image"
-import { useActionState, useEffect, useRef, useState } from "react"
-import { useFormStatus } from "react-dom"
+import { useRef, useState, type FormEvent } from "react"
 import { toast } from "sonner"
 import { CalendarDays, ChevronRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
-import { initialContactFormState, submitContactForm } from "@/app/actions/contact"
 import { Button } from "@/components/ui/button"
 import {
   bookingSlots,
   bookingTimezone,
+  composeInquiry,
   projectTypes,
   site,
   whatsappMessageUrl,
   whatsappUrl,
 } from "@/lib/site"
 
-function SubmitButton() {
-  const { pending } = useFormStatus()
-
-  return (
-    <Button type="submit" size="lg" className="w-full" icon={<ChevronRight />} disabled={pending}>
-      {pending ? "Sending Message..." : "Send Message"}
-    </Button>
-  )
-}
-
 export default function CTASection() {
   const formRef = useRef<HTMLFormElement>(null)
-  const [formState, formAction] = useActionState(submitContactForm, initialContactFormState)
   const [preferredDate, setPreferredDate] = useState("")
   const [preferredTime, setPreferredTime] = useState("")
+  const [pending, setPending] = useState(false)
 
   const scrollToForm = () => {
     document.getElementById("contact-form-container")?.scrollIntoView({ behavior: "smooth" })
   }
-
-  useEffect(() => {
-    if (formState.status === "success") {
-      toast.success(formState.message)
-      formRef.current?.reset()
-      setPreferredDate("")
-      setPreferredTime("")
-    }
-
-    if (formState.status === "error") {
-      toast.error(formState.message)
-    }
-  }, [formState])
 
   const bookingWhatsApp = whatsappMessageUrl(
     preferredDate || preferredTime
@@ -56,6 +32,72 @@ export default function CTASection() {
   )
 
   const today = new Date().toISOString().split("T")[0]
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const form = event.currentTarget
+    const data = new FormData(form)
+
+    if (String(data.get("company") ?? "").trim()) {
+      toast.success("Thanks. Your message has been received.")
+      form.reset()
+      return
+    }
+
+    const firstName = String(data.get("firstName") ?? "").trim()
+    const lastName = String(data.get("lastName") ?? "").trim()
+    const email = String(data.get("email") ?? "").trim()
+    const projectType = String(data.get("projectType") ?? "").trim()
+    const message = String(data.get("message") ?? "").trim()
+
+    if (firstName.length < 2 || lastName.length < 2 || !email || !projectType || message.length < 12) {
+      toast.error("Please complete the form with a bit more detail.")
+      return
+    }
+
+    const inquiry = composeInquiry({
+      firstName,
+      lastName,
+      email,
+      projectType,
+      message,
+      preferredDate: preferredDate || undefined,
+      preferredTime: preferredTime || undefined,
+    })
+
+    setPending(true)
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${site.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: `${firstName} ${lastName}`,
+          email,
+          _subject: `Portfolio inquiry: ${projectType}`,
+          message: inquiry,
+          _captcha: "false",
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Form delivery failed")
+      }
+
+      toast.success("Message sent. I will reply within 24 to 48 hours.")
+      form.reset()
+      setPreferredDate("")
+      setPreferredTime("")
+    } catch {
+      window.open(whatsappMessageUrl(`Hi ${site.name},\n\n${inquiry}`), "_blank", "noopener,noreferrer")
+      toast.message("Email delivery is unavailable, so WhatsApp was opened with the same message.")
+    } finally {
+      setPending(false)
+    }
+  }
 
   return (
     <section id="contact" className="w-full scroll-mt-28">
@@ -163,7 +205,7 @@ export default function CTASection() {
                   Call slots are in {bookingTimezone}. You can also send the same slot on WhatsApp.
                 </p>
               </div>
-              <form ref={formRef} className="space-y-6" action={formAction}>
+              <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
                     <label className="mb-2 block text-sm font-medium text-foreground">First Name</label>
@@ -265,7 +307,9 @@ export default function CTASection() {
 
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <div className="flex-1">
-                    <SubmitButton />
+                    <Button type="submit" size="lg" className="w-full" icon={<ChevronRight />} disabled={pending}>
+                      {pending ? "Sending Message..." : "Send Message"}
+                    </Button>
                   </div>
                   <Button type="button" size="lg" variant="outline" asChild>
                     <a href={bookingWhatsApp} target="_blank" rel="noopener noreferrer">

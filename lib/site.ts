@@ -45,6 +45,31 @@ export function whatsappMessageUrl(message: string) {
 }
 
 export const bookingTimezone = "Africa/Kigali"
+
+export function composeInquiry(input: {
+  firstName: string
+  lastName: string
+  email: string
+  projectType: string
+  message: string
+  preferredDate?: string
+  preferredTime?: string
+}) {
+  const slot =
+    input.preferredDate || input.preferredTime
+      ? `Preferred call: ${input.preferredDate || "date TBC"} at ${input.preferredTime || "time TBC"} (${bookingTimezone})`
+      : "No call slot selected"
+
+  return [
+    `Name: ${input.firstName} ${input.lastName}`,
+    `Email: ${input.email}`,
+    `Type: ${input.projectType}`,
+    slot,
+    "",
+    input.message,
+  ].join("\n")
+}
+
 export const bookingSlots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"] as const
 
 export const projectTypes = [
