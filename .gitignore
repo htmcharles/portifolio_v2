@@ -6,9 +6,8 @@ out/
 node_modules/
 
 # env
-.env
-.env.local
 .env.*.local
 
 # TypeScript incremental build cache
 *.tsbuildinfo
+config.bat
