@@ -5,7 +5,7 @@ const steps = [
     number: "01",
     title: "Discovery",
     description:
-      "We align on the product goal, audience, constraints, and success metrics before implementation starts.",
+      "We align on the goal, constraints, and a written quote before implementation starts.",
     icon: Search,
   },
   {
@@ -19,7 +19,7 @@ const steps = [
     number: "03",
     title: "Deployment",
     description:
-      "The final product is tested, deployed, and prepared for real use with performance, accessibility, and maintainability in mind.",
+      "The work is tested, deployed, and handed over for real use — freelance delivery or as part of a full-time role.",
     icon: Rocket,
   },
 ]

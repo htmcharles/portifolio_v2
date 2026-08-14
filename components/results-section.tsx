@@ -1,17 +1,18 @@
 import Image from "next/image"
+import { site } from "@/lib/site"
 
 const stats = [
-  { value: "14", label: "Projects across marketing sites, tools, and systems" },
-  { value: "4+", label: "Years spent shipping and refining product work" },
-  { value: "30+", label: "Technologies used across frontend, backend, and cloud" },
-  { value: "4", label: "Delivery tracks: frontend, backend, full-stack, and open source" },
+  { value: "14", label: "Live projects linked in the archive" },
+  { value: "7", label: "RCA tracks: web, systems, security, AI/ML, embedded, testing" },
+  { value: "4", label: "ThinkCyber certificates from 2024" },
+  { value: "Kigali", label: "Based in Rwanda, available remotely and on-site" },
 ]
 
 const proofPoints = [
-  "Launch-ready marketing websites with stronger visual credibility",
-  "Operational systems that reduce workflow fragmentation",
-  "Frontend implementation focused on clarity, performance, and responsiveness",
-  "Product thinking that connects interface polish with business intent",
+  "Rwanda Coding Academy software engineering training",
+  "Public live URLs for every project in the archive",
+  "ThinkCyber / Cyberium cybersecurity credentials you can open as PDFs",
+  "Contact by WhatsApp, email, form, or booked call",
 ]
 
 export default function ResultsSection() {
@@ -24,11 +25,11 @@ export default function ResultsSection() {
       <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 md:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card shadow-xl">
           <div className="absolute top-5 left-5 z-10 rounded-full bg-black/70 px-4 py-2 text-xs font-semibold tracking-[0.2em] text-white uppercase backdrop-blur-sm">
-            Product Proof
+            {site.location}
           </div>
           <Image
-            src="/images/social-proof.jpg"
-            alt="Portfolio proof and workspace context"
+            src={site.photo}
+            alt={`${site.name} in ${site.location}`}
             width={1200}
             height={900}
             sizes="(max-width: 1024px) 100vw, 45vw"
@@ -38,13 +39,14 @@ export default function ResultsSection() {
 
         <div>
           <p className="text-sm font-semibold tracking-[0.25em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
-            Why This Portfolio Is Different
+            Why this portfolio
           </p>
           <h2 className="mt-4 text-balance text-3xl font-light leading-tight text-foreground md:text-5xl">
-            Work that is easier to trust because it is explained like a product, not just displayed like a gallery.
+            A Kigali-based engineer with RCA range and work you can open.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            The strongest portfolio work does more than look good. It shows scope, delivery quality, technical choices, and why the result matters. This section turns the portfolio into proof instead of decoration.
+            The site is built to hire from: training, live projects, named certificates, and a working contact path.
+            I take freelance work and full-time roles.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">

@@ -2,13 +2,16 @@
 
 import { z } from "zod"
 import { Resend } from "resend"
+import { site } from "@/lib/site"
 
 const contactSchema = z.object({
   firstName: z.string().trim().min(2, "First name is required."),
   lastName: z.string().trim().min(2, "Last name is required."),
   email: z.string().trim().email("A valid email address is required."),
   projectType: z.string().trim().min(1, "Please choose a project type."),
-  message: z.string().trim().min(20, "Share a bit more context about the project."),
+  message: z.string().trim().min(12, "Share a bit more context about the project or call."),
+  preferredDate: z.string().trim().optional(),
+  preferredTime: z.string().trim().optional(),
   company: z.string().trim().optional(),
 })
 
@@ -32,6 +35,8 @@ export async function submitContactForm(
     email: formData.get("email"),
     projectType: formData.get("projectType"),
     message: formData.get("message"),
+    preferredDate: formData.get("preferredDate") || undefined,
+    preferredTime: formData.get("preferredTime") || undefined,
     company: formData.get("company"),
   })
 
@@ -50,7 +55,7 @@ export async function submitContactForm(
   }
 
   const from = process.env.CONTACT_FROM_EMAIL
-  const to = process.env.CONTACT_TO_EMAIL ?? "hatumacharles1@gmail.com"
+  const to = process.env.CONTACT_TO_EMAIL ?? site.email
   const resendApiKey = process.env.RESEND_API_KEY
 
   if (!resendApiKey || !from) {
@@ -61,22 +66,27 @@ export async function submitContactForm(
 
     return {
       status: "error",
-      message: "Service temporarily unavailable. Please try again later.",
+      message: `Email delivery is not configured yet. Please write to ${site.email} or WhatsApp ${site.phoneDisplay}.`,
     }
   }
 
-  const { firstName, lastName, email, projectType, message } = parsed.data
+  const { firstName, lastName, email, projectType, message, preferredDate, preferredTime } = parsed.data
+  const slot =
+    preferredDate || preferredTime
+      ? `Preferred call: ${preferredDate || "date TBC"} at ${preferredTime || "time TBC"} (Africa/Kigali)`
+      : "No call slot selected"
 
   const resend = new Resend(resendApiKey)
   const { error } = await resend.emails.send({
     from,
     to: [to],
     replyTo: email,
-    subject: `New project inquiry: ${projectType}`,
+    subject: `Portfolio inquiry: ${projectType}`,
     text: [
       `Name: ${firstName} ${lastName}`,
       `Email: ${email}`,
-      `Project type: ${projectType}`,
+      `Type: ${projectType}`,
+      slot,
       "",
       "Message:",
       message,
@@ -88,12 +98,12 @@ export async function submitContactForm(
 
     return {
       status: "error",
-      message: "Service temporarily unavailable. Please try again later.",
+      message: `Could not send through the form. Email ${site.email} or WhatsApp ${site.phoneDisplay}.`,
     }
   }
 
   return {
     status: "success",
-    message: "Message sent successfully. I will get back to you soon.",
+    message: "Message sent. I will reply within 24 to 48 hours.",
   }
 }

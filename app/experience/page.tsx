@@ -4,8 +4,8 @@ import ExperienceSection from "@/components/experience-section"
 import Footer from "@/components/footer"
 
 export const metadata = {
-    title: "Experience - Hatuma Charles",
-    description: "Professional journey and work experience of Hatuma Charles.",
+    title: "Experience",
+    description: "Rwanda Coding Academy training, ThinkCyber cybersecurity courses, and shipped project work by Hatuma Charles in Kigali.",
 }
 
 export default function ExperiencePage() {
@@ -14,12 +14,12 @@ export default function ExperiencePage() {
             <Navigation />
             <PageHero
                 eyebrow="Career Journey"
-                title="A portfolio career shaped by shipped work, systems thinking, and iterative growth."
-                description="This page focuses on how the work evolved: interface delivery, operational systems, backend engineering, and the habits that make product work reliable."
+                title="RCA training, cybersecurity courses, and live builds."
+                description="This page is the factual record: Rwanda Coding Academy coverage, ThinkCyber certificates, and the projects with public URLs."
                 stats={[
-                    { value: "4+", label: "Years of applied product development" },
-                    { value: "4", label: "Experience chapters in the timeline" },
-                    { value: "2", label: "Core tracks: frontend clarity and backend reliability" },
+                    { value: "RCA", label: "Software engineering training in Kigali" },
+                    { value: "4", label: "Chapters in the timeline" },
+                    { value: "7", label: "Tracks: web, systems, security, AI/ML, embedded, testing" },
                 ]}
             />
             <ExperienceSection />

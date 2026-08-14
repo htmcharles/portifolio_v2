@@ -4,8 +4,8 @@ import SkillsSection from "@/components/skills-section"
 import Footer from "@/components/footer"
 
 export const metadata = {
-    title: "Skills - Hatuma Charles",
-    description: "Technical skills and expertise of Hatuma Charles.",
+    title: "Skills",
+    description: "Frontend, backend, DevOps, cybersecurity, AI/ML, embedded systems, and testing skills from Rwanda Coding Academy and shipped project work.",
 }
 
 export default function SkillsPage() {
@@ -14,12 +14,12 @@ export default function SkillsPage() {
             <Navigation />
             <PageHero
                 eyebrow="Technical Breadth"
-                title="Frontend polish, backend fundamentals, and delivery tooling in one stack."
-                description="The skills page shows the technologies I rely on to design, build, ship, and maintain products across different stages of the development lifecycle."
+                title="Seven RCA tracks, with tools that actually appear in the work."
+                description="Skills are grouped the way Rwanda Coding Academy trains: frontend, backend, DevOps, cybersecurity, AI/ML, embedded systems, and testing."
                 stats={[
-                    { value: "5", label: "Skill groups mapped by delivery area" },
-                    { value: "30+", label: "Technologies represented in the stack" },
-                    { value: "1", label: "Goal: practical tools that ship well" },
+                    { value: "7", label: "Training tracks on this page" },
+                    { value: "RCA", label: "Curriculum coverage, not a padded tool list" },
+                    { value: "Kigali", label: "Based in Rwanda, available remotely" },
                 ]}
             />
             <SkillsSection />

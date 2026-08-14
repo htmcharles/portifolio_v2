@@ -1,21 +1,22 @@
 import Link from "next/link"
 import { ArrowRight, Clock3, Globe2, Layers3 } from "lucide-react"
+import { site } from "@/lib/site"
 
 const focusCards = [
   {
     icon: Layers3,
     title: "Current Focus",
-    body: "Case-study quality frontend work, cleaner portfolio storytelling, and more product-grade systems presentation.",
+    body: `Building this portfolio in public and taking selected freelance work across ${site.tracks.slice(0, 4).join(", ")}, plus AI/ML, embedded, and testing.`,
   },
   {
     icon: Globe2,
     title: "Work Style",
-    body: "Remote-friendly collaboration with an emphasis on shipped outcomes, strong communication, and design-aware implementation.",
+    body: "Remote, on-site in Kigali, or hybrid. English-first delivery with a written scope before build starts.",
   },
   {
     icon: Clock3,
     title: "Availability",
-    body: "Open to selective freelance, contract, and product-focused opportunities with a typical reply window of 24 to 48 hours.",
+    body: "Open to freelance projects and full-time roles. Typical reply window is 24 to 48 hours on WhatsApp or email.",
   },
 ]
 
@@ -29,25 +30,25 @@ export default function NowSection() {
               Now
             </p>
             <h2 className="mt-4 text-balance text-3xl font-light leading-tight text-foreground md:text-5xl">
-              Building a portfolio that reads like real product work.
+              Based in Kigali. Available wherever the work is.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-              The goal is not just to show finished screens. It is to communicate scope, delivery thinking, and the kind of engineering decisions that help software launch well.
+              {site.school} trained me across the full software stack. This site is the public record of that range, the live projects, and the ThinkCyber certificates.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/projects"
+                href="/#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-[#7A3B3B] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#6a3333]"
               >
-                Explore case studies
+                Book a call
                 <ArrowRight size={16} />
               </Link>
               <Link
-                href="/#contact"
+                href="/projects"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted dark:bg-background/60"
               >
-                Start a conversation
+                See projects
               </Link>
             </div>
           </div>

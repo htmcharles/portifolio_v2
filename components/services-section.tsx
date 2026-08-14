@@ -3,25 +3,25 @@ import { ArrowRight } from "lucide-react"
 
 const services = [
   {
-    title: "Marketing Sites That Convert",
+    title: "Websites and product interfaces",
     description:
-      "Landing pages and company websites built to make brands look credible, explain offers clearly, and keep performance standards high.",
-    bullets: ["Messaging hierarchy", "Responsive polish", "SEO-ready structure"],
+      "Marketing sites and product UIs with clear structure, responsive layouts, and a path to launch.",
+    bullets: ["Next.js / React", "Responsive UI", "SEO-ready pages"],
     href: "/projects",
   },
   {
-    title: "Interfaces for Real Products",
+    title: "Full-stack systems",
     description:
-      "User-facing experiences for SaaS, healthcare, and internal tools where clarity, speed, and practical interaction design matter.",
-    bullets: ["Component systems", "Product UX", "Scalable frontend architecture"],
+      "Applications and workflows for bookings, submissions, internal tools, and APIs with a maintainable backend.",
+    bullets: ["APIs", "Databases", "Java / Node.js"],
     href: "/projects",
   },
   {
-    title: "Backend and Workflow Systems",
+    title: "DevOps, security, and applied engineering",
     description:
-      "Operational systems that support submissions, bookings, scheduling, and business logic with a more maintainable backend foundation.",
-    bullets: ["APIs and persistence", "Workflow modeling", "System reliability"],
-    href: "/experience",
+      "RCA coverage across DevOps, cybersecurity, AI/ML, embedded systems, and testing — scoped to the problem you actually have.",
+    bullets: ["Linux / Python", "ThinkCyber training", "Testing & QA"],
+    href: "/certificates",
   },
 ]
 
@@ -34,10 +34,10 @@ export default function ServicesSection() {
             What I Build
           </p>
           <h2 className="mt-4 text-balance text-3xl font-light leading-tight text-foreground md:text-5xl">
-            A broader portfolio needs clearer categories, not more noise.
+            Hire for a track, not a generic title.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            These are the delivery tracks behind the work in this portfolio. They make it easier to understand what kind of problems I solve and where I add the most value.
+            I take freelance projects and full-time roles. Start from the kind of work you need; we scope the rest on a call.
           </p>
         </div>
 
@@ -45,7 +45,7 @@ export default function ServicesSection() {
           {services.map((service) => (
             <article key={service.title} className="group rounded-[1.75rem] border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl md:p-8 dark:bg-card/95">
               <div className="inline-flex rounded-full bg-muted px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
-                Focus Area
+                Offer
               </div>
               <h3 className="mt-5 text-2xl font-semibold text-foreground">{service.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
@@ -62,7 +62,7 @@ export default function ServicesSection() {
                 href={service.href}
                 className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-[#7A3B3B] dark:group-hover:text-[#A85C5C]"
               >
-                Explore related work
+                See related work
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </article>

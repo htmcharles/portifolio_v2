@@ -4,6 +4,7 @@ import ResultsSection from "@/components/results-section"
 import SkillsSection from "@/components/skills-section"
 import ProjectsSection from "@/components/projects-section"
 import ServicesSection from "@/components/services-section"
+import PricingSection from "@/components/pricing-section"
 import AboutSection from "@/components/about-section"
 import ExperienceSection from "@/components/experience-section"
 import HowItWorksSection from "@/components/how-it-works-section"
@@ -11,10 +12,11 @@ import NowSection from "@/components/now-section"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import CertificatesSection from "@/components/certificates-section"
+import { site } from "@/lib/site"
 
 export const metadata = {
-  title: "Hatuma Charles - Full-Stack Developer",
-  description: "Passionate full-stack developer creating innovative web applications with modern technologies and clean, efficient code.",
+  title: `${site.name} - ${site.role}`,
+  description: site.description,
 }
 
 export default function Home() {
@@ -24,6 +26,7 @@ export default function Home() {
       <HeroSection />
       <ResultsSection />
       <ServicesSection />
+      <PricingSection />
       <SkillsSection />
       <ProjectsSection featured />
       <AboutSection />

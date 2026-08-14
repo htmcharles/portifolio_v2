@@ -4,8 +4,8 @@ import ProjectsSection from "@/components/projects-section"
 import Footer from "@/components/footer"
 
 export const metadata = {
-    title: "Projects - Hatuma Charles",
-    description: "A showcase of innovative web applications and projects developed by Hatuma Charles.",
+    title: "Projects",
+    description: "Live web, systems, and product builds by Hatuma Charles, with public URLs for each project.",
 }
 
 export default function ProjectsPage() {
@@ -14,12 +14,12 @@ export default function ProjectsPage() {
             <Navigation />
             <PageHero
                 eyebrow="Project Archive"
-                title="A deeper look at shipped interfaces, systems, and product builds."
-                description="This archive pulls together launch-ready websites, operational systems, and open-source work across frontend, backend, and full-stack delivery."
+                title="Live URLs for every build in the archive."
+                description="Websites, product interfaces, and systems work. Each card links to a public demo. Featured selection and extra case studies can be refined next."
                 stats={[
                     { value: "14", label: "Published projects in the archive" },
-                    { value: "4", label: "Delivery categories across the portfolio" },
-                    { value: "100%", label: "Focus on real-world launch readiness" },
+                    { value: "4", label: "Frontend, backend, full-stack, open source" },
+                    { value: "Live", label: "Every project has a public URL" },
                 ]}
             />
             <ProjectsSection />

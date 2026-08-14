@@ -1,24 +1,26 @@
 "use client"
 
 import Image from "next/image"
-import { useActionState, useEffect, useRef } from "react"
+import { useActionState, useEffect, useRef, useState } from "react"
 import { useFormStatus } from "react-dom"
 import { toast } from "sonner"
-import { ChevronRight, Mail, Phone, MapPin } from "lucide-react"
+import { CalendarDays, ChevronRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import { initialContactFormState, submitContactForm } from "@/app/actions/contact"
 import { Button } from "@/components/ui/button"
+import {
+  bookingSlots,
+  bookingTimezone,
+  projectTypes,
+  site,
+  whatsappMessageUrl,
+  whatsappUrl,
+} from "@/lib/site"
 
 function SubmitButton() {
   const { pending } = useFormStatus()
 
   return (
-    <Button
-      type="submit"
-      size="lg"
-      className="w-full"
-      icon={<ChevronRight />}
-      disabled={pending}
-    >
+    <Button type="submit" size="lg" className="w-full" icon={<ChevronRight />} disabled={pending}>
       {pending ? "Sending Message..." : "Send Message"}
     </Button>
   )
@@ -27,18 +29,19 @@ function SubmitButton() {
 export default function CTASection() {
   const formRef = useRef<HTMLFormElement>(null)
   const [formState, formAction] = useActionState(submitContactForm, initialContactFormState)
+  const [preferredDate, setPreferredDate] = useState("")
+  const [preferredTime, setPreferredTime] = useState("")
 
   const scrollToForm = () => {
-    const formElement = document.getElementById("contact-form-container")
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: "smooth" })
-    }
+    document.getElementById("contact-form-container")?.scrollIntoView({ behavior: "smooth" })
   }
 
   useEffect(() => {
     if (formState.status === "success") {
       toast.success(formState.message)
       formRef.current?.reset()
+      setPreferredDate("")
+      setPreferredTime("")
     }
 
     if (formState.status === "error") {
@@ -46,11 +49,17 @@ export default function CTASection() {
     }
   }, [formState])
 
+  const bookingWhatsApp = whatsappMessageUrl(
+    preferredDate || preferredTime
+      ? `Hi ${site.name}, I would like to book a call on ${preferredDate || "a date we agree"} at ${preferredTime || "a time we agree"} (${bookingTimezone}).`
+      : `Hi ${site.name}, I would like to book a call.`,
+  )
+
+  const today = new Date().toISOString().split("T")[0]
+
   return (
     <section id="contact" className="w-full scroll-mt-28">
-      {/* Top Section: Central CTA Card with Background */}
-      <div className="relative pt-12 md:pt-16 lg:pt-20 pb-0 overflow-hidden">
-        {/* Background image */}
+      <div className="relative overflow-hidden pb-0 pt-12 md:pt-16 lg:pt-20">
         <div className="absolute inset-0">
           <Image
             src="/images/cta.jpg"
@@ -59,121 +68,121 @@ export default function CTASection() {
             sizes="100vw"
             className="object-cover blur-[1px]"
           />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40 dark:bg-black/70"></div>
+          <div className="absolute inset-0 bg-black/40 dark:bg-black/70" />
         </div>
 
-        <div className="relative z-10 w-full px-4 md:px-6 flex justify-center">
-          <div className="relative bg-card rounded-t-[24px] rounded-b-none p-8 md:p-10 shadow-2xl text-center max-w-2xl w-full mx-auto mb-0">
-            {/* Left Ear (Inverted Radius) */}
-            <div
-              className="absolute bottom-0 -left-[24px] w-[24px] h-[24px] bg-transparent pointer-events-none hidden md:block"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 0 0, transparent 24px, var(--color-card) 24.5px)",
-              }}
-            />
-            {/* Right Ear (Inverted Radius) */}
-            <div
-              className="absolute bottom-0 -right-[24px] w-[24px] h-[24px] bg-transparent pointer-events-none hidden md:block"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 100% 0, transparent 24px, var(--color-card) 24.5px)",
-              }}
-            />
-
-            <div className="inline-block bg-muted px-3 py-1 rounded-full mb-6">
+        <div className="relative z-10 flex w-full justify-center px-4 md:px-6">
+          <div className="relative mx-auto mb-0 w-full max-w-2xl rounded-t-[24px] rounded-b-none bg-card p-8 text-center shadow-2xl md:p-10">
+            <div className="mb-6 inline-block rounded-full bg-muted px-3 py-1">
               <span className="text-[10px] font-bold tracking-[0.2em] text-[#7A3B3B] uppercase">
-                Available for Projects
+                Freelance and full-time
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-light mb-6 text-balance leading-tight text-foreground">
-              Need a reliable engineer to turn product ideas into shipped software?
+            <h2 className="mb-6 text-balance text-3xl font-light leading-tight text-foreground md:text-4xl">
+              Book a call, WhatsApp, or send the brief.
             </h2>
 
-            <p className="text-muted-foreground text-base md:text-lg mb-8 leading-relaxed max-w-xl mx-auto">
-              I build performant interfaces, maintainable backends, and production-ready user experiences for teams that care about speed, clarity, and quality.
+            <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              I reply within 24 to 48 hours. Use WhatsApp for the fastest path, email for a written brief, or pick a call slot in Africa/Kigali time.
             </p>
 
-            <Button
-              size="lg"
-              onClick={scrollToForm}
-              icon={<ChevronRight />}
-            >
-              Start a Project Inquiry
-            </Button>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Button size="lg" onClick={scrollToForm} icon={<ChevronRight />}>
+                Book a Call
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </Button>
+              <Button size="lg" variant="ghost" asChild>
+                <a href={`mailto:${site.email}`}>Email</a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Section: Contact Info & Form */}
       <div id="contact-form-container" className="w-full bg-background py-16 md:py-24">
-        <div className="w-full px-4 md:px-6 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            {/* Left Side: Contact Info */}
-            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-2xl border border-border h-full">
-              <p className="text-sm tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] font-semibold mb-6 uppercase">Get In Touch</p>
-
-              <h2 className="text-3xl md:text-4xl xl:text-5xl font-light mb-8 text-balance leading-tight text-foreground">
-                Let&apos;s Work Together
-              </h2>
-
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Ready to bring your project to life? I would love to hear about your ideas and discuss how we can work together.
+        <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
+            <div className="h-full rounded-3xl border border-border bg-card p-8 shadow-2xl md:p-12">
+              <p className="mb-6 text-sm font-semibold tracking-widest text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
+                Get In Touch
               </p>
 
-              <div className="space-y-8">
-                <a href="mailto:hatumacharles1@gmail.com" className="flex items-center gap-6 group hover:opacity-80 transition-opacity">
-                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
+              <h2 className="mb-8 text-balance text-3xl font-light leading-tight text-foreground md:text-4xl xl:text-5xl">
+                Four ways to reach me
+              </h2>
+
+              <div className="space-y-6">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-6 transition-opacity hover:opacity-80">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#7A3B3B] shadow-md">
+                    <MessageCircle size={24} className="text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-muted-foreground">WhatsApp</div>
+                    <div className="text-lg text-foreground md:text-xl">{site.phoneDisplay}</div>
+                  </div>
+                </a>
+                <a href={`mailto:${site.email}`} className="group flex items-center gap-6 transition-opacity hover:opacity-80">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#7A3B3B] shadow-md">
                     <Mail size={24} className="text-white" />
                   </div>
-                  <span className="text-foreground text-lg md:text-xl break-all md:break-normal">hatumacharles1@gmail.com</span>
+                  <div>
+                    <div className="text-sm font-medium text-muted-foreground">Email</div>
+                    <div className="break-all text-lg text-foreground md:break-normal md:text-xl">{site.email}</div>
+                  </div>
                 </a>
-                <a href="tel:+250793234963" className="flex items-center gap-6 group hover:opacity-80 transition-opacity">
-                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                <a href={`tel:${site.phoneE164}`} className="group flex items-center gap-6 transition-opacity hover:opacity-80">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#7A3B3B] shadow-md">
                     <Phone size={24} className="text-white" />
                   </div>
-                  <span className="text-foreground text-lg md:text-xl">+250 793 234 963</span>
+                  <div>
+                    <div className="text-sm font-medium text-muted-foreground">Call</div>
+                    <div className="text-lg text-foreground md:text-xl">{site.phoneDisplay}</div>
+                  </div>
                 </a>
                 <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 bg-[#7A3B3B] rounded-full flex items-center justify-center shrink-0 shadow-md">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#7A3B3B] shadow-md">
                     <MapPin size={24} className="text-white" />
                   </div>
-                  <span className="text-foreground text-lg md:text-xl">Muhanga, Rwanda</span>
+                  <div>
+                    <div className="text-sm font-medium text-muted-foreground">Location</div>
+                    <div className="text-lg text-foreground md:text-xl">{site.location}</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Side: Contact Form */}
-            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-2xl border border-border">
+            <div className="rounded-3xl border border-border bg-card p-8 shadow-2xl md:p-12">
               <div className="mb-8">
-                <h3 className="text-2xl font-light text-foreground">Send a Message</h3>
+                <h3 className="text-2xl font-light text-foreground">Send a message or book a slot</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Call slots are in {bookingTimezone}. You can also send the same slot on WhatsApp.
+                </p>
               </div>
-              <form
-                ref={formRef}
-                className="space-y-6"
-                action={formAction}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form ref={formRef} className="space-y-6" action={formAction}>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">First Name</label>
+                    <label className="mb-2 block text-sm font-medium text-foreground">First Name</label>
                     <input
                       name="firstName"
                       required
                       type="text"
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
-                      placeholder="John"
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-[#7A3B3B]"
+                      placeholder="Jean"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Last Name</label>
+                    <label className="mb-2 block text-sm font-medium text-foreground">Last Name</label>
                     <input
                       name="lastName"
                       required
                       type="text"
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
-                      placeholder="Doe"
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-[#7A3B3B]"
+                      placeholder="Uwimana"
                     />
                   </div>
                 </div>
@@ -184,18 +193,18 @@ export default function CTASection() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Email</label>
+                  <label className="mb-2 block text-sm font-medium text-foreground">Email</label>
                   <input
                     name="email"
                     required
                     type="email"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition text-foreground placeholder:text-muted-foreground"
-                    placeholder="john@example.com"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-[#7A3B3B]"
+                    placeholder="you@company.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Project Type</label>
+                  <label className="mb-2 block text-sm font-medium text-foreground">What do you need?</label>
                   <select
                     name="projectType"
                     required
@@ -203,36 +212,68 @@ export default function CTASection() {
                     className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition focus:border-transparent focus:ring-2 focus:ring-[#7A3B3B]"
                   >
                     <option value="" disabled>
-                      Select a project type
+                      Select a type
                     </option>
-                    <option value="Web Application">Web Application</option>
-                    <option value="E-commerce Site">E-commerce Site</option>
-                    <option value="Mobile App">Mobile App</option>
-                    <option value="API Development">API Development</option>
-                    <option value="Other">Other</option>
+                    {projectTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-foreground">Preferred date</label>
+                    <input
+                      name="preferredDate"
+                      type="date"
+                      min={today}
+                      value={preferredDate}
+                      onChange={(event) => setPreferredDate(event.target.value)}
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition focus:border-transparent focus:ring-2 focus:ring-[#7A3B3B]"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-foreground">Preferred time ({bookingTimezone})</label>
+                    <select
+                      name="preferredTime"
+                      value={preferredTime}
+                      onChange={(event) => setPreferredTime(event.target.value)}
+                      className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition focus:border-transparent focus:ring-2 focus:ring-[#7A3B3B]"
+                    >
+                      <option value="">No preference</option>
+                      {bookingSlots.map((slot) => (
+                        <option key={slot} value={slot}>
+                          {slot}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Message</label>
+                  <label className="mb-2 block text-sm font-medium text-foreground">Message</label>
                   <textarea
                     name="message"
                     required
                     rows={4}
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-[#7A3B3B] focus:border-transparent outline-none transition resize-none text-foreground placeholder:text-muted-foreground"
-                    placeholder="Tell me about your project..."
-                  ></textarea>
+                    className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-[#7A3B3B]"
+                    placeholder="Tell me about the role or project..."
+                  />
                 </div>
 
-                <p className="text-sm text-muted-foreground">
-                  Messages are sent directly from the site. If the form is not configured yet, I can still be reached at{" "}
-                  <a href="mailto:hatumacharles1@gmail.com" className="text-[#7A3B3B] underline underline-offset-4">
-                    hatumacharles1@gmail.com
-                  </a>
-                  .
-                </p>
-
-                <SubmitButton />
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <div className="flex-1">
+                    <SubmitButton />
+                  </div>
+                  <Button type="button" size="lg" variant="outline" asChild>
+                    <a href={bookingWhatsApp} target="_blank" rel="noopener noreferrer">
+                      <CalendarDays size={16} />
+                      Send slot on WhatsApp
+                    </a>
+                  </Button>
+                </div>
               </form>
             </div>
           </div>

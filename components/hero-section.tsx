@@ -1,104 +1,113 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { site, whatsappUrl } from "@/lib/site"
 
 export default function HeroSection() {
-  const capabilityBadges = ["SEO-Ready Frontends", "Type-Safe Backend", "Accessible UI Systems"]
+  const capabilityBadges = ["Frontend & Backend", "DevOps & Security", "AI/ML & Embedded"]
 
   return (
     <section id="hero" className="bg-background pt-16">
       <div className="w-full px-4 md:px-12 lg:px-20 xl:px-40 max-w-[1920px] mx-auto">
-        {/* Large screens (>1200px) - Side by side layout */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 lg:py-24">
-          {/* Left content */}
           <div className="space-y-8">
             <div>
-              <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4">FULL-STACK DEVELOPER</p>
+              <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4">
+                {site.role.toUpperCase()} · {site.school.toUpperCase()}
+              </p>
               <h1 className="text-5xl lg:text-6xl font-light text-foreground leading-tight text-balance">
-                Building digital
-                <br />
-                experiences.
+                {site.headline}
               </h1>
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Passionate full-stack developer creating innovative web applications with modern technologies and clean, efficient code.
+              I am {site.name}, a software engineer in {site.location}. I build and ship work across frontend,
+              backend, DevOps, cybersecurity, AI/ML, embedded systems, and testing. Open to freelance projects
+              and full-time roles.
             </p>
 
-            <Button
-              size="lg"
-              icon={<ChevronRight size={16} />}
-              onClick={() => {
-                const projectsSection = document.getElementById("projects")
-                if (projectsSection) {
-                  projectsSection.scrollIntoView({ behavior: "smooth" })
-                }
-              }}
-            >
-              View My Work
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button
+                size="lg"
+                icon={<ChevronRight size={16} />}
+                onClick={() => {
+                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                View My Work
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/#contact">Book a Call</Link>
+              </Button>
+              <Button size="lg" variant="ghost" asChild>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </Button>
+            </div>
           </div>
 
-          {/* Right image */}
           <div className="relative">
             <Image
-              src="/images/hatuma-charles.jpg"
-              alt="Hatuma Charles - Full-Stack Developer"
+              src={site.photo}
+              alt={`${site.name} - ${site.role}`}
               width={900}
               height={1100}
               priority
               sizes="(min-width: 1200px) 50vw, 100vw"
               className="h-auto w-full rounded-3xl object-cover"
             />
-            {/* Floating badges */}
             <div className="absolute top-6 right-6 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">SEO-Ready Frontends</span>
+              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">{capabilityBadges[0]}</span>
             </div>
             <div className="absolute bottom-20 left-6 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Type-Safe Backend</span>
+              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">{capabilityBadges[1]}</span>
             </div>
             <div className="absolute bottom-6 right-12 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">Accessible UI Systems</span>
+              <span className="text-sm font-medium text-[#7A3B3B] dark:text-[#A85C5C]">{capabilityBadges[2]}</span>
             </div>
           </div>
         </div>
 
-        {/* Medium screens (810px-1199px) - Slightly compressed */}
         <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-12 items-center py-12 md:py-20 lg:hidden">
           <div className="space-y-6">
             <div>
-              <p className="text-xs font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-3">FULL-STACK DEVELOPER</p>
+              <p className="text-xs font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-3">
+                {site.role.toUpperCase()} · {site.school.toUpperCase()}
+              </p>
               <h1 className="text-3xl md:text-4xl font-light text-foreground leading-tight text-balance">
-                Building digital
-                <br />
-                experiences.
+                {site.headline}
               </h1>
             </div>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              Passionate full-stack developer creating innovative web applications with modern technologies and clean, efficient code.
+              I am {site.name}, a software engineer in {site.location}. I work across web, systems, security,
+              AI/ML, embedded, and testing. Available for freelance and full-time work.
             </p>
 
-            <Button
-              size="sm"
-              icon={<ChevronRight size={14} />}
-              onClick={() => {
-                const projectsSection = document.getElementById("projects")
-                if (projectsSection) {
-                  projectsSection.scrollIntoView({ behavior: "smooth" })
-                }
-              }}
-            >
-              View My Work
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button
+                size="sm"
+                icon={<ChevronRight size={14} />}
+                onClick={() => {
+                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                View My Work
+              </Button>
+              <Button size="sm" variant="outline" asChild>
+                <Link href="/#contact">Book a Call</Link>
+              </Button>
+            </div>
           </div>
 
           <div className="space-y-4">
             <Image
-              src="/images/hatuma-charles.jpg"
-              alt="Hatuma Charles - Full-Stack Developer"
+              src={site.photo}
+              alt={`${site.name} - ${site.role}`}
               width={900}
               height={1100}
               sizes="(min-width: 810px) 50vw, 100vw"
@@ -118,40 +127,40 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Small screens (<810px) - Stacked vertical layout */}
         <div className="md:hidden space-y-8 py-12">
           <div className="text-center space-y-4">
-            <p className="text-xs font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C]">FULL-STACK DEVELOPER</p>
+            <p className="text-xs font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C]">
+              {site.role.toUpperCase()} · {site.school.toUpperCase()}
+            </p>
             <h1 className="text-4xl font-light text-foreground leading-tight text-balance">
-              Building digital
-              <br />
-              experiences.
+              {site.headline}
             </h1>
 
             <p className="text-base text-muted-foreground leading-relaxed px-2">
-              Passionate full-stack developer creating innovative web applications with modern technologies and clean, efficient code.
+              Software engineer in {site.location}, trained at {site.school}. Open to freelance projects and
+              full-time roles.
             </p>
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-3">
             <Button
               size="default"
               icon={<ChevronRight size={14} />}
               onClick={() => {
-                const projectsSection = document.getElementById("projects")
-                if (projectsSection) {
-                  projectsSection.scrollIntoView({ behavior: "smooth" })
-                }
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
               }}
             >
               View My Work
+            </Button>
+            <Button size="default" variant="outline" asChild>
+              <Link href="/#contact">Book a Call</Link>
             </Button>
           </div>
 
           <div className="space-y-4 p-4">
             <Image
-              src="/images/hatuma-charles.jpg"
-              alt="Hatuma Charles - Full-Stack Developer"
+              src={site.photo}
+              alt={`${site.name} - ${site.role}`}
               width={900}
               height={1100}
               sizes="100vw"

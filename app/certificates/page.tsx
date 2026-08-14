@@ -4,8 +4,8 @@ import CertificatesSection from "@/components/certificates-section"
 import Footer from "@/components/footer"
 
 export const metadata = {
-    title: "Certificates - Hatuma Charles",
-    description: "Professional milestones and technical validations of Hatuma Charles's expertise.",
+    title: "Certificates",
+    description: "ThinkCyber / Cyberium Arena certificates for Hatuma Charles: Intro to Cyber, Linux Fundamentals, Python Fundamentals, and Network Research.",
 }
 
 export default function CertificatesPage() {
@@ -13,13 +13,13 @@ export default function CertificatesPage() {
         <main className="bg-background text-foreground min-h-screen">
             <Navigation />
             <PageHero
-                eyebrow="Professional Validation"
-                title="Training milestones that support practical software delivery."
-                description="These certifications reinforce the hands-on work in the portfolio, covering web development, cloud services, Java engineering, and responsive frontend practice."
+                eyebrow="ThinkCyber / Cyberium"
+                title="Named certificates, not placeholder credentials."
+                description="Four cybersecurity courses completed in 2024 with ThinkCyber on the Cyberium Arena simulator. Each one opens as the original PDF."
                 stats={[
-                    { value: "4", label: "Certification highlights on this page" },
-                    { value: "2021-2023", label: "Recent credential timeline" },
-                    { value: "3", label: "Focus areas: web, cloud, and engineering foundations" },
+                    { value: "4", label: "ThinkCyber certificates on this page" },
+                    { value: "2024", label: "June through November" },
+                    { value: "XE / NX", label: "Intro to Cyber, Linux, Python, Network Research" },
                 ]}
             />
             <CertificatesSection />
