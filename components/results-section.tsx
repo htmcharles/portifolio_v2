@@ -8,13 +8,6 @@ const stats = [
   { value: "Kigali", label: "Based in Rwanda, available remotely and on-site" },
 ]
 
-const proofPoints = [
-  "Rwanda Coding Academy software engineering training",
-  "Public live URLs for every project in the archive",
-  "ThinkCyber / Cyberium cybersecurity credentials you can open as PDFs",
-  "Contact by WhatsApp, email, form, or booked call",
-]
-
 export default function ResultsSection() {
   return (
     <section className="relative overflow-hidden bg-muted/30 py-16 dark:bg-background md:py-24">
@@ -54,14 +47,6 @@ export default function ResultsSection() {
               <div key={stat.label} className="rounded-2xl border border-border bg-card/90 p-5 shadow-sm backdrop-blur-sm">
                 <div className="text-3xl font-semibold text-foreground">{stat.value}</div>
                 <div className="mt-2 text-sm leading-relaxed text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 grid gap-3">
-            {proofPoints.map((point) => (
-              <div key={point} className="rounded-2xl bg-card/90 px-4 py-3 text-sm font-medium text-foreground shadow-sm ring-1 ring-border/70">
-                {point}
               </div>
             ))}
           </div>
