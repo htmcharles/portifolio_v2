@@ -22,7 +22,7 @@ export default function PrivacyPage() {
             so {site.name} can reply to project or hiring inquiries.
           </p>
           <p>
-            Messages are delivered by email to {site.email}. They are not sold, and they are not used for marketing lists.
+            Messages leave your device through WhatsApp or your own email app. They are not sold, and they are not used for marketing lists.
           </p>
           <p>
             If you contact me on WhatsApp or by phone, that conversation stays on those channels under their own policies.

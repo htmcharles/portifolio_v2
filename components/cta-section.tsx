@@ -5,12 +5,14 @@ import { useRef, useState, type FormEvent } from "react"
 import { toast } from "sonner"
 import { CalendarDays, ChevronRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Reveal } from "@/components/reveal"
 import {
   bookingSlots,
   bookingTimezone,
   composeInquiry,
   projectTypes,
   site,
+  mailtoUrl,
   whatsappMessageUrl,
   whatsappUrl,
 } from "@/lib/site"
@@ -67,36 +69,14 @@ export default function CTASection() {
 
     setPending(true)
 
-    try {
-      const response = await fetch(`https://formsubmit.co/ajax/${site.email}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: `${firstName} ${lastName}`,
-          email,
-          _subject: `Portfolio inquiry: ${projectType}`,
-          message: inquiry,
-          _captcha: "false",
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error("Form delivery failed")
-      }
-
-      toast.success("Message sent. I will reply within 24 to 48 hours.")
-      form.reset()
-      setPreferredDate("")
-      setPreferredTime("")
-    } catch {
-      window.open(whatsappMessageUrl(`Hi ${site.name},\n\n${inquiry}`), "_blank", "noopener,noreferrer")
-      toast.message("Email delivery is unavailable, so WhatsApp was opened with the same message.")
-    } finally {
-      setPending(false)
-    }
+    const packed = `Hi ${site.name},\n\n${inquiry}`
+    window.open(whatsappMessageUrl(packed), "_blank", "noopener,noreferrer")
+    window.location.href = mailtoUrl(`Portfolio inquiry: ${projectType}`, inquiry)
+    toast.success("WhatsApp and email opened with your message. Send from those windows to reach me.")
+    form.reset()
+    setPreferredDate("")
+    setPreferredTime("")
+    setPending(false)
   }
 
   return (
@@ -149,6 +129,7 @@ export default function CTASection() {
       <div id="contact-form-container" className="w-full bg-background py-16 md:py-24">
         <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
+            <Reveal className="h-full">
             <div className="h-full rounded-3xl border border-border bg-card p-8 shadow-2xl md:p-12">
               <p className="mb-6 text-sm font-semibold tracking-widest text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
                 Get In Touch
@@ -159,7 +140,7 @@ export default function CTASection() {
               </h2>
 
               <div className="space-y-6">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-6 transition-opacity hover:opacity-80">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-6 transition-transform hover:translate-x-1 hover:opacity-80">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#7A3B3B] shadow-md">
                     <MessageCircle size={24} className="text-white" />
                   </div>
@@ -197,12 +178,14 @@ export default function CTASection() {
                 </div>
               </div>
             </div>
+            </Reveal>
 
+            <Reveal delay={0.08}>
             <div className="rounded-3xl border border-border bg-card p-8 shadow-2xl md:p-12">
               <div className="mb-8">
                 <h3 className="text-2xl font-light text-foreground">Send a message or book a slot</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Call slots are in {bookingTimezone}. You can also send the same slot on WhatsApp.
+                  Call slots are in {bookingTimezone}. Submit opens WhatsApp and your email app with the same brief — no third-party form service.
                 </p>
               </div>
               <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
@@ -320,6 +303,7 @@ export default function CTASection() {
                 </div>
               </form>
             </div>
+            </Reveal>
           </div>
         </div>
       </div>

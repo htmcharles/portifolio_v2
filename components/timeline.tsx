@@ -135,7 +135,7 @@ export default function Timeline({ items }: TimelineProps) {
             <div
               className={`mt-2 whitespace-nowrap text-xs font-medium text-muted-foreground transition-opacity ${index === activeIndex ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
             >
-              {index === activeIndex ? "Current" : "View"}
+              {index === activeIndex ? "Selected" : "View"}
             </div>
           </button>
         ))}

@@ -1,25 +1,31 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { Menu, X, ArrowRight } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { homeNavItems, pageNavItems } from "@/lib/site-navigation"
 
-const sections = ["hero", "skills", "about", "projects", "experience", "certificates", "contact"]
+const sections = ["hero", "services", "skills", "projects", "about", "experience", "certificates", "contact"]
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [isScrolled, setIsScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const lastY = useRef(0)
   const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-      const scrollPosition = window.scrollY + 100
+      const y = window.scrollY
+      setIsScrolled(y > 10)
+      setHidden(y > lastY.current && y > 90 && !isOpen)
+      lastY.current = y
+      const scrollPosition = y + 100
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -35,11 +41,11 @@ export default function Navigation() {
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Call once to set initial state
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll()
 
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [isOpen])
 
   const isHomePage = pathname === "/"
   const navItems = isHomePage ? homeNavItems : pageNavItems
@@ -58,7 +64,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${isScrolled
+    <nav className={`fixed top-4 left-1/2 z-50 -translate-x-1/2 transition-all duration-300 ${hidden ? "-translate-y-24" : "translate-y-0"} ${isScrolled
       ? "w-[92%] md:w-auto max-w-6xl border-border/40"
       : "w-[96%] md:w-auto max-w-6xl border-transparent"
       }`}>
@@ -129,8 +135,15 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="absolute top-[calc(100%+8px)] left-0 right-0 bg-background/95 backdrop-blur-md rounded-2xl border border-border shadow-xl p-4 flex flex-col gap-2 lg:hidden">
+      <AnimatePresence>
+        {isOpen ? (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-[calc(100%+8px)] right-0 left-0 flex flex-col gap-2 rounded-2xl border border-border bg-background/95 p-4 shadow-xl backdrop-blur-md lg:hidden"
+          >
           {navItems.map((item) => (
             <Link
               key={item.id}
@@ -155,8 +168,9 @@ export default function Navigation() {
             Let&apos;s Talk
             <ArrowRight size={16} />
           </Link>
-        </div>
-      )}
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </nav>
   )
 }
