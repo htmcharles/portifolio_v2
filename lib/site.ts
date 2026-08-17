@@ -6,7 +6,7 @@ export const site = {
   location: "Kigali, Rwanda",
   headline: "Software across web, systems, security, and applied engineering.",
   description:
-    "Hatuma Charles is a software engineer in Kigali, trained at Rwanda Coding Academy across frontend, backend, DevOps, cybersecurity, AI/ML, embedded systems, and testing. Available for freelance projects and full-time roles.",
+    "Hatuma Charles is a software engineer in Kigali, trained at Rwanda Coding Academy across frontend, backend, DevOps, cybersecurity, AI/ML, embedded systems, and testing. Student representative and chairman at RCA for 2025–2026. Available for freelance projects and full-time roles.",
   email: "hatumacharles1@gmail.com",
   phoneDisplay: "+250 793 234 963",
   phoneE164: "+250793234963",
@@ -28,8 +28,10 @@ export const site = {
 
 export const whatsappUrl = `https://wa.me/${site.phoneE164.replace("+", "")}`
 
+export const productionSiteUrl = "https://hatumacharles.onrender.com"
+
 export function getSiteUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "")
+  return (process.env.NEXT_PUBLIC_SITE_URL ?? productionSiteUrl).replace(/\/$/, "")
 }
 
 export function mailtoUrl(subject?: string, body?: string) {

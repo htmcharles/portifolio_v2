@@ -2,6 +2,9 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import { Reveal } from "@/components/reveal"
+import { easeOut } from "@/lib/motion"
 
 const invertedIcons = ["Next.js", "Git", "Vercel"]
 type SkillCategory = "Frontend" | "Backend" | "DevOps" | "Cybersecurity" | "AI & ML" | "Embedded" | "Testing"
@@ -37,7 +40,6 @@ export default function SkillsSection() {
       { name: "Python", icon: "/icons/skills/python.svg" },
       { name: "Linux" },
       { name: "Networking" },
-      { name: "Cyberium Arena" },
     ],
     "AI & ML": [
       { name: "Python", icon: "/icons/skills/python.svg" },
@@ -59,15 +61,15 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="w-full bg-background py-16 md:py-24 scroll-mt-28">
       <div className="w-full px-4 md:px-12 lg:px-20 xl:px-40 max-w-[1920px] mx-auto">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4 uppercase">Technical Skills</p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground leading-relaxed text-balance">
             RCA training tracks and the tools I ship with
           </h2>
           <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
-            Frontend, backend, DevOps, cybersecurity, AI/ML, embedded systems, and testing — with stack items that appear in this portfolio or ThinkCyber training.
+            Frontend, backend, DevOps, cybersecurity, AI/ML, embedded systems, and testing — with the tools used in the projects on this site.
           </p>
-        </div>
+        </Reveal>
 
         <div className="flex justify-center mb-12">
           <div className="bg-muted rounded-xl p-1 flex gap-1 flex-wrap justify-center">
@@ -87,6 +89,14 @@ export default function SkillsSection() {
         </div>
 
         <div className="flex justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: easeOut }}
+            >
           {hasIcons ? (
             <div className="bg-background/80 dark:bg-card/80 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-border">
               <div className="flex items-end gap-2 px-2 flex-wrap justify-center">
@@ -142,6 +152,8 @@ export default function SkillsSection() {
               ))}
             </div>
           )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

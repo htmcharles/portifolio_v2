@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import ScrollProgress from "@/components/scroll-progress"
+import BackToTop from "@/components/back-to-top"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import { getSiteUrl, site } from "@/lib/site"
@@ -105,6 +106,7 @@ export default function RootLayout({
         >
           <ScrollProgress />
           {children}
+          <BackToTop />
           <Toaster position="top-right" richColors />
           <Analytics />
         </ThemeProvider>

@@ -7,7 +7,9 @@ import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink, ChevronRight, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { projects, type ProjectCategory } from "@/lib/projects"
+import { getArchiveProjects, getFeaturedProjects, kindLabel, type ProjectCategory } from "@/lib/projects"
+import { Reveal } from "@/components/reveal"
+import { easeOut } from "@/lib/motion"
 
 interface ProjectsSectionProps {
     featured?: boolean
@@ -19,7 +21,7 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
     const [visibleCount, setVisibleCount] = useState(featured ? 3 : 4)
 
     const categories: Array<"All" | ProjectCategory> = ["All", "Frontend", "Backend", "Fullstack", "Open Source"]
-    const collection = featured ? projects.slice(0, 3) : projects
+    const collection = featured ? getFeaturedProjects() : getArchiveProjects()
     const filteredProjects = featured || activeTab === "All"
         ? collection
         : collection.filter((project) => project.type === activeTab)
@@ -38,17 +40,17 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
             </div>
 
             <div className="w-full px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-                <div className="text-center mb-16">
+                <Reveal className="text-center mb-16">
                     <p className="text-sm font-semibold tracking-widest text-[#7A3B3B] dark:text-[#A85C5C] mb-4 uppercase">Portfolio</p>
                     <h2 className="text-3xl md:text-5xl font-light text-foreground leading-relaxed text-balance">
                         {featured ? "Selected Projects" : "Project Archive"}
                     </h2>
                     <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
                         {featured
-                            ? "A curated snapshot of the work that best represents my current frontend and full-stack standards."
-                            : "A deeper look at client-style builds, product interfaces, and systems work across the portfolio."}
+                            ? "Applied systems with public URLs: healthcare access, RCA submissions, and booking operations."
+                            : "Applied systems first, then open source, then brand-concept sites. Every card has a live URL."}
                     </p>
-                </div>
+                </Reveal>
 
                 {!featured && (
                     <div className="flex justify-center mb-12">
@@ -82,15 +84,13 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
                             <motion.div
                                 layout
                                 key={`${project.title}-${index}`} // Unique key for animation stability
-                                initial={{ opacity: 0, scale: 0.9, y: 50 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+                                initial={{ opacity: 0, y: 24 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 12, transition: { duration: 0.18 } }}
                                 transition={{
-                                    type: "spring",
-                                    stiffness: 100,
-                                    damping: 20,
-                                    mass: 1,
-                                    delay: index * 0.1
+                                    duration: 0.5,
+                                    delay: Math.min(index, 5) * 0.06,
+                                    ease: easeOut,
                                 }}
                                 className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-[1.75rem] border border-border/50 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-card/95"
                             >
@@ -107,6 +107,9 @@ export default function ProjectsSection({ featured = false }: ProjectsSectionPro
                                     <div className="absolute left-4 top-4 z-10 flex flex-wrap items-center gap-2">
                                         <span className="rounded-full bg-black/70 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-white uppercase backdrop-blur-sm">
                                             {project.type}
+                                        </span>
+                                        <span className="rounded-full bg-white/85 px-3 py-1 text-[11px] font-medium text-foreground backdrop-blur-sm dark:bg-black/70 dark:text-white">
+                                            {kindLabel(project.kind)}
                                         </span>
                                         <span className="rounded-full bg-white/85 px-3 py-1 text-[11px] font-medium text-foreground backdrop-blur-sm dark:bg-black/70 dark:text-white">
                                             {project.year}

@@ -2,6 +2,7 @@ import Navigation from "@/components/navigation"
 import PageHero from "@/components/page-hero"
 import ProjectsSection from "@/components/projects-section"
 import Footer from "@/components/footer"
+import { getArchiveProjects } from "@/lib/projects"
 
 export const metadata = {
     title: "Projects",
@@ -9,15 +10,17 @@ export const metadata = {
 }
 
 export default function ProjectsPage() {
+    const count = getArchiveProjects().length
+
     return (
         <main className="bg-background text-foreground min-h-screen">
             <Navigation />
             <PageHero
                 eyebrow="Project Archive"
                 title="Live URLs for every build in the archive."
-                description="Websites, product interfaces, and systems work. Each card links to a public demo. Featured selection and extra case studies can be refined next."
+                description="Websites, product interfaces, and systems work. Applied builds are listed first. Each card links to a public demo."
                 stats={[
-                    { value: "14", label: "Published projects in the archive" },
+                    { value: String(count), label: "Published projects in the archive" },
                     { value: "4", label: "Frontend, backend, full-stack, open source" },
                     { value: "Live", label: "Every project has a public URL" },
                 ]}

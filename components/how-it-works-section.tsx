@@ -1,4 +1,5 @@
-import { ArrowRight, Code2, Rocket, Search } from "lucide-react"
+import { Code2, Rocket, Search } from "lucide-react"
+import { Reveal, RevealGroup, RevealItem } from "@/components/reveal"
 
 const steps = [
   {
@@ -33,7 +34,7 @@ export default function HowItWorksSection() {
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 md:px-6">
-        <div className="mx-auto mb-14 max-w-3xl text-center md:mb-16">
+        <Reveal className="mx-auto mb-14 max-w-3xl text-center md:mb-16">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#7A3B3B] dark:text-[#A85C5C]">
             How It Works
           </p>
@@ -43,15 +44,15 @@ export default function HowItWorksSection() {
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             The workflow stays simple on purpose: define the right scope, build with discipline, then ship something ready for real use.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-6 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-stretch">
-          {steps.map((step, index) => {
+        <RevealGroup className="grid gap-6 md:grid-cols-3">
+          {steps.map((step) => {
             const Icon = step.icon
 
             return (
-              <div key={step.number} className="contents">
-                <article className="group rounded-[1.75rem] border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl dark:bg-card/95 md:p-8">
+                <RevealItem key={step.number}>
+                <article className="group h-full rounded-[1.75rem] border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl dark:bg-card/95 md:p-8">
                   <div className="flex items-center justify-between gap-4">
                     <div className="inline-flex rounded-2xl bg-muted p-3 ring-1 ring-border">
                       <Icon size={22} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
@@ -64,18 +65,10 @@ export default function HowItWorksSection() {
                   <h3 className="mt-8 text-2xl font-semibold text-foreground">{step.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-muted-foreground md:text-base">{step.description}</p>
                 </article>
-
-                {index < steps.length - 1 && (
-                  <div className="hidden items-center justify-center lg:flex">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card shadow-sm dark:bg-card/95">
-                      <ArrowRight size={18} className="text-[#7A3B3B] dark:text-[#A85C5C]" />
-                    </div>
-                  </div>
-                )}
-              </div>
+                </RevealItem>
             )
           })}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   )

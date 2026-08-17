@@ -1,4 +1,5 @@
 export type ProjectCategory = "Frontend" | "Backend" | "Fullstack" | "Open Source"
+export type ProjectKind = "applied" | "concept" | "open-source"
 
 export interface ProjectMetric {
   label: string
@@ -20,11 +21,12 @@ export interface Project {
   duration: string
   role: string
   client: string
+  kind: ProjectKind
+  featured?: boolean
   deliverables: string[]
   challenge: string
   solution: string
   outcomes: string[]
-  metrics: ProjectMetric[]
 }
 
 export const projects: Project[] = [
@@ -42,6 +44,7 @@ export const projects: Project[] = [
     duration: "2 weeks",
     role: "Product design, frontend architecture, implementation",
     client: "Hospitality brand concept",
+    kind: "concept",
     deliverables: ["Marketing website", "Responsive menu flow", "SEO-ready content structure"],
     challenge: "The project needed to feel premium without becoming heavy, while still keeping the information architecture simple enough for visitors who want menus, story, and booking signals quickly.",
     solution: "I built a lightweight Next.js marketing stack with visual hierarchy tuned for hospitality, crisp section sequencing, and a responsive layout that keeps imagery rich without hurting performance.",
@@ -49,11 +52,6 @@ export const projects: Project[] = [
       "Created a stronger first impression for a hospitality-style brand",
       "Improved navigation clarity across menus, story, and booking sections",
       "Kept the experience visually rich while preserving fast page loads",
-    ],
-    metrics: [
-      { label: "Build Type", value: "Frontend" },
-      { label: "Delivery Window", value: "2 weeks" },
-      { label: "Primary Focus", value: "SEO + conversion" },
     ],
   },
   {
@@ -70,6 +68,7 @@ export const projects: Project[] = [
     duration: "10 days",
     role: "Information architecture, design system, frontend delivery",
     client: "Consulting brand concept",
+    kind: "concept",
     deliverables: ["Corporate website", "Service pages", "Trust-focused homepage"],
     challenge: "The challenge was to communicate authority without making the site feel cold or generic, especially for a service business that depends heavily on trust and clarity.",
     solution: "I used a restrained corporate visual language, tighter copy hierarchy, and modular sections that help services, proof, and positioning read quickly on both desktop and mobile.",
@@ -77,11 +76,6 @@ export const projects: Project[] = [
       "Turned abstract consulting offers into scannable service narratives",
       "Strengthened trust signals through cleaner content grouping",
       "Produced a more convincing visual identity for executive buyers",
-    ],
-    metrics: [
-      { label: "Audience", value: "B2B services" },
-      { label: "Platform", value: "Next.js" },
-      { label: "Focus", value: "Brand credibility" },
     ],
   },
   {
@@ -98,6 +92,7 @@ export const projects: Project[] = [
     duration: "2 weeks",
     role: "UX structure, component implementation, responsive frontend",
     client: "Industrial supply concept",
+    kind: "concept",
     deliverables: ["Company website", "Sector pages", "Product trust presentation"],
     challenge: "Industrial sites often become dense and visually dated. This project needed to feel current while still communicating reliability and technical competence.",
     solution: "I focused on cleaner spacing, stronger visual grouping, and sections that make industrial offerings easier to understand without oversimplifying the business.",
@@ -105,11 +100,6 @@ export const projects: Project[] = [
       "Improved clarity for product and sector messaging",
       "Balanced modern design with industrial credibility",
       "Delivered a stronger commercial presentation for technical services",
-    ],
-    metrics: [
-      { label: "Sector", value: "Industrial" },
-      { label: "Goal", value: "Trust + clarity" },
-      { label: "Delivery", value: "Responsive site" },
     ],
   },
   {
@@ -126,6 +116,7 @@ export const projects: Project[] = [
     duration: "9 days",
     role: "Frontend strategy, UI design, implementation",
     client: "Strategy consulting concept",
+    kind: "concept",
     deliverables: ["Advisory landing site", "Service narrative", "Inquiry-oriented layout"],
     challenge: "The product needed to feel sharp and strategic while still staying simple enough to support conversion from first-time visitors.",
     solution: "I built a structure that leads with positioning, follows with service explanation, and then supports credibility and CTA flow without overwhelming the page.",
@@ -133,11 +124,6 @@ export const projects: Project[] = [
       "Made service differentiation easier to understand",
       "Improved visual momentum from headline to inquiry",
       "Created a stronger consulting-oriented interface system",
-    ],
-    metrics: [
-      { label: "Primary Goal", value: "Lead generation" },
-      { label: "Stack", value: "Next.js + TS" },
-      { label: "Delivery Time", value: "9 days" },
     ],
   },
   {
@@ -154,6 +140,7 @@ export const projects: Project[] = [
     duration: "8 days",
     role: "Frontend design and implementation",
     client: "Home services concept",
+    kind: "concept",
     deliverables: ["Service marketing site", "Quote request flow", "Mobile-ready layout"],
     challenge: "The site needed to make project delivery feel reliable for homeowners while still keeping the interface friendly and approachable.",
     solution: "I used a warmer service-oriented layout, clear service sections, and a smoother path from introduction to trust markers and inquiry.",
@@ -161,11 +148,6 @@ export const projects: Project[] = [
       "Made service offerings easier to compare and understand",
       "Built a friendlier but still credible service presentation",
       "Created a responsive experience that works well for mobile-first visitors",
-    ],
-    metrics: [
-      { label: "Audience", value: "Homeowners" },
-      { label: "Use Case", value: "Service acquisition" },
-      { label: "Format", value: "Marketing site" },
     ],
   },
   {
@@ -182,6 +164,7 @@ export const projects: Project[] = [
     duration: "1 week",
     role: "UI direction, frontend build",
     client: "Performance coaching concept",
+    kind: "concept",
     deliverables: ["Coaching website", "Offer presentation", "Performance-focused messaging"],
     challenge: "The experience had to speak to competitive users without clutter, while keeping coaching packages and differentiation easy to read.",
     solution: "I focused the layout on training credibility, concise content blocks, and a lightweight interface that mirrors the needs of performance-minded visitors.",
@@ -189,11 +172,6 @@ export const projects: Project[] = [
       "Produced a cleaner coaching offer experience",
       "Aligned tone and layout with athletic audiences",
       "Kept the site fast and simple without losing personality",
-    ],
-    metrics: [
-      { label: "Audience", value: "Athletes" },
-      { label: "Delivery Window", value: "1 week" },
-      { label: "Core Theme", value: "Performance clarity" },
     ],
   },
   {
@@ -210,6 +188,7 @@ export const projects: Project[] = [
     duration: "6 days",
     role: "Landing page strategy, UI implementation",
     client: "SaaS concept",
+    kind: "concept",
     deliverables: ["SaaS marketing page", "Pricing communication", "Feature storytelling"],
     challenge: "The challenge was to make a product narrative feel strong enough for a SaaS brand without overloading the page with too many competing sections.",
     solution: "I built a landing structure that moves cleanly from product framing to feature explanation, pricing support, and action points.",
@@ -217,11 +196,6 @@ export const projects: Project[] = [
       "Improved readability for feature and pricing sections",
       "Built a more product-led narrative flow",
       "Created a stronger conversion-oriented SaaS presentation",
-    ],
-    metrics: [
-      { label: "Model", value: "SaaS" },
-      { label: "Focus", value: "Feature storytelling" },
-      { label: "Delivery", value: "6 days" },
     ],
   },
   {
@@ -239,6 +213,8 @@ export const projects: Project[] = [
     duration: "4 weeks",
     role: "Full-stack development",
     client: "Healthcare service platform",
+    kind: "applied",
+    featured: true,
     deliverables: ["Patient-facing interface", "Service browsing", "Backend integration"],
     challenge: "Healthcare information can become difficult to browse quickly, especially when patients need a simple path to services and contact points.",
     solution: "I built a React and Node.js application that structures service discovery more clearly and supports practical access patterns for medical information.",
@@ -246,11 +222,6 @@ export const projects: Project[] = [
       "Centralized service information into a more navigable interface",
       "Created clearer routes for patient discovery and contact",
       "Balanced application structure with usability for non-technical users",
-    ],
-    metrics: [
-      { label: "Stack", value: "React + Node.js" },
-      { label: "Scope", value: "Full-stack" },
-      { label: "Sector", value: "Healthcare" },
     ],
   },
   {
@@ -268,6 +239,7 @@ export const projects: Project[] = [
     duration: "3 weeks",
     role: "Open-source contributor and interface implementation",
     client: "Open-source product",
+    kind: "open-source",
     deliverables: ["Forecast UI", "Radar integration", "Configurable weather views"],
     challenge: "Weather interfaces can become noisy quickly, especially when combining several data sources and different forecast contexts.",
     solution: "I helped shape a configurable Svelte-based interface that keeps dense weather information usable while preserving flexibility for advanced users.",
@@ -275,11 +247,6 @@ export const projects: Project[] = [
       "Improved access to multiple forecast perspectives",
       "Delivered a cleaner interface for radar and weather context",
       "Contributed to a user-facing open-source application",
-    ],
-    metrics: [
-      { label: "Project Type", value: "Open source" },
-      { label: "Stack", value: "Svelte + TS" },
-      { label: "Primary Focus", value: "Configurable UX" },
     ],
   },
   {
@@ -297,6 +264,8 @@ export const projects: Project[] = [
     duration: "5 weeks",
     role: "Backend and system implementation",
     client: "Educational workflow system",
+    kind: "applied",
+    featured: true,
     deliverables: ["Submission backend", "Review workflow", "Persistence model"],
     challenge: "Academic submission handling becomes inefficient when submissions, review context, and grading are spread across disconnected tools.",
     solution: "I built a Java-based workflow that centralizes assignment intake and gives reviewers a clearer way to track submission and grading progress.",
@@ -304,11 +273,6 @@ export const projects: Project[] = [
       "Reduced workflow fragmentation around assignment handling",
       "Improved visibility into review and grading state",
       "Strengthened backend engineering practice with a practical domain problem",
-    ],
-    metrics: [
-      { label: "Domain", value: "Education" },
-      { label: "Stack", value: "Hibernate + MySQL" },
-      { label: "Focus", value: "Workflow centralization" },
     ],
   },
   {
@@ -325,6 +289,8 @@ export const projects: Project[] = [
     duration: "4 weeks",
     role: "Backend architecture and implementation",
     client: "Operational booking workflow",
+    kind: "applied",
+    featured: true,
     deliverables: ["Reservation APIs", "Admin workflow logic", "Scheduling backend"],
     challenge: "Operational booking flows involve several moving parts, and the system needed to stay predictable for administrative use.",
     solution: "I used Spring Boot and PostgreSQL to build a more structured backend that supports reservation workflows, payments, and internal operational visibility.",
@@ -332,11 +298,6 @@ export const projects: Project[] = [
       "Centralized important booking and scheduling logic",
       "Created a stronger foundation for admin-side operations",
       "Improved backend fluency around transactional workflow design",
-    ],
-    metrics: [
-      { label: "Stack", value: "Spring Boot" },
-      { label: "Database", value: "PostgreSQL" },
-      { label: "Use Case", value: "Operations" },
     ],
   },
   {
@@ -353,6 +314,7 @@ export const projects: Project[] = [
     duration: "3 weeks",
     role: "Frontend-heavy product implementation",
     client: "Internal team workflow",
+    kind: "concept",
     deliverables: ["Skill visibility interface", "Employee profile browsing", "Project signal display"],
     challenge: "Internal systems often expose data without helping teams understand strengths, growth, and project context quickly.",
     solution: "I built a React-based internal interface that makes project history and skill visibility easier to surface across an organization.",
@@ -360,11 +322,6 @@ export const projects: Project[] = [
       "Improved visibility into employee experience and skills",
       "Turned internal data into a more usable browsing experience",
       "Strengthened product thinking for internal tools",
-    ],
-    metrics: [
-      { label: "Audience", value: "Internal teams" },
-      { label: "Focus", value: "Skill visibility" },
-      { label: "Type", value: "Full-stack interface" },
     ],
   },
   {
@@ -382,6 +339,7 @@ export const projects: Project[] = [
     duration: "1 week",
     role: "Frontend implementation",
     client: "Restaurant concept",
+    kind: "concept",
     deliverables: ["Responsive website", "Menu presentation", "Basic interaction patterns"],
     challenge: "The goal was to create a straightforward restaurant browsing experience using a simpler stack while still keeping the layout modern and usable.",
     solution: "I used foundational HTML, CSS, and JavaScript to build a mobile-friendly restaurant interface with simple structure and emphasis on menu content.",
@@ -390,18 +348,13 @@ export const projects: Project[] = [
       "Practiced visual structure and responsive behavior using core frontend tools",
       "Created a useful foundation for later hospitality-focused builds",
     ],
-    metrics: [
-      { label: "Stack", value: "HTML/CSS/JS" },
-      { label: "Timeline", value: "1 week" },
-      { label: "Focus", value: "Responsive basics" },
-    ],
   },
   {
     slug: "agaciro-health",
     title: "Agaciro Health",
     tagline: "Healthcare product presence for family-centered digital health support.",
     description: "Healthcare product presence for monitoring loved ones' health with scheduling, records, and trust-building product communication.",
-    summary: "Agaciro Health presents a digital health concept in a trust-centered way, balancing product explanation, family-oriented language, and cleaner healthcare communication.",
+    summary: "Agaciro Health presents a digital health product in a trust-centered way, balancing product explanation, family-oriented language, and cleaner healthcare communication.",
     image: "/projects/agacirohealth.png",
     technologies: ["Next.js"],
     liveUrl: "https://agacirohealth.com/",
@@ -410,6 +363,7 @@ export const projects: Project[] = [
     duration: "2 weeks",
     role: "Frontend product presentation and UX delivery",
     client: "Digital health product",
+    kind: "applied",
     deliverables: ["Product marketing site", "Healthcare trust messaging", "Responsive presentation"],
     challenge: "Healthcare communication needs trust, clarity, and emotional sensitivity. The experience had to feel professional without becoming overly clinical.",
     solution: "I used a softer product presentation strategy with clearer explanation of features, records, scheduling, and family-focused use cases.",
@@ -418,14 +372,53 @@ export const projects: Project[] = [
       "Balanced trust and usability in a healthcare-oriented interface",
       "Delivered a more polished public-facing product experience",
     ],
-    metrics: [
-      { label: "Sector", value: "Digital health" },
-      { label: "Stack", value: "Next.js" },
-      { label: "Focus", value: "Trust-building UX" },
-    ],
   },
 ]
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug)
+}
+
+export function kindLabel(kind: ProjectKind) {
+  if (kind === "open-source") return "Open source"
+  if (kind === "applied") return "Applied"
+  return "Concept"
+}
+
+export function getFeaturedProjects() {
+  return projects.filter((project) => project.featured)
+}
+
+export function getArchiveProjects() {
+  const rank: Record<ProjectKind, number> = {
+    applied: 0,
+    "open-source": 1,
+    concept: 2,
+  }
+
+  return [...projects].sort((a, b) => {
+    const kindDelta = rank[a.kind] - rank[b.kind]
+    if (kindDelta !== 0) return kindDelta
+    return Number(b.year) - Number(a.year)
+  })
+}
+
+export function getRelatedProjects(slug: string) {
+  const current = getProjectBySlug(slug)
+  const rest = getArchiveProjects().filter((project) => project.slug !== slug)
+
+  if (!current) return rest.slice(0, 3)
+
+  const sameKind = rest.filter((project) => project.kind === current.kind)
+  const otherKind = rest.filter((project) => project.kind !== current.kind)
+  return [...sameKind, ...otherKind].slice(0, 3)
+}
+
+export function getProjectFacts(project: Project): ProjectMetric[] {
+  return [
+    { label: "Year", value: project.year },
+    { label: "Kind", value: kindLabel(project.kind) },
+    { label: "Live", value: "Public URL" },
+    { label: "Stack", value: project.technologies.slice(0, 2).join(" · ") },
+  ]
 }

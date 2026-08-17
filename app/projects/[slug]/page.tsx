@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react"
 import { notFound } from "next/navigation"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
-import { getProjectBySlug, projects } from "@/lib/projects"
+import { getProjectBySlug, getProjectFacts, getRelatedProjects, kindLabel, projects } from "@/lib/projects"
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>
@@ -39,7 +39,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
     notFound()
   }
 
-  const relatedProjects = projects.filter((entry) => entry.slug !== project.slug).slice(0, 3)
+  const relatedProjects = getRelatedProjects(project.slug)
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -58,6 +58,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               Back to archive
             </Link>
             <span className="rounded-full bg-muted px-3 py-1 font-medium text-foreground">{project.type}</span>
+            <span className="rounded-full bg-muted px-3 py-1 font-medium text-foreground">{kindLabel(project.kind)}</span>
             <span>{project.year}</span>
           </div>
 
@@ -95,7 +96,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              {project.metrics.map((metric) => (
+              {getProjectFacts(project).map((metric) => (
                 <div key={metric.label} className="rounded-[1.5rem] border border-border bg-card/95 p-5 shadow-sm">
                   <div className="text-2xl font-semibold text-foreground">{metric.value}</div>
                   <div className="mt-2 text-sm text-muted-foreground">{metric.label}</div>
@@ -124,7 +125,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
                 <div className="mt-2 text-sm leading-6 text-foreground">{project.role}</div>
               </div>
               <div>
-                <div className="text-xs font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">Client</div>
+                <div className="text-xs font-semibold tracking-[0.18em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">Context</div>
                 <div className="mt-2 text-sm leading-6 text-foreground">{project.client}</div>
               </div>
               <div>
@@ -151,7 +152,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
 
           <article className="rounded-[1.75rem] border border-border bg-card p-6 md:p-8">
             <div className="text-sm font-semibold tracking-[0.2em] text-[#7A3B3B] uppercase dark:text-[#A85C5C]">
-              Outcomes
+              What shipped
             </div>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {project.outcomes.map((outcome) => (
@@ -170,7 +171,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
             </div>
             <dl className="mt-5 space-y-4 text-sm">
               <div className="border-b border-border pb-4">
-                <dt className="text-muted-foreground">Client / Context</dt>
+                <dt className="text-muted-foreground">Context</dt>
                 <dd className="mt-1 font-medium text-foreground">{project.client}</dd>
               </div>
               <div className="border-b border-border pb-4">

@@ -1,55 +1,33 @@
-# Portfolio Website
+# Hatuma Charles — Portfolio
 
-A modern, professional portfolio website showcasing my work as a Full-Stack Software Engineer. Built with Next.js 14, TypeScript, and Tailwind CSS, featuring smooth animations and a responsive design.
+Personal site for Hatuma Charles, a software engineer in Kigali trained at Rwanda Coding Academy.
 
-## ✨ Features
+## Stack
 
-- **Project Showcase**: Interactive gallery of frontend, backend, and fullstack projects
-- **Professional Experience**: Detailed work history and achievements
-- **Skills & Technologies**: Comprehensive display of technical expertise
-- **Contact Form**: Easy way to get in touch for opportunities
-- **Dark/Light Mode**: Theme switching for optimal viewing experience
-- **Responsive Design**: Optimized for all device sizes
+- Next.js 15 (static export)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js** (v18 or higher)
-- **pnpm** (Package Manager)
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/htmcharles/portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd portfolio
-   ```
-3. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-
-### Running the App
-
-Start the development server:
+## Local
 
 ```bash
+git clone https://github.com/htmcharles/portifolio_v2.git
+cd portifolio_v2
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
+Open [http://localhost:3000](http://localhost:3000).
 
-## 🛠️ Technology Stack
+## Certificates
 
-- **Framework**: Next.js
-- **Styling**: Tailwind CSS
-- **Types**: TypeScript
-- **Deployment**: Vercel
+Drop a PDF into `public/certificates/<issuer>/`. If the issuer already exists in the list, the file attaches to that row. No description text is required.
 
-## 📄 License
+## Deploy
 
-This project is licensed under the MIT License.
+Render Static Site:
+
+- Build: `pnpm install --frozen-lockfile; pnpm run build`
+- Publish directory: `out`
+- Env: `NEXT_PUBLIC_SITE_URL=https://hatumacharles.onrender.com`
