@@ -1,28 +1,38 @@
 export type Certificate = {
   slug: string
   title: string
-  code: string
+  code?: string
   issuer: string
-  platform: string
+  category: string
   date: string
   dateLabel: string
+  highlight?: string
   description: string
-  image: string
   pdf: string
 }
 
 export const certificates: Certificate[] = [
   {
+    slug: "wavumbuzi-entrepreneurship-challenge-2024",
+    title: "Wavumbuzi Entrepreneurship Challenge",
+    issuer: "Wavumbuzi",
+    category: "Entrepreneurship",
+    date: "2024-06-19",
+    dateLabel: "2024 · Edition 4",
+    highlight: "Top 2000 students",
+    description:
+      "Participated in the Rwanda edition and placed in the top 2000 students of the Wavumbuzi Entrepreneurship Challenge 2024.",
+    pdf: "/certificates/wavumbuzi-entrepreneurship-challenge-2024.pdf",
+  },
+  {
     slug: "network-research-nx201",
     title: "Network Research",
     code: "NX201",
     issuer: "ThinkCyber",
-    platform: "Cyberium Arena",
+    category: "Cybersecurity",
     date: "2024-11-18",
     dateLabel: "18 Nov 2024",
-    description:
-      "Cybersecurity training covering network research, completed with the Cyberium Arena simulator.",
-    image: "/certificates/network-research-nx201.jpg",
+    description: "Network research training completed with ThinkCyber on the Cyberium Arena simulator.",
     pdf: "/certificates/network-research-nx201.pdf",
   },
   {
@@ -30,12 +40,10 @@ export const certificates: Certificate[] = [
     title: "Python Fundamentals",
     code: "XE105",
     issuer: "ThinkCyber",
-    platform: "Cyberium Arena",
+    category: "Cybersecurity",
     date: "2024-08-26",
     dateLabel: "26 Aug 2024",
-    description:
-      "Python fundamentals for cybersecurity workflows, completed with the Cyberium Arena simulator.",
-    image: "/certificates/python-fundamentals-xe105.jpg",
+    description: "Python fundamentals completed with ThinkCyber on the Cyberium Arena simulator.",
     pdf: "/certificates/python-fundamentals-xe105.pdf",
   },
   {
@@ -43,12 +51,10 @@ export const certificates: Certificate[] = [
     title: "Linux Fundamentals",
     code: "XE103",
     issuer: "ThinkCyber",
-    platform: "Cyberium Arena",
+    category: "Cybersecurity",
     date: "2024-07-02",
     dateLabel: "2 Jul 2024",
-    description:
-      "Linux fundamentals for security and systems work, completed with the Cyberium Arena simulator.",
-    image: "/certificates/linux-fundamentals-xe103.jpg",
+    description: "Linux fundamentals completed with ThinkCyber on the Cyberium Arena simulator.",
     pdf: "/certificates/linux-fundamentals-xe103.pdf",
   },
   {
@@ -56,12 +62,18 @@ export const certificates: Certificate[] = [
     title: "Intro to Cyber",
     code: "XE101",
     issuer: "ThinkCyber",
-    platform: "Cyberium Arena",
+    category: "Cybersecurity",
     date: "2024-06-12",
     dateLabel: "12 Jun 2024",
-    description:
-      "Introductory cybersecurity training, completed with the Cyberium Arena simulator.",
-    image: "/certificates/intro-to-cyber-xe101.jpg",
+    description: "Introductory cybersecurity training completed with ThinkCyber on the Cyberium Arena simulator.",
     pdf: "/certificates/intro-to-cyber-xe101.pdf",
   },
 ]
+
+export function getCertificateIssuers() {
+  return [...new Set(certificates.map((certificate) => certificate.issuer))]
+}
+
+export function getCertificatesByIssuer(issuer: string) {
+  return certificates.filter((certificate) => certificate.issuer === issuer)
+}

@@ -45,7 +45,7 @@ export default function ExperienceSection() {
             Training and shipped work
           </h2>
           <p className="text-muted-foreground text-lg mt-3 max-w-2xl mx-auto">
-            Rwanda Coding Academy, ThinkCyber credentials, and the live projects in this portfolio
+            Rwanda Coding Academy, issued certificates, and the live projects in this portfolio
           </p>
         </div>
 

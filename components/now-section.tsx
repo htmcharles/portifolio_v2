@@ -33,7 +33,7 @@ export default function NowSection() {
               Based in Kigali. Available wherever the work is.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-              {site.school} trained me across the full software stack. This site is the public record of that range, the live projects, and the ThinkCyber certificates.
+              {site.school} trained me across the full software stack. This site is the public record of that range, the live projects, and the certificates.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">

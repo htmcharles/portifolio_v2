@@ -2,10 +2,13 @@ import Navigation from "@/components/navigation"
 import PageHero from "@/components/page-hero"
 import CertificatesSection from "@/components/certificates-section"
 import Footer from "@/components/footer"
+import { certificates, getCertificateIssuers } from "@/lib/certificates"
+
+const issuerCount = getCertificateIssuers().length
 
 export const metadata = {
     title: "Certificates",
-    description: "ThinkCyber / Cyberium Arena certificates for Hatuma Charles: Intro to Cyber, Linux Fundamentals, Python Fundamentals, and Network Research.",
+    description: "Certificates held by Hatuma Charles, grouped by issuer, including ThinkCyber cybersecurity training and the Wavumbuzi Entrepreneurship Challenge.",
 }
 
 export default function CertificatesPage() {
@@ -13,13 +16,13 @@ export default function CertificatesPage() {
         <main className="bg-background text-foreground min-h-screen">
             <Navigation />
             <PageHero
-                eyebrow="ThinkCyber / Cyberium"
-                title="Named certificates, not placeholder credentials."
-                description="Four cybersecurity courses completed in 2024 with ThinkCyber on the Cyberium Arena simulator. Each one opens as the original PDF."
+                eyebrow="Certificates"
+                title="Issued credentials, grouped by organization."
+                description="Cybersecurity training, entrepreneurship, and other certificates as they are added. Each entry links to the original PDF."
                 stats={[
-                    { value: "4", label: "ThinkCyber certificates on this page" },
-                    { value: "2024", label: "June through November" },
-                    { value: "XE / NX", label: "Intro to Cyber, Linux, Python, Network Research" },
+                    { value: String(certificates.length), label: "Certificates on this page" },
+                    { value: String(issuerCount), label: "Issuing organizations" },
+                    { value: "2024", label: "Most recent credential year" },
                 ]}
             />
             <CertificatesSection />

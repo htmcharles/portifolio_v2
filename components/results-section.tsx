@@ -1,10 +1,11 @@
 import Image from "next/image"
+import { certificates } from "@/lib/certificates"
 import { site } from "@/lib/site"
 
 const stats = [
   { value: "14", label: "Live projects linked in the archive" },
   { value: "7", label: "RCA tracks: web, systems, security, AI/ML, embedded, testing" },
-  { value: "4", label: "ThinkCyber certificates from 2024" },
+  { value: String(certificates.length), label: "Certificates from training and competitions" },
   { value: "Kigali", label: "Based in Rwanda, available remotely and on-site" },
 ]
 
