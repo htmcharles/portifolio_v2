@@ -11,3 +11,4 @@ node_modules/
 # TypeScript incremental build cache
 *.tsbuildinfo
 config.bat
+.vscode/tasks.json
